@@ -1,4 +1,4 @@
-# .Agents
+# skills
 
 A collection of AI skills, prompts, and agent configurations maintained by [@solanticai](https://github.com/solanticai).
 
@@ -44,6 +44,20 @@ The description field doubles as a trigger — it tells the AI assistant which u
 2. Add frontmatter with `name` and `description`
 3. Write clear, structured instructions the AI can follow
 4. Include phases, checklists, or decision trees where applicable
+
+## Sponsors
+ 
+This project is maintained by [Solantic AI](https://github.com/solanticai) and funded by our sponsors.
+ 
+[Become a sponsor →](https://github.com/sponsors/solanticai)
+ 
+### Featured Sponsors
+ 
+<!-- readme-sponsors-featured --><!-- readme-sponsors-featured -->
+ 
+### All Sponsors
+ 
+<!-- readme-sponsors-all --><!-- readme-sponsors-all -->
 
 ## License
 
