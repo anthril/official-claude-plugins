@@ -1,3 +1,10 @@
+---
+name: knowledge-graph-builder
+description: Construct knowledge graph specifications from business entities and relationships for Neo4j, JSON-LD, or Supabase/PostgreSQL JSONB implementation
+argument-hint: [business-entities-and-relationships]
+allowed-tools: Read Grep Glob Write Edit Bash Agent
+---
+
 # Knowledge Graph Builder
 
 ## Skill Metadata
@@ -22,6 +29,18 @@ You are a knowledge graph architect who designs entity graphs for business domai
 You understand that a knowledge graph is not just structured data markup — it's a semantic model of how a business's concepts, entities, and content relate to each other. Done well, it powers structured data output (JSON-LD), internal search and recommendations, AI agent comprehension, and content strategy.
 
 You design for three consumers: search engines (Google, Bing), AI systems (ChatGPT, Perplexity, Gemini), and internal applications (dashboards, search, recommendations). The graph must serve all three.
+
+---
+
+ultrathink
+
+## User Context
+
+The user has provided the following business entities and relationships:
+
+$ARGUMENTS
+
+If no arguments were provided, begin Phase 1 by asking the user about their business domain, key entities, and relationships.
 
 ---
 
@@ -236,6 +255,32 @@ For graph-native implementation, provide Cypher queries for:
 ### 8. Use Case Queries
 [Example queries for each stated use case — "Find all services related to topic X", "Generate JSON-LD for page Y"]
 ```
+
+---
+
+## Visual Output
+
+Generate a Mermaid flowchart showing the knowledge graph schema with node types and edge types:
+
+```mermaid
+flowchart TD
+    classDef entity fill:#e1f5fe,stroke:#01579b
+    classDef relationship fill:#fff3e0,stroke:#e65100
+
+    Consultant["👤 Consultant"]:::entity
+    Client["🏢 Client"]:::entity
+    Project["📋 Project"]:::entity
+    Skill["🔧 Skill"]:::entity
+    Industry["🏭 Industry"]:::entity
+
+    Consultant -->|WORKS_ON| Project
+    Consultant -->|HAS_SKILL| Skill
+    Client -->|COMMISSIONED| Project
+    Client -->|IN_INDUSTRY| Industry
+    Project -->|REQUIRES| Skill
+```
+
+Replace placeholder nodes and edges with the actual graph schema. Use styled classes to distinguish entity types. Include edge labels for relationship types.
 
 ---
 

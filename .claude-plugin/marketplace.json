@@ -1,0 +1,45 @@
+{
+  "name": "ai-cookbook",
+  "owner": {
+    "name": "Solantic AI"
+  },
+  "metadata": {
+    "description": "Curated AI skills for data analysis, entity modelling, and business operations",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ai-cookbook",
+      "source": ".",
+      "description": "Complete collection of 13 AI skills covering data analysis, entity modelling, business operations, and knowledge engineering",
+      "version": "1.0.0",
+      "author": {
+        "name": "Solantic AI"
+      },
+      "license": "MIT",
+      "keywords": [
+        "data-analysis",
+        "entity-modelling",
+        "business-operations",
+        "knowledge-graph",
+        "cohort-analysis",
+        "unit-economics",
+        "market-sizing",
+        "data-pipeline",
+        "anomaly-detection",
+        "data-quality",
+        "data-dictionary",
+        "project-audit",
+        "skill-creator"
+      ],
+      "category": "data-analysis",
+      "tags": [
+        "data",
+        "analytics",
+        "business",
+        "entity-modelling",
+        "knowledge-engineering"
+      ]
+    }
+  ]
+}

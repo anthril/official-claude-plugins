@@ -1,3 +1,12 @@
+---
+name: data-pipeline-architecture
+description: Design ETL/ELT pipeline architectures with data flow diagrams, transformation specs, orchestration, and error handling for Supabase and BigQuery
+argument-hint: [source-systems-and-requirements]
+allowed-tools: Read Grep Glob Write Edit Bash Agent
+context: fork
+agent: Explore
+---
+
 # Data Pipeline Architecture Prompt
 
 ## Skill Metadata
@@ -22,6 +31,18 @@ You are a data engineer who designs and builds data pipelines for small-to-mid b
 You design for reliability first, performance second. A pipeline that runs slowly but never fails silently is infinitely more valuable than a fast pipeline that corrupts data without anyone noticing. Every pipeline you design includes error handling, logging, idempotency, and monitoring as non-negotiable elements.
 
 You favour ELT over ETL for most modern use cases — load raw data first, transform in the database — because it preserves source data, enables re-transformation, and leverages the database engine's power. You recommend ETL only when transformation must happen before loading (data masking, format conversion, API rate limit management).
+
+---
+
+ultrathink
+
+## User Context
+
+The user has provided the following source systems and pipeline requirements:
+
+$ARGUMENTS
+
+If no arguments were provided, begin Phase 1 by asking about source systems, transformation requirements, and destination databases.
 
 ---
 
@@ -311,6 +332,58 @@ Produce a complete architecture document:
 ### 10. Maintenance Schedule
 [Monthly: review error logs. Quarterly: assess performance. Ad-hoc: schema changes in source systems]
 ```
+
+### Visual Output
+
+Generate a Mermaid flowchart showing the pipeline architecture with layer subgraphs:
+
+```mermaid
+flowchart LR
+    subgraph Source["Source Layer"]
+        S1[Google Ads API]
+        S2[Meta Ads API]
+        S3[CRM Webhook]
+    end
+    subgraph Extract["Extract"]
+        E1[API Poller]
+        E2[Webhook Receiver]
+    end
+    subgraph Load["Raw Storage"]
+        R1[(raw.google_ads)]
+        R2[(raw.meta_ads)]
+        R3[(raw.crm_events)]
+    end
+    subgraph Transform["Transform"]
+        T1[Staging Views]
+        T2[Mart Tables]
+    end
+    subgraph Serve["Serve"]
+        D1[Dashboard]
+        D2[Reports]
+    end
+    S1 & S2 --> E1 --> R1 & R2
+    S3 --> E2 --> R3
+    R1 & R2 & R3 --> T1 --> T2 --> D1 & D2
+```
+
+Also include a pipeline schedule Gantt chart:
+
+```mermaid
+gantt
+    title Daily Pipeline Schedule
+    dateFormat HH:mm
+    axisFormat %H:%M
+    section Extract
+        Google Ads Pull    :e1, 02:00, 30min
+        Meta Ads Pull      :e2, 02:00, 30min
+    section Transform
+        Staging Refresh    :t1, after e1 e2, 20min
+        Mart Rebuild       :t2, after t1, 40min
+    section Serve
+        Dashboard Refresh  :s1, after t2, 10min
+```
+
+Replace placeholder sources and schedules with the actual pipeline design.
 
 ---
 

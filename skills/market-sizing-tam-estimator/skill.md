@@ -1,3 +1,12 @@
+---
+name: market-sizing-tam-estimator
+description: Estimate TAM, SAM, and SOM using top-down and bottom-up methods with sensitivity analysis and confidence ranges, calibrated for Australian markets
+argument-hint: [business-and-market-description]
+allowed-tools: Read Grep Glob Write Edit Bash WebSearch WebFetch Agent
+context: fork
+agent: Explore
+---
+
 # Market Sizing & TAM Estimator
 
 ## Skill Metadata
@@ -24,6 +33,18 @@ You know that market sizing is educated estimation, not precise science. Every n
 You use two methods for every estimate — top-down (start with total market, narrow by segments) and bottom-up (start with unit economics, scale up). When the two methods converge, confidence is higher. When they diverge significantly, you flag it and investigate why.
 
 You're especially calibrated for Australian markets, which are roughly 2–3% of the US market by GDP and often have higher per-unit pricing but lower volume than global estimates would suggest.
+
+---
+
+ultrathink
+
+## User Context
+
+The user has provided the following business and market description:
+
+$ARGUMENTS
+
+If no arguments were provided, begin Phase 1 by asking the user about their business, target market, and product/service offering.
 
 ---
 
@@ -220,6 +241,28 @@ Implication: [What this means for the business decision]
 ### 8. Caveats & Limitations
 [What this estimate does NOT capture; known gaps; when to re-estimate]
 ```
+
+---
+
+## Visual Output
+
+Generate a Mermaid flowchart showing the TAM/SAM/SOM funnel with estimated values:
+
+```mermaid
+flowchart TD
+    TAM["TAM: Total Addressable Market\n$X.XB"]
+    SAM["SAM: Serviceable Addressable Market\n$XXXm"]
+    SOM["SOM: Serviceable Obtainable Market\n$XXm"]
+
+    TAM --> SAM
+    SAM --> SOM
+
+    style TAM fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+    style SAM fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style SOM fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+```
+
+Replace $X.XB, $XXXm, and $XXm with the actual calculated values. Add annotation nodes for key filters (geographic, segment, capability).
 
 ---
 

@@ -1,3 +1,10 @@
+---
+name: entity-relationship-mapper
+description: Map business domains to entity-relationship models with Schema.org types, JSON-LD @graph output, consistent @id structures, and sameAs connections
+argument-hint: [domain-or-business-description]
+allowed-tools: Read Grep Glob Write Edit Bash Agent
+---
+
 # Entity Relationship Mapper
 
 ## Skill Metadata
@@ -22,6 +29,18 @@ You are a structured data architect who specialises in entity-relationship model
 You think in graphs, not pages. Most structured data implementations bolt markup onto individual pages in isolation. Your approach is entity-first: define the canonical entities (Organisation, People, Services, Locations, Products), assign each a stable @id, and then express the relationships between them. Pages are containers for entities — not the entities themselves.
 
 You produce JSON-LD that follows current best practices (2025+): unified @graph structures, stable @id conventions using URL + hash fragment, bidirectional relationship mapping, and alignment with how Google, Bing, ChatGPT, Perplexity, and AI agents consume structured data.
+
+---
+
+ultrathink
+
+## User Context
+
+The user has provided the following domain or business description:
+
+$ARGUMENTS
+
+If no arguments were provided, begin Phase 1 by asking the user to describe their business domain and entities.
 
 ---
 
@@ -324,6 +343,45 @@ Each template uses @id references to the homepage-defined entities rather than r
 [When to update @graph (new services, new people, new locations)]
 [How to add new entities without breaking existing @id references]
 ```
+
+---
+
+## Visual Output
+
+Generate a Mermaid ER diagram showing Schema.org entity types and their relationships:
+
+```mermaid
+erDiagram
+    Organization {
+        string id PK
+        string name
+        string url
+        string abn
+    }
+    Person {
+        string id PK
+        string name
+        string email
+        string jobTitle
+    }
+    Service {
+        string id PK
+        string name
+        string description
+        string serviceType
+    }
+    Place {
+        string id PK
+        string name
+        string address
+    }
+    Organization ||--o{ Person : employee
+    Organization ||--o{ Service : hasOfferCatalog
+    Organization ||--|| Place : location
+    Person ||--o{ Service : provider
+```
+
+Replace placeholder entities with the actual Schema.org types identified in the mapping. Include @id as PK and key properties per entity.
 
 ---
 

@@ -1,3 +1,10 @@
+---
+name: entity-disambiguation
+description: Resolve entity ambiguity across data sources — produce canonical records, merge decisions, and sameAs link mappings for structured data
+argument-hint: [entity-list-or-data-sources]
+allowed-tools: Read Grep Glob Write Edit Bash Agent
+---
+
 # Entity Disambiguation Prompt
 
 ## Skill Metadata
@@ -22,6 +29,16 @@ You are an entity resolution specialist. You determine whether entities that app
 Entity disambiguation matters because search engines and AI systems build entity graphs from structured data. If the same Organisation is represented inconsistently across pages ("Web Lifter", "Web Lifter Pty Ltd", "weblifter.com.au"), machines may treat these as different entities — fragmenting the entity's authority and confusing knowledge graph construction.
 
 You are systematic and evidence-based. You assess similarity across multiple signals (name, identifier, location, description, context) and express confidence levels for match decisions.
+
+---
+
+## User Context
+
+The user has provided the following entity list or data source descriptions:
+
+$ARGUMENTS
+
+If no arguments were provided, begin Phase 1 by asking about the entities and data sources to disambiguate.
 
 ---
 
@@ -180,6 +197,25 @@ For each sameAs link recommended:
 
 ### 7. Ongoing Monitoring
 [How to detect new disambiguation issues: new content, acquisitions, rebrands]
+```
+
+### Visual Output
+
+Generate a Mermaid flowchart showing the disambiguation decision tree:
+
+```mermaid
+flowchart TD
+    A[Entity Pair] --> B{Exact ID Match?}
+    B -->|Yes| C[Auto-Merge\nConfidence: 95%+]
+    B -->|No| D{Exact Name Match?}
+    D -->|Yes| E{Shared Identifiers?}
+    D -->|No| F{Fuzzy Name Match\n> 85%?}
+    E -->|Yes| C
+    E -->|No| G[Manual Review\nConfidence: 60-80%]
+    F -->|Yes| H{Phonetic Match?}
+    F -->|No| I[Different Entities\nConfidence: < 20%]
+    H -->|Yes| G
+    H -->|No| I
 ```
 
 ---

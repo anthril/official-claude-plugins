@@ -1,6 +1,8 @@
 ---
 name: project-audit
-description: Comprehensive project completion audit and code quality review. Use this skill whenever the user asks to review, audit, verify, or check their project — especially phrases like "review my project", "audit completed work", "check all tasks are done", "final review", "pre-launch check", "verify everything is complete", "QA my code", "check for bugs", "is my project finished", "run a project audit", or any request to validate that a codebase meets its original plan, requirements, or todo list. Also trigger when users mention "hardening", "cleanup", "deprecated code", "security review", "performance check", or "build check". This skill performs a multi-phase audit covering task completion, code quality, bugs, types, security, performance, deprecated code cleanup, and build verification.
+description: Comprehensive project completion audit and code quality review — multi-phase audit covering task completion, code quality, bugs, types, security, performance, and build verification
+argument-hint: [project-path-or-description]
+allowed-tools: Read Grep Glob Write Edit Bash Agent
 ---
 
 # Project Audit Skill
@@ -14,6 +16,20 @@ You are performing a rigorous, multi-phase audit of a software project. The goal
 2. **Identify the tech stack.** Scan `package.json`, `requirements.txt`, `pyproject.toml`, `Cargo.toml`, `go.mod`, `composer.json`, `Gemfile`, or equivalent to understand the language, framework, and tooling. This determines which build, lint, and type-check commands to run.
 
 3. **Establish the project structure.** Run a directory tree (excluding `node_modules`, `.git`, `dist`, `build`, `__pycache__`, `.next`, `venv`, `.venv`) to understand the codebase layout.
+
+ultrathink
+
+## User Context
+
+The user has requested an audit with the following context:
+
+$ARGUMENTS
+
+Project state:
+- Recent commits: !`git log --oneline -10 2>/dev/null || echo "Not a git repository"`
+- Changes: !`git diff --stat 2>/dev/null || echo "No git diff available"`
+
+---
 
 ## Audit Phases
 
@@ -264,6 +280,41 @@ After completing all phases, produce a structured audit report using this format
 ## Minor Suggestions (nice to have)
 [Numbered list — code style, optimisations, cleanup]
 ```
+
+## Visual Output
+
+Generate a Mermaid pie chart showing issue distribution by severity:
+
+```mermaid
+pie title Issues Found by Severity
+    "Critical" : 3
+    "High" : 8
+    "Medium" : 15
+    "Low" : 6
+```
+
+Also generate a Gantt chart showing audit phase completion:
+
+```mermaid
+gantt
+    title Project Audit Progress
+    dateFormat X
+    axisFormat %s
+    section Audit Phases
+        Task Completion      :done, p1, 0, 1
+        Type Safety          :done, p2, 1, 2
+        Bug & Logic          :done, p3, 2, 3
+        Code Structure       :active, p4, 3, 4
+        Failsafes            :p5, 4, 5
+        Security             :p6, 5, 6
+        Feature Hardening    :p7, 6, 7
+        Deprecated Cleanup   :p8, 7, 8
+        Build Verification   :p9, 8, 9
+```
+
+Replace placeholder values with actual findings. Update the Gantt statuses (done/active/pending) based on audit progress.
+
+---
 
 ## Important Principles
 

@@ -1,3 +1,10 @@
+---
+name: business-data-model-designer
+description: Design complete Supabase/PostgreSQL data models with ERD, SQL migrations, RLS policies, indexes, and triggers for business applications
+argument-hint: [application-description]
+allowed-tools: Read Grep Glob Write Edit Bash Agent
+---
+
 # Business Data Model Designer
 
 ## Skill Metadata
@@ -22,6 +29,18 @@ You are a database architect who designs data models for Supabase (PostgreSQL) a
 You design with Supabase's specific capabilities and constraints in mind: Row Level Security (RLS) is mandatory for any table exposed to client-side queries, auth.uid() is the foundation of access control, and the schema must work with Supabase's auto-generated APIs (PostgREST). You understand that Supabase applications often query the database directly from the client — so security is in the database, not the application layer.
 
 You write SQL that is clean, well-commented, and idempotent where possible. Migrations are sequenced correctly: types and enums first, then tables in dependency order, then indexes, then RLS policies, then functions and triggers, then seed data.
+
+---
+
+ultrathink
+
+## User Context
+
+The user has provided the following application or domain description:
+
+$ARGUMENTS
+
+If no arguments were provided, begin Phase 1 by asking about the business domain and application requirements.
 
 ---
 
@@ -394,6 +413,42 @@ CREATE POLICY "Users see non-deleted projects" ON projects
 ### 9. Evolution Notes
 [How to extend this schema: adding new entities, new relationships, new roles]
 ```
+
+### Visual Output
+
+Generate a Mermaid ER diagram showing all entities, their key columns, and relationships:
+
+```mermaid
+erDiagram
+    USERS {
+        uuid id PK
+        text email
+        text full_name
+        timestamptz created_at
+    }
+    WORKSPACES {
+        uuid id PK
+        text name
+        uuid owner_id FK
+    }
+    PROJECTS {
+        uuid id PK
+        text name
+        uuid workspace_id FK
+    }
+    TASKS {
+        uuid id PK
+        text title
+        uuid project_id FK
+        uuid assignee_id FK
+    }
+    USERS ||--o{ WORKSPACES : owns
+    WORKSPACES ||--o{ PROJECTS : contains
+    PROJECTS ||--o{ TASKS : has
+    USERS ||--o{ TASKS : assigned
+```
+
+Replace the placeholder entities above with the actual tables from your design. Include primary keys (PK), foreign keys (FK), and the most important columns per table.
 
 ---
 

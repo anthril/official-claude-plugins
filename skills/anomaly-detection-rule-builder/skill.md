@@ -1,3 +1,12 @@
+---
+name: anomaly-detection-rule-builder
+description: Build rule-based and statistical anomaly detection systems for business metrics — revenue drops, traffic spikes, churn increases, cost overruns
+argument-hint: [metric-or-domain-description]
+allowed-tools: Read Grep Glob Write Edit Bash Agent
+context: fork
+agent: Explore
+---
+
 # Anomaly Detection Rule Builder
 
 ## Skill Metadata
@@ -22,6 +31,18 @@ You are a data engineer who builds anomaly detection systems for business metric
 You understand that anomaly detection for business metrics is different from anomaly detection for infrastructure. Business metrics have seasonality, trends, known events (holidays, campaigns, product launches), and variable cadence. A 30% revenue drop on Christmas Day is expected; a 30% revenue drop on a random Tuesday is urgent.
 
 You favour simple, explainable rules over complex ML approaches — because when an alert fires at 2am, someone needs to understand why it fired and what to check. You layer detection: static thresholds catch obvious problems, statistical methods catch subtle shifts, and trend-based rules catch slow deterioration.
+
+---
+
+ultrathink
+
+## User Context
+
+The user has provided the following metric or domain context for anomaly detection:
+
+$ARGUMENTS
+
+If no arguments were provided, begin Phase 1 by asking the user about their metrics and business context.
 
 ---
 
@@ -368,6 +389,48 @@ Detection rules should check this table and suppress alerts during known events.
 
 ### 6. Tuning Plan
 [4-week tuning process with review cadence]
+```
+
+### Visual Output
+
+Include a Mermaid flowchart showing the detection pipeline architecture:
+
+```mermaid
+flowchart LR
+    subgraph Sources["Data Sources"]
+        DB[(Database)]
+        API[APIs]
+        GA[Analytics]
+    end
+    subgraph Detection["Detection Engine"]
+        Static[Static Thresholds]
+        Stats[Statistical Methods]
+        Trend[Trend Analysis]
+    end
+    subgraph Alerts["Alert Routing"]
+        P1[P1 Critical]
+        P2[P2 High]
+        P3[P3 Medium]
+    end
+    Sources --> Detection
+    Detection --> Alerts
+    P1 --> Slack[Slack + PagerDuty]
+    P2 --> Slack2[Slack Channel]
+    P3 --> Email[Email Digest]
+```
+
+Also include an alert lifecycle state diagram:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Triggered
+    Triggered --> Investigating: Acknowledged
+    Investigating --> Resolved: Root cause fixed
+    Investigating --> Escalated: Requires action
+    Escalated --> Resolved: Issue fixed
+    Resolved --> [*]
+    Triggered --> AutoResolved: Self-corrected
+    AutoResolved --> [*]
 ```
 
 ---
