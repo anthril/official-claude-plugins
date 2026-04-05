@@ -2,7 +2,8 @@
 name: skill-creator
 description: Create new Claude Code skills with proper frontmatter, directory structure, templates, examples, and supporting files following ai-cookbook conventions
 argument-hint: [skill-name-and-purpose]
-allowed-tools: Read Write Edit Glob Grep Bash Agent
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
+user-invocable: true
 ---
 
 # Skill Creator

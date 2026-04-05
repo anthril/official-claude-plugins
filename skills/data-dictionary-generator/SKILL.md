@@ -2,7 +2,8 @@
 name: data-dictionary-generator
 description: Auto-generate comprehensive data dictionaries from database schemas, CSV files, or API responses with column definitions, relationships, and Mermaid ERD
 argument-hint: [schema-source-or-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Agent
+user-invocable: true
 ---
 
 # Data Dictionary Generator
@@ -65,7 +66,7 @@ Parse the identified source to extract raw schema information.
 
 ### For Live PostgreSQL / Supabase
 
-Use the introspection queries from `reference.md`:
+Use the introspection queries from `${CLAUDE_PLUGIN_ROOT}/skills/data-dictionary-generator/reference.md`:
 - Query `information_schema.tables` for table listing
 - Query `information_schema.columns` for column details
 - Query `pg_constraint` for keys and constraints
@@ -132,7 +133,7 @@ Scan all tables and columns for these patterns:
 
 Flag columns that likely contain personally identifiable information:
 
-Refer to the PII detection patterns in `reference.md`. Mark each detected PII column with:
+Refer to the PII detection patterns in `${CLAUDE_PLUGIN_ROOT}/skills/data-dictionary-generator/reference.md`. Mark each detected PII column with:
 - **PII type** (name, email, phone, address, etc.)
 - **Sensitivity level** (low, medium, high, critical)
 - **Recommendation** (encrypt, mask, audit access)
@@ -224,7 +225,7 @@ Produce the final data dictionary in the requested format(s).
 
 ### Default: Markdown
 
-Use the template from `templates/output-template.md`. Produce a complete Markdown document with:
+Use the template from `${CLAUDE_PLUGIN_ROOT}/skills/data-dictionary-generator/templates/output-template.md`. Produce a complete Markdown document with:
 - Schema Overview (summary statistics)
 - Table Dictionary (one section per table, with columns table)
 - Relationship Map (table of all FK and inferred relationships)
@@ -265,7 +266,7 @@ models:
 
 ## Output Format
 
-Write the complete data dictionary to a file named `data-dictionary.md` in the project root (or a user-specified location). The document must follow the structure in `templates/output-template.md`.
+Write the complete data dictionary to a file named `data-dictionary.md` in the project root (or a user-specified location). The document must follow the structure in `${CLAUDE_PLUGIN_ROOT}/skills/data-dictionary-generator/templates/output-template.md`.
 
 If the user requests JSON Schema or dbt YAML, write those as separate files alongside the Markdown dictionary.
 

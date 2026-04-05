@@ -2,7 +2,8 @@
 name: anomaly-detection-rule-builder
 description: Build rule-based and statistical anomaly detection systems for business metrics — revenue drops, traffic spikes, churn increases, cost overruns
 argument-hint: [metric-or-domain-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Agent
+user-invocable: true
 context: fork
 agent: Explore
 ---

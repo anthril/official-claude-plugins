@@ -2,7 +2,8 @@
 name: entity-relationship-mapper
 description: Map business domains to entity-relationship models with Schema.org types, JSON-LD @graph output, consistent @id structures, and sameAs connections
 argument-hint: [domain-or-business-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Agent
+user-invocable: true
 ---
 
 # Entity Relationship Mapper

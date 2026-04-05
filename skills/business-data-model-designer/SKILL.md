@@ -2,7 +2,8 @@
 name: business-data-model-designer
 description: Design complete Supabase/PostgreSQL data models with ERD, SQL migrations, RLS policies, indexes, and triggers for business applications
 argument-hint: [application-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Agent
+user-invocable: true
 ---
 
 # Business Data Model Designer

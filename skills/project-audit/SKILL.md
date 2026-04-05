@@ -2,7 +2,8 @@
 name: project-audit
 description: Comprehensive project completion audit and code quality review — multi-phase audit covering task completion, code quality, bugs, types, security, performance, and build verification
 argument-hint: [project-path-or-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Agent
+user-invocable: true
 ---
 
 # Project Audit Skill

@@ -1,5 +1,5 @@
 {
-  "name": "ai-cookbook",
+  "name": "solanticai",
   "owner": {
     "name": "Solantic AI"
   },
@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "ai-cookbook",
-      "source": ".",
+      "source": "./",
       "description": "Complete collection of 13 AI skills covering data analysis, entity modelling, business operations, and knowledge engineering",
       "version": "1.0.0",
       "author": {

@@ -2,7 +2,8 @@
 name: dataset-profiling-quality-audit
 description: Profile datasets and audit data quality — assess completeness, validity, consistency, uniqueness, timeliness, and accuracy with prioritised cleaning recommendations
 argument-hint: [dataset-description-or-file-path]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash, Agent
+user-invocable: true
 ---
 
 # Dataset Profiling & Quality Audit
