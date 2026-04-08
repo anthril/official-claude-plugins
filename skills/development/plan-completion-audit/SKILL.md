@@ -44,7 +44,7 @@ Execute every phase in order. Report findings per phase using the format in the 
 4. Flag items that are: missing, partially complete, or implemented differently than specified.
 5. Scan for unfinished work markers:
    ```bash
-   bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-todos.sh" .
+   bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-todos.sh" .
    ```
    Or if the script is unavailable, run the grep manually:
    ```bash
@@ -60,7 +60,7 @@ Execute every phase in order. Report findings per phase using the format in the 
 
 Run the automated check if available:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-types.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-types.sh" .
 ```
 
 Or manually:
@@ -145,7 +145,7 @@ Check for dead code — functions, components, hooks, or utilities that are defi
 
 Run the automated check:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-secrets.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-secrets.sh" .
 ```
 
 Then manually verify:
@@ -182,7 +182,7 @@ For each major feature from Phase 1:
 
 Run the automated check:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-deprecated.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-deprecated.sh" .
 ```
 
 Then verify:
@@ -224,7 +224,7 @@ Then verify:
 
 **Objective:** Verify all database tables, RPC functions, RLS policies, triggers, and indexes are correct, complete, and aligned with the application.
 
-This phase is critical. Read `${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/references/supabase-audit-guide.md` for the full checklist before starting.
+This phase is critical. Read `${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/references/supabase-audit-guide.md` for the full checklist before starting.
 
 **10a. Schema Inspection**
 
@@ -232,7 +232,7 @@ Retrieve the current database schema. Use the first available method:
 
 ```bash
 # Option 1: Supabase CLI
-bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/audit-supabase.sh"
+bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/audit-supabase.sh"
 
 # Option 2: If CLI unavailable, inspect local migration files
 ls -la supabase/migrations/ 2>/dev/null
@@ -307,7 +307,7 @@ If applicable:
 
 ## Reporting
 
-After all phases, produce a structured report. Use the template in `${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/templates/audit-report.md` as the base structure.
+After all phases, produce a structured report. Use the template in `${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/templates/audit-report.md` as the base structure.
 
 The report must include:
 - A clear PASS / FAIL / PASS WITH WARNINGS verdict per phase

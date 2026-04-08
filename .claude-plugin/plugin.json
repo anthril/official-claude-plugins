@@ -1,7 +1,7 @@
 {
   "name": "ai-cookbook",
-  "version": "1.0.0",
-  "description": "A curated library of AI skills for data analysis, entity modelling, business operations, and knowledge engineering by Solantic AI",
+  "version": "2.0.0",
+  "description": "A curated library of AI skills organized into 4 categories: Data, Development, Economics, and Knowledge Engineering",
   "author": {
     "name": "Solantic AI",
     "url": "https://github.com/solanticai"
@@ -13,13 +13,8 @@
     "entity-modelling",
     "business-operations",
     "knowledge-graph",
-    "cohort-analysis",
-    "unit-economics",
-    "market-sizing",
-    "data-pipeline",
-    "anomaly-detection",
-    "data-quality",
-    "data-dictionary",
+    "developer-tools",
+    "npm-audit",
     "project-audit"
   ]
 }

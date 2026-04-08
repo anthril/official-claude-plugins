@@ -4,15 +4,15 @@
     "name": "Solantic AI"
   },
   "metadata": {
-    "description": "Curated AI skills for data analysis, entity modelling, and business operations",
-    "version": "1.0.0"
+    "description": "Curated AI skills for data analysis, knowledge engineering, business economics, and developer tooling",
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "ai-cookbook",
       "source": "./",
-      "description": "Complete collection of 13 AI skills covering data analysis, entity modelling, business operations, and knowledge engineering",
-      "version": "1.0.0",
+      "description": "Complete collection of 15 AI skills across data, development, economics, and knowledge engineering",
+      "version": "2.0.0",
       "author": {
         "name": "Solantic AI"
       },
@@ -22,23 +22,117 @@
         "entity-modelling",
         "business-operations",
         "knowledge-graph",
-        "cohort-analysis",
-        "unit-economics",
-        "market-sizing",
-        "data-pipeline",
-        "anomaly-detection",
-        "data-quality",
-        "data-dictionary",
+        "developer-tools",
+        "npm-audit",
         "project-audit",
         "skill-creator"
+      ],
+      "category": "multi-category",
+      "tags": [
+        "data",
+        "analytics",
+        "business",
+        "development",
+        "entity-modelling",
+        "knowledge-engineering"
+      ]
+    },
+    {
+      "name": "ai-cookbook-data",
+      "source": "./skills/data",
+      "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
+      "version": "2.0.0",
+      "author": {
+        "name": "Solantic AI"
+      },
+      "license": "MIT",
+      "keywords": [
+        "data-analysis",
+        "data-quality",
+        "data-pipeline",
+        "cohort-analysis",
+        "anomaly-detection",
+        "data-dictionary"
       ],
       "category": "data-analysis",
       "tags": [
         "data",
         "analytics",
+        "profiling",
+        "etl"
+      ]
+    },
+    {
+      "name": "ai-cookbook-development",
+      "source": "./skills/development",
+      "description": "4 skills for project auditing, plan verification, npm package auditing, and skill creation",
+      "version": "2.0.0",
+      "author": {
+        "name": "Solantic AI"
+      },
+      "license": "MIT",
+      "keywords": [
+        "project-audit",
+        "code-quality",
+        "npm-audit",
+        "skill-creator",
+        "developer-tools"
+      ],
+      "category": "developer-tools",
+      "tags": [
+        "development",
+        "audit",
+        "quality",
+        "tooling"
+      ]
+    },
+    {
+      "name": "ai-cookbook-economics",
+      "source": "./skills/economics",
+      "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
+      "version": "2.0.0",
+      "author": {
+        "name": "Solantic AI"
+      },
+      "license": "MIT",
+      "keywords": [
+        "unit-economics",
+        "market-sizing",
+        "tam",
+        "cac",
+        "ltv",
+        "revenue"
+      ],
+      "category": "business-operations",
+      "tags": [
+        "economics",
         "business",
+        "revenue",
+        "financial-modelling"
+      ]
+    },
+    {
+      "name": "ai-cookbook-knowledge-engineering",
+      "source": "./skills/knowledge-engineering",
+      "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
+      "version": "2.0.0",
+      "author": {
+        "name": "Solantic AI"
+      },
+      "license": "MIT",
+      "keywords": [
         "entity-modelling",
-        "knowledge-engineering"
+        "knowledge-graph",
+        "entity-disambiguation",
+        "data-model",
+        "schema-design"
+      ],
+      "category": "knowledge-engineering",
+      "tags": [
+        "entities",
+        "graphs",
+        "modelling",
+        "schema"
       ]
     }
   ]

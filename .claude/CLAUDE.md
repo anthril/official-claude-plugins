@@ -67,10 +67,21 @@ You are a [role] specialising in [domain]...
 5. **Front-load the description** — it is truncated to 250 characters in skill listings.
 6. **Australian market context** — where business/market skills reference geography, calibrate for Australian markets unless the user specifies otherwise.
 
+### Skill Categories
+
+Skills are organised into 4 category directories:
+
+| Category | Directory | Focus |
+|----------|-----------|-------|
+| Data | `skills/data/` | Data analysis, profiling, pipelines, anomaly detection |
+| Development | `skills/development/` | Project audits, package audits, skill creation |
+| Economics | `skills/economics/` | Unit economics, market sizing |
+| Knowledge Engineering | `skills/knowledge-engineering/` | Entity modelling, knowledge graphs, data models |
+
 ### File Layout Per Skill
 
 ```
-skills/<skill-name>/
+skills/<category>/<skill-name>/
 ├── SKILL.md              # Main skill instructions (required, under 500 lines)
 ├── reference.md          # Detailed reference material (if SKILL.md would exceed 400 lines)
 ├── LICENSE.txt           # MIT license
@@ -84,7 +95,7 @@ skills/<skill-name>/
 
 ### Adding a New Skill
 
-1. Create directory: `skills/<kebab-case-name>/`
+1. Create directory: `skills/<category>/<kebab-case-name>/`
 2. Create `SKILL.md` with required frontmatter
 3. Add `$ARGUMENTS` for user input
 4. Add `ultrathink` if the skill requires deep analysis
@@ -106,7 +117,7 @@ skills/<skill-name>/
 
 - Plugin manifest: `.claude-plugin/plugin.json`
 - Marketplace catalog: `.claude-plugin/marketplace.json`
-- Skills go in `skills/` at the repository root (NOT inside `.claude-plugin/`)
+- Skills go in `skills/<category>/` at the repository root (NOT inside `.claude-plugin/`)
 - Version follows semantic versioning (MAJOR.MINOR.PATCH)
 - Bump version in both `plugin.json` and `marketplace.json` on release
 
