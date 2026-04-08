@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Solantic AI — Business Economics Plugin: Suggest Related Skills
 
 TRANSCRIPT="${CLAUDE_TRANSCRIPT:-}"

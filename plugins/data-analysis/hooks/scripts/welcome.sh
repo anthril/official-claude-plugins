@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Solantic AI — Data Analysis Plugin Welcome Hook
 
 PLUGIN_ROOT="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}"

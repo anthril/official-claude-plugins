@@ -4,11 +4,11 @@
   "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
   "author": {
     "name": "Solantic AI",
-    "url": "https://github.com/solanticai",
-    "email": "john@solanticai.com"
+    "email": "john@solanticai.com",
+    "url": "https://github.com/solanticai"
   },
-  "repository": "https://github.com/solanticai/official-claude-plugins",
   "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/plan-completion-audit",
+  "repository": "https://github.com/solanticai/official-claude-plugins",
   "license": "MIT",
   "keywords": [
     "project-audit",
@@ -16,5 +16,7 @@
     "code-quality",
     "full-stack",
     "supabase"
-  ]
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
 }

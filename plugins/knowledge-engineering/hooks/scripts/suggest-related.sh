@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Solantic AI — Knowledge Engineering Plugin: Suggest Related Skills
 
 TRANSCRIPT="${CLAUDE_TRANSCRIPT:-}"

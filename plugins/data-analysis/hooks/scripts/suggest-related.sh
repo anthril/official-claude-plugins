@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Solantic AI — Data Analysis Plugin: Suggest Related Skills
 
 # Try to detect which skill was used from the transcript

@@ -4,11 +4,11 @@
   "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
   "author": {
     "name": "Solantic AI",
-    "url": "https://github.com/solanticai",
-    "email": "john@solanticai.com"
+    "email": "john@solanticai.com",
+    "url": "https://github.com/solanticai"
   },
-  "repository": "https://github.com/solanticai/official-claude-plugins",
   "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/knowledge-engineering",
+  "repository": "https://github.com/solanticai/official-claude-plugins",
   "license": "MIT",
   "keywords": [
     "entity-modelling",
@@ -16,5 +16,7 @@
     "entity-disambiguation",
     "data-model",
     "schema-design"
-  ]
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
 }

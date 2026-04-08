@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Solantic AI — npm Package Audit: Pre-Tool Check for npm availability
 
 # Only check on first Bash invocation per session

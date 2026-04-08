@@ -4,11 +4,11 @@
   "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
   "author": {
     "name": "Solantic AI",
-    "url": "https://github.com/solanticai",
-    "email": "john@solanticai.com"
+    "email": "john@solanticai.com",
+    "url": "https://github.com/solanticai"
   },
-  "repository": "https://github.com/solanticai/official-claude-plugins",
   "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/data-analysis",
+  "repository": "https://github.com/solanticai/official-claude-plugins",
   "license": "MIT",
   "keywords": [
     "data-analysis",
@@ -17,5 +17,7 @@
     "cohort-analysis",
     "anomaly-detection",
     "data-dictionary"
-  ]
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
 }

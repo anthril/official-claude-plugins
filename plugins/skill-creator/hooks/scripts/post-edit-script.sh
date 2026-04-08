@@ -23,11 +23,9 @@ fi
 
 # Check if file is executable
 if [ ! -x "$FILE_PATH" ]; then
-  cat <<EOF
-{
-  "systemMessage": "Reminder: ${FILE_PATH} is not executable. Run: chmod +x \"${FILE_PATH}\""
-}
-EOF
+  jq -n --arg fp "$FILE_PATH" '{
+    systemMessage: ("Reminder: " + $fp + " is not executable. Run: chmod +x \"" + $fp + "\"")
+  }'
 fi
 
 exit 0
