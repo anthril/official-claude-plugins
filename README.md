@@ -10,18 +10,15 @@ Maintained by [@solanticai](https://github.com/solanticai).
 
 ```bash
 # Add the marketplace
-/plugin marketplace add solanticai/solanticai-official-claude-plugins
+/plugin marketplace add solanticai/official-claude-plugins
 
-# Install everything (14 skills across 6 plugins)
-/plugin install solanticai-official-claude-plugins@solanticai-all
-
-# Or install individual plugins
-/plugin install solanticai-official-claude-plugins@solanticai-data-analysis
-/plugin install solanticai-official-claude-plugins@solanticai-knowledge-engineering
-/plugin install solanticai-official-claude-plugins@solanticai-business-economics
-/plugin install solanticai-official-claude-plugins@solanticai-npm-package-audit
-/plugin install solanticai-official-claude-plugins@solanticai-plan-completion-audit
-/plugin install solanticai-official-claude-plugins@solanticai-skill-creator
+# Install individual plugins
+/plugin install solanticai-data-analysis@solanticai-official-claude-plugins
+/plugin install solanticai-knowledge-engineering@solanticai-official-claude-plugins
+/plugin install solanticai-business-economics@solanticai-official-claude-plugins
+/plugin install solanticai-npm-package-audit@solanticai-official-claude-plugins
+/plugin install solanticai-plan-completion-audit@solanticai-official-claude-plugins
+/plugin install solanticai-skill-creator@solanticai-official-claude-plugins
 ```
 
 ### Install a Single Skill
@@ -145,8 +142,7 @@ solanticai-official-claude-plugins/
 ├── .claude/
 │   └── CLAUDE.md                          # Project instructions for contributors
 ├── .claude-plugin/
-│   ├── plugin.json                        # Meta-plugin manifest (v3.0.0)
-│   └── marketplace.json                   # Marketplace catalog (6 plugins + meta)
+│   └── marketplace.json                   # Marketplace catalog (6 plugins)
 ├── plugins/
 │   ├── data-analysis/                     # Data Analysis & Intelligence (5 skills)
 │   ├── knowledge-engineering/             # Knowledge Engineering (4 skills)
