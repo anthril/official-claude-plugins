@@ -1,6 +1,6 @@
 ---
 name: plan-completion-audit
-description: Full-stack audit after all plan phases are complete. Triggers on "audit completed work", "plan is complete", "full-stack audit", or "audit supabase". Verifies plan vs code, frontend bugs, Supabase schema, RLS, and type alignment.
+description: Full-stack audit of a project plan versus actual implementation. Identifies incomplete/not-started work, verifies plan vs code, frontend bugs, Supabase schema, RLS, and type alignment. Triggers on "audit completed work", "plan is complete", "full-stack audit", or "audit supabase".
 argument-hint: [path-to-project-root-or-plan-file]
 allowed-tools: Read, Grep, Glob, Write, Edit, Bash, WebSearch, WebFetch, Agent
 user-invocable: true
@@ -8,7 +8,7 @@ user-invocable: true
 
 # Plan Completion Audit
 
-You are performing a rigorous, full-stack audit after all phases of a project plan have been completed. The goal is to verify that every planned task was implemented correctly, the frontend is bug-free and hardened, and the Supabase backend is correctly structured and aligned with the frontend application.
+You are performing a rigorous, full-stack audit comparing a project plan against the actual codebase. Your primary job is to determine what has been built, what hasn't, and whether what was built is correct. Do NOT assume all work is complete — you are here to verify that. Treat the plan as the source of truth and the codebase as what needs to be measured against it.
 
 ## Before You Start
 
@@ -30,18 +30,24 @@ You are performing a rigorous, full-stack audit after all phases of a project pl
 
 ## Audit Phases
 
-Execute every phase in order. Report findings per phase using the format in the Reporting section. Never skip a phase — mark as N/A if genuinely not applicable.
+Execute every phase in order. Report findings per phase using the format in the Reporting section. Never skip a phase — mark as N/A if genuinely not applicable, and mark as NOT IMPLEMENTED if the plan specifies work for that phase but no code exists.
 
 ---
 
 ### Phase 1: Plan Completion Verification
 
-**Objective:** Confirm every task, feature, and requirement from the plan has been implemented to 100%.
+**Objective:** Build a complete inventory of every planned task and determine its implementation status. This phase gates the entire audit — its output defines what subsequent phases evaluate.
 
 1. Read the full plan/requirements document.
-2. Build a checklist of every discrete task, feature, or deliverable.
-3. For each item, search the codebase and verify the implementation exists and is functional — read the actual code, do not just confirm a file exists.
-4. Flag items that are: missing, partially complete, or implemented differently than specified.
+2. Build a numbered checklist of every discrete task, feature, or deliverable mentioned in the plan.
+3. For each item, search the codebase for its implementation. Assign one of these statuses:
+   - ✅ **COMPLETE** — Code exists, is functional, and matches the plan specification
+   - 🟡 **PARTIAL** — Code exists but is incomplete, stubbed out, or missing key functionality described in the plan
+   - ❌ **NOT STARTED** — No implementation found anywhere in the codebase
+   - ⚠️ **DEVIATES** — Implemented but differently than the plan specified (describe the deviation)
+   
+   Read the actual code to determine status — do not just confirm a file or function name exists. A file with a placeholder return, an empty function body, or a TODO comment inside it is PARTIAL, not COMPLETE.
+4. Items marked NOT STARTED or PARTIAL are **CRITICAL** findings. List every one explicitly with a description of what is missing or incomplete.
 5. Scan for unfinished work markers:
    ```bash
    bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-todos.sh" .
@@ -50,13 +56,16 @@ Execute every phase in order. Report findings per phase using the format in the 
    ```bash
    grep -rn "TODO\|FIXME\|HACK\|XXX\|PLACEHOLDER\|TEMP\|STUB\|@todo\|INCOMPLETE\|WIP" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.jsx" --include="*.py" --include="*.sql" . | grep -v node_modules | grep -v .git | grep -v dist | grep -v .next
    ```
-6. Summarise: total tasks, completed, incomplete, partially complete.
+6. Summarise: total tasks, completed, partial, not started, deviates. Express as a percentage: "X of Y tasks complete (Z%)".
+7. **Verdict rule:** If ANY items are NOT STARTED or PARTIAL, the Phase 1 verdict **MUST be FAIL**. Phase 1 can only PASS if 100% of plan items have COMPLETE status. There is no PASS WITH WARNINGS for this phase.
 
 ---
 
 ### Phase 2: Type Safety & Static Analysis
 
 **Objective:** Zero type errors and zero lint violations across the entire codebase.
+
+*Only audit code that exists. If Phase 1 found large portions NOT STARTED, note which planned modules could not be type-checked because they don't exist yet.*
 
 Run the automated check if available:
 ```bash
@@ -75,6 +84,8 @@ Or manually:
 ### Phase 3: Bug & Logic Audit
 
 **Objective:** Identify bugs, logic errors, and broken functionality through manual code review.
+
+*Only audit code that exists. Reference the Phase 1 inventory — skip items marked NOT STARTED (there is nothing to review). Flag items marked PARTIAL and note what logic is missing.*
 
 Review every source file containing application logic. For each file check:
 - **Null/undefined:** Unguarded access to values that could be null, especially data from Supabase queries
@@ -126,6 +137,8 @@ Check for dead code — functions, components, hooks, or utilities that are defi
 
 **Objective:** Verify defensive programming patterns are in place.
 
+*For features marked NOT STARTED in Phase 1, list them here as "cannot verify — not implemented" rather than skipping silently. These are CRITICAL findings.*
+
 1. **Input validation:** All user inputs validated before processing — forms, API params, URL params, file uploads
 2. **Error boundaries:** React ErrorBoundary components wrapping major UI sections
 3. **Loading states:** Every async operation has a loading indicator
@@ -164,7 +177,7 @@ Then manually verify:
 
 **Objective:** Verify features are robust and handle edge cases.
 
-For each major feature from Phase 1:
+For each major feature from Phase 1 (**only those marked COMPLETE or PARTIAL — list NOT STARTED features explicitly as "not implemented, cannot harden" and count them as CRITICAL findings**):
 1. **Empty states:** Zero-data UI is handled
 2. **Loading states:** Spinners/skeletons during async operations
 3. **Error states:** Clear, actionable error messages
@@ -310,10 +323,13 @@ If applicable:
 After all phases, produce a structured report. Use the template in `${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/templates/audit-report.md` as the base structure.
 
 The report must include:
-- A clear PASS / FAIL / PASS WITH WARNINGS verdict per phase
+- A clear PASS / FAIL / NOT IMPLEMENTED / PASS WITH WARNINGS verdict per phase
+- Phases where the underlying plan items were never built must be marked NOT IMPLEMENTED, not PASS
+- A phase with no errors only because the code doesn't exist yet is NOT IMPLEMENTED, never PASS
 - Every finding must include a **file path and line number** (or table/function name for backend findings)
 - Severity ratings: **CRITICAL** (must fix), **WARNING** (should fix), **SUGGESTION** (nice to have)
-- A prioritised action list at the end
+- The Phase 1 completion summary (X of Y tasks complete, Z%) must appear prominently at the top of the report
+- A prioritised action list at the end, with NOT STARTED items listed first
 
 ## Important Principles
 
@@ -323,3 +339,5 @@ The report must include:
 - **Verify, don't assume.** If the plan says "implement org-level access control" and you see an auth file, read it to confirm it works — don't check the box because the file exists.
 - **Run commands.** Use the scripts in `scripts/` and run build/lint/type commands. Real output beats eyeballing.
 - **Cross-reference constantly.** The frontend and backend must agree. A table without a consumer or a query against a non-existent column are both failures.
+- **Absence of code is a failure.** If the plan specifies a feature and no code exists for it, that is a CRITICAL finding — not a pass. A phase with nothing to audit because nothing was built is NOT IMPLEMENTED, never PASS. Do not silently skip unbuilt features.
+- **Do not conflate "no errors found" with "complete."** An empty room has no bugs in it — that does not mean the room is finished. If code doesn't exist, you cannot pass it.

@@ -13,13 +13,13 @@ Maintained by [@solanticai](https://github.com/solanticai).
 /plugin marketplace add solanticai/ai-cookbook
 
 # Install everything (15 skills)
-/plugin install ai-cookbook@ai-cookbook
+/plugin install solanticai@ai-cookbook
 
 # Or install by category
-/plugin install ai-cookbook@ai-cookbook-data
-/plugin install ai-cookbook@ai-cookbook-development
-/plugin install ai-cookbook@ai-cookbook-economics
-/plugin install ai-cookbook@ai-cookbook-knowledge-engineering
+/plugin install solanticai@ai-cookbook-data
+/plugin install solanticai@ai-cookbook-development
+/plugin install solanticai@ai-cookbook-economics
+/plugin install solanticai@ai-cookbook-knowledge-engineering
 ```
 
 ### Install a Single Skill
