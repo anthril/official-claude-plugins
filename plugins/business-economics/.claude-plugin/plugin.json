@@ -1,0 +1,21 @@
+{
+  "name": "solanticai-business-economics",
+  "version": "1.0.0",
+  "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
+  "author": {
+    "name": "Solantic AI",
+    "url": "https://github.com/solanticai",
+    "email": "john@solanticai.com"
+  },
+  "repository": "https://github.com/solanticai/official-claude-plugins",
+  "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/business-economics",
+  "license": "MIT",
+  "keywords": [
+    "unit-economics",
+    "market-sizing",
+    "tam",
+    "cac",
+    "ltv",
+    "revenue"
+  ]
+}

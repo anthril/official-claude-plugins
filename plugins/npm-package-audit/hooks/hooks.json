@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/welcome.sh\"",
+            "timeout": 10,
+            "statusMessage": "Loading npm Package Audit plugin..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/check-npm.sh\"",
+            "timeout": 5,
+            "statusMessage": "Verifying npm is available..."
+          }
+        ]
+      }
+    ]
+  }
+}

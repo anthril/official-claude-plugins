@@ -1,0 +1,19 @@
+{
+  "name": "solanticai-skill-creator",
+  "version": "1.0.0",
+  "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
+  "author": {
+    "name": "Solantic AI",
+    "url": "https://github.com/solanticai",
+    "email": "john@solanticai.com"
+  },
+  "repository": "https://github.com/solanticai/official-claude-plugins",
+  "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/skill-creator",
+  "license": "MIT",
+  "keywords": [
+    "skill-creator",
+    "claude-code",
+    "plugin-development",
+    "scaffolding"
+  ]
+}
