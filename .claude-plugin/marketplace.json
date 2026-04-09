@@ -1,66 +1,53 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "solanticai-official-claude-plugins",
   "description": "Official Solantic AI plugin marketplace — data analysis, knowledge engineering, business economics, and developer tooling",
+  "owner": {
+    "name": "Solantic AI",
+    "email": "john@solanticai.com"
+  },
   "plugins": [
     {
       "name": "data-analysis",
       "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
-      "version": "1.0.0",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/data-analysis",
-      "source": {
-        "source": "path",
-        "path": "./plugins/data-analysis"
-      }
+      "source": "./plugins/data-analysis",
+      "category": "data-analysis",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/data-analysis"
     },
     {
       "name": "knowledge-engineering",
       "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
-      "version": "1.0.0",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/knowledge-engineering",
-      "source": {
-        "source": "path",
-        "path": "./plugins/knowledge-engineering"
-      }
+      "source": "./plugins/knowledge-engineering",
+      "category": "knowledge-engineering",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/knowledge-engineering"
     },
     {
       "name": "business-economics",
       "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
-      "version": "1.0.0",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/business-economics",
-      "source": {
-        "source": "path",
-        "path": "./plugins/business-economics"
-      }
+      "source": "./plugins/business-economics",
+      "category": "business-operations",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/business-economics"
     },
     {
       "name": "npm-package-audit",
       "description": "Audit npm packages for publishing quality, cross-OS compatibility, types, security, and CI/CD",
-      "version": "1.0.0",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/npm-package-audit",
-      "source": {
-        "source": "path",
-        "path": "./plugins/npm-package-audit"
-      }
+      "source": "./plugins/npm-package-audit",
+      "category": "developer-tools",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/npm-package-audit"
     },
     {
       "name": "plan-completion-audit",
       "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
-      "version": "1.0.0",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/plan-completion-audit",
-      "source": {
-        "source": "path",
-        "path": "./plugins/plan-completion-audit"
-      }
+      "source": "./plugins/plan-completion-audit",
+      "category": "developer-tools",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/plan-completion-audit"
     },
     {
       "name": "skill-creator",
       "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
-      "version": "1.0.0",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/skill-creator",
-      "source": {
-        "source": "path",
-        "path": "./plugins/skill-creator"
-      }
+      "source": "./plugins/skill-creator",
+      "category": "developer-tools",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/skill-creator"
     }
   ]
 }
