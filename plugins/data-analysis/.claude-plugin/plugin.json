@@ -1,6 +1,6 @@
 {
   "name": "data-analysis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
   "author": {
     "name": "Solantic AI",

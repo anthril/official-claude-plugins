@@ -1,6 +1,6 @@
 {
   "name": "plan-completion-audit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
   "author": {
     "name": "Solantic AI",
