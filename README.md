@@ -13,12 +13,12 @@ Maintained by [@solanticai](https://github.com/solanticai).
 /plugin marketplace add solanticai/official-claude-plugins
 
 # Install individual plugins
-/plugin install solanticai-data-analysis@solanticai-official-claude-plugins
-/plugin install solanticai-knowledge-engineering@solanticai-official-claude-plugins
-/plugin install solanticai-business-economics@solanticai-official-claude-plugins
-/plugin install solanticai-npm-package-audit@solanticai-official-claude-plugins
-/plugin install solanticai-plan-completion-audit@solanticai-official-claude-plugins
-/plugin install solanticai-skill-creator@solanticai-official-claude-plugins
+/plugin install data-analysis@solanticai-official-claude-plugins
+/plugin install knowledge-engineering@solanticai-official-claude-plugins
+/plugin install business-economics@solanticai-official-claude-plugins
+/plugin install npm-package-audit@solanticai-official-claude-plugins
+/plugin install plan-completion-audit@solanticai-official-claude-plugins
+/plugin install skill-creator@solanticai-official-claude-plugins
 ```
 
 ### Install a Single Skill
@@ -48,7 +48,7 @@ claude --plugin-dir ./plugins/data-analysis
 
 14 production-ready skills across six standalone plugins:
 
-### Data Analysis & Intelligence (`solanticai-data-analysis`)
+### Data Analysis & Intelligence (`data-analysis`)
 
 | Skill | Description |
 |-------|-------------|
@@ -58,7 +58,7 @@ claude --plugin-dir ./plugins/data-analysis
 | [`data-dictionary-generator`](plugins/data-analysis/skills/data-dictionary-generator/) | Auto-generate comprehensive data dictionaries from database schemas, CSV files, or API responses with column definitions and Mermaid ERD |
 | [`dataset-profiling-quality-audit`](plugins/data-analysis/skills/dataset-profiling-quality-audit/) | Profile datasets and audit data quality — assess completeness, validity, consistency, uniqueness, timeliness, and accuracy |
 
-### Knowledge Engineering (`solanticai-knowledge-engineering`)
+### Knowledge Engineering (`knowledge-engineering`)
 
 | Skill | Description |
 |-------|-------------|
@@ -67,26 +67,26 @@ claude --plugin-dir ./plugins/data-analysis
 | [`entity-relationship-mapper`](plugins/knowledge-engineering/skills/entity-relationship-mapper/) | Map business domains to entity-relationship models with Schema.org types, JSON-LD @graph output, and sameAs connections |
 | [`knowledge-graph-builder`](plugins/knowledge-engineering/skills/knowledge-graph-builder/) | Construct knowledge graph specifications for Neo4j, JSON-LD, or Supabase/PostgreSQL JSONB implementation |
 
-### Business Economics (`solanticai-business-economics`)
+### Business Economics (`business-economics`)
 
 | Skill | Description |
 |-------|-------------|
 | [`unit-economics-calculator`](plugins/business-economics/skills/unit-economics-calculator/) | Calculate CAC, LTV, payback period, contribution margin with scenario analysis for service, SaaS, and hybrid businesses |
 | [`market-sizing-tam-estimator`](plugins/business-economics/skills/market-sizing-tam-estimator/) | Estimate TAM, SAM, and SOM using top-down and bottom-up methods with sensitivity analysis, calibrated for Australian markets |
 
-### npm Package Audit (`solanticai-npm-package-audit`)
+### npm Package Audit (`npm-package-audit`)
 
 | Skill | Description |
 |-------|-------------|
 | [`npm-package-audit`](plugins/npm-package-audit/skills/npm-package-audit/) | Audit npm packages for publishing quality, cross-OS compatibility, type declarations, build config, security, and CI/CD — produces a scored report with actionable fixes |
 
-### Plan Completion Audit (`solanticai-plan-completion-audit`)
+### Plan Completion Audit (`plan-completion-audit`)
 
 | Skill | Description |
 |-------|-------------|
 | [`plan-completion-audit`](plugins/plan-completion-audit/skills/plan-completion-audit/) | Full-stack audit of a project plan versus actual implementation — verifies plan vs code, types, bugs, security, Supabase schema, RLS, and frontend-backend alignment |
 
-### Skill Creator (`solanticai-skill-creator`)
+### Skill Creator (`skill-creator`)
 
 | Skill | Description |
 |-------|-------------|

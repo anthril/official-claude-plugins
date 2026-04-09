@@ -1,177 +1,66 @@
 {
   "name": "solanticai-official-claude-plugins",
-  "owner": {
-    "name": "Solantic AI",
-    "url": "https://github.com/solanticai",
-    "email": "john@solanticai.com"
-  },
-  "metadata": {
-    "description": "Official Solantic AI plugin marketplace — data analysis, knowledge engineering, business economics, and developer tooling",
-    "version": "1.0.0"
-  },
+  "description": "Official Solantic AI plugin marketplace — data analysis, knowledge engineering, business economics, and developer tooling",
   "plugins": [
     {
-      "name": "solanticai-data-analysis",
-      "source": "./plugins/data-analysis",
+      "name": "data-analysis",
       "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
       "version": "1.0.0",
-      "author": {
-        "name": "Solantic AI",
-        "url": "https://github.com/solanticai"
-      },
-      "repository": "https://github.com/solanticai/official-claude-plugins",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/data-analysis",
-      "license": "MIT",
-      "keywords": [
-        "data-analysis",
-        "data-quality",
-        "data-pipeline",
-        "cohort-analysis",
-        "anomaly-detection",
-        "data-dictionary"
-      ],
-      "category": "data-analysis",
-      "tags": [
-        "data",
-        "analytics",
-        "profiling",
-        "etl"
-      ]
+      "source": {
+        "source": "path",
+        "path": "./plugins/data-analysis"
+      }
     },
     {
-      "name": "solanticai-knowledge-engineering",
-      "source": "./plugins/knowledge-engineering",
+      "name": "knowledge-engineering",
       "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
       "version": "1.0.0",
-      "author": {
-        "name": "Solantic AI",
-        "url": "https://github.com/solanticai"
-      },
-      "repository": "https://github.com/solanticai/official-claude-plugins",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/knowledge-engineering",
-      "license": "MIT",
-      "keywords": [
-        "entity-modelling",
-        "knowledge-graph",
-        "entity-disambiguation",
-        "data-model",
-        "schema-design"
-      ],
-      "category": "knowledge-engineering",
-      "tags": [
-        "entities",
-        "graphs",
-        "modelling",
-        "schema"
-      ]
+      "source": {
+        "source": "path",
+        "path": "./plugins/knowledge-engineering"
+      }
     },
     {
-      "name": "solanticai-business-economics",
-      "source": "./plugins/business-economics",
+      "name": "business-economics",
       "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
       "version": "1.0.0",
-      "author": {
-        "name": "Solantic AI",
-        "url": "https://github.com/solanticai"
-      },
-      "repository": "https://github.com/solanticai/official-claude-plugins",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/business-economics",
-      "license": "MIT",
-      "keywords": [
-        "unit-economics",
-        "market-sizing",
-        "tam",
-        "cac",
-        "ltv",
-        "revenue"
-      ],
-      "category": "business-operations",
-      "tags": [
-        "economics",
-        "business",
-        "revenue",
-        "financial-modelling"
-      ]
+      "source": {
+        "source": "path",
+        "path": "./plugins/business-economics"
+      }
     },
     {
-      "name": "solanticai-npm-package-audit",
-      "source": "./plugins/npm-package-audit",
+      "name": "npm-package-audit",
       "description": "Audit npm packages for publishing quality, cross-OS compatibility, types, security, and CI/CD",
       "version": "1.0.0",
-      "author": {
-        "name": "Solantic AI",
-        "url": "https://github.com/solanticai"
-      },
-      "repository": "https://github.com/solanticai/official-claude-plugins",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/npm-package-audit",
-      "license": "MIT",
-      "keywords": [
-        "npm-audit",
-        "package-quality",
-        "code-quality",
-        "security",
-        "publishing"
-      ],
-      "category": "developer-tools",
-      "tags": [
-        "npm",
-        "audit",
-        "quality",
-        "tooling"
-      ]
+      "source": {
+        "source": "path",
+        "path": "./plugins/npm-package-audit"
+      }
     },
     {
-      "name": "solanticai-plan-completion-audit",
-      "source": "./plugins/plan-completion-audit",
+      "name": "plan-completion-audit",
       "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
       "version": "1.0.0",
-      "author": {
-        "name": "Solantic AI",
-        "url": "https://github.com/solanticai"
-      },
-      "repository": "https://github.com/solanticai/official-claude-plugins",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/plan-completion-audit",
-      "license": "MIT",
-      "keywords": [
-        "project-audit",
-        "plan-verification",
-        "code-quality",
-        "full-stack",
-        "supabase"
-      ],
-      "category": "developer-tools",
-      "tags": [
-        "audit",
-        "planning",
-        "verification",
-        "quality"
-      ]
+      "source": {
+        "source": "path",
+        "path": "./plugins/plan-completion-audit"
+      }
     },
     {
-      "name": "solanticai-skill-creator",
-      "source": "./plugins/skill-creator",
+      "name": "skill-creator",
       "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
       "version": "1.0.0",
-      "author": {
-        "name": "Solantic AI",
-        "url": "https://github.com/solanticai"
-      },
-      "repository": "https://github.com/solanticai/official-claude-plugins",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/skill-creator",
-      "license": "MIT",
-      "keywords": [
-        "skill-creator",
-        "claude-code",
-        "plugin-development",
-        "scaffolding"
-      ],
-      "category": "developer-tools",
-      "tags": [
-        "skills",
-        "development",
-        "scaffolding",
-        "tooling"
-      ]
+      "source": {
+        "source": "path",
+        "path": "./plugins/skill-creator"
+      }
     }
   ]
 }

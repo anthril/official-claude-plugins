@@ -1,5 +1,5 @@
 {
-  "name": "solanticai-skill-creator",
+  "name": "skill-creator",
   "version": "1.0.0",
   "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
   "author": {

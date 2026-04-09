@@ -2,7 +2,7 @@
 # Solantic AI — npm Package Audit: Pre-Tool Check for npm availability
 
 # Only check on first Bash invocation per session
-CHECK_FLAG="/tmp/.solanticai-npm-check-done"
+CHECK_FLAG="/tmp/.npm-package-audit-check-done"
 if [ -f "$CHECK_FLAG" ]; then
   exit 0
 fi
