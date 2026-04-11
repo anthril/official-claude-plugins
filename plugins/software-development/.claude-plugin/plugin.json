@@ -1,0 +1,27 @@
+{
+  "name": "software-development",
+  "version": "1.0.0",
+  "description": "2 skills for software development audits — dead code detection across JS/TS, Python, Go, Rust, Java/Kotlin, PHP, Ruby, and C#, plus end-to-end write path mapping with framework and database introspection",
+  "author": {
+    "name": "Solantic AI",
+    "email": "john@solanticai.com",
+    "url": "https://github.com/solanticai"
+  },
+  "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/software-development",
+  "repository": "https://github.com/solanticai/official-claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "dead-code-detection",
+    "code-cleanup",
+    "unused-exports",
+    "write-path-analysis",
+    "mutation-audit",
+    "data-flow-mapping",
+    "rls-audit",
+    "authorization-audit",
+    "refactoring",
+    "code-quality",
+    "developer-tools"
+  ],
+  "skills": "./skills/"
+}

@@ -1,0 +1,72 @@
+# .deadcode-ignore — example ignore file for the dead-code-audit skill
+#
+# Format: <pattern>    # <required justification comment>
+#
+# Patterns can be:
+#   - File globs (Next.js conventional routes, generated code dirs)
+#   - Bare symbol names (framework hooks like generateMetadata)
+#   - Module-qualified symbols (mymodule.unused_helper)
+#
+# Every entry MUST have a justification comment. Findings without justification
+# will be reported as "unjustified ignore" warnings in Phase 8 of the audit.
+#
+# Patterns matching zero findings will be reported as "stale ignore" warnings.
+
+# === Framework conventions ===
+# Next.js App Router
+app/**/page.tsx                     # Next.js file-conventional route
+app/**/layout.tsx                   # Next.js layout
+app/**/loading.tsx                  # Next.js loading UI
+app/**/error.tsx                    # Next.js error boundary
+app/**/not-found.tsx                # Next.js 404 page
+app/**/route.ts                     # Next.js API route handler
+app/**/template.tsx                 # Next.js template
+middleware.ts                       # Next.js edge middleware
+instrumentation.ts                  # Next.js telemetry hook
+
+# Next.js framework hooks (file-internal exports)
+generateMetadata                    # Next.js metadata hook
+generateStaticParams                # Next.js SSG hook
+generateViewport                    # Next.js viewport hook
+
+# Pages Router data fetching
+getServerSideProps                  # Next.js SSR data fetcher
+getStaticProps                      # Next.js SSG data fetcher
+getStaticPaths                      # Next.js SSG paths
+
+# === Auto-discovered handlers ===
+src/api/handlers/*.ts               # auto-loaded by route registry at boot
+src/jobs/**                         # discovered by job scheduler at runtime
+src/listeners/**                    # event subscribers wired by DI container
+
+# === Public API surface ===
+# Exports consumed by external packages — verify externally before deletion
+@acme/utils:*                       # public package — verify with downstream consumers
+src/index.ts                        # primary package entry point
+
+# === Generated code ===
+src/__generated__/**                # codegen output — do not audit
+*.gen.ts                            # generator artefacts
+src/types/database.types.ts         # Supabase generated types
+prisma/generated/**                 # Prisma client output
+
+# === Historical migrations ===
+supabase/migrations/**              # historical SQL migrations, never directly imported
+db/migrate/**                       # Rails migration files
+
+# === Static assets required by external systems ===
+public/legal/**                     # SEO/legal pages required by ToS
+public/.well-known/**               # well-known URIs (RFC 8615)
+public/robots.txt                   # crawlers
+public/sitemap.xml                  # search engines
+
+# === Legacy environment variables ===
+NEXT_PUBLIC_LEGACY_API_URL          # consumed by deprecated mobile app v1.x
+LEGACY_FEATURE_FLAG_ENDPOINT        # used by partner integration during sunset
+
+# === Test fixtures ===
+test/fixtures/**                    # static fixture files loaded by name
+__fixtures__/**                     # Jest auto-loaded fixtures
+
+# === Dynamic dispatch / reflection ===
+src/registry/handlers/*.ts          # loaded by string key from config

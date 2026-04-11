@@ -1,0 +1,63 @@
+# .write-path-ignore — example ignore file for the write-path-mapping skill
+#
+# Format: <pattern>    # <required justification comment>
+#
+# Patterns can be:
+#   - File globs (e.g. app/**/route.ts:GET to suppress a specific verb)
+#   - Bare endpoint identifiers (e.g. WP-012)
+#   - Table/target names to suppress as write targets
+#
+# Every entry MUST have a justification comment. Unjustified entries are
+# reported as "unjustified ignore" warnings during Phase 1.
+#
+# Patterns matching zero findings during the current run are reported as
+# "stale ignore" warnings — remove them to keep the file tidy.
+
+# === Framework conventions ===
+# GET handlers are never writes
+app/**/route.ts:GET                  # Next.js GET handlers are read-only by definition
+pages/api/**:GET                     # Pages Router GET handlers
+
+# Next.js metadata hooks
+generateMetadata                     # Next.js metadata hook (not a write)
+generateStaticParams                 # Next.js SSG hook
+generateViewport                     # Next.js viewport hook
+
+# Supabase shared utilities
+supabase/functions/_shared/**        # shared helpers, not entry points
+
+# Generated clients
+src/__generated__/**                 # codegen output
+prisma/generated/**                  # Prisma client output
+src/types/database.types.ts          # Supabase generated types — read-only
+
+# === Intentional public (unauth) endpoints ===
+# These ARE writes, but the unauth-write flag is intentional.
+# Each MUST have a compensating control (captcha, signature, rate limit).
+app/api/public/contact/route.ts      # public contact form — reCAPTCHA + hCaptcha in handler
+app/api/public/signup/route.ts       # public signup — rate-limited via Cloudflare WAF
+app/api/webhooks/stripe/route.ts     # Stripe webhook — constructEvent() verifies signature
+app/api/webhooks/resend/route.ts     # Resend webhook — svix signature verified
+
+# === Dynamic dispatch (runtime-tested) ===
+src/services/dispatcher.ts           # plugin loader — dispatch covered by runtime tests
+src/handlers/registry.ts             # handler registry loaded by string key from config
+
+# === Migration files (not user-reachable writes) ===
+supabase/migrations/**               # historical SQL migrations
+db/migrate/**                        # Rails migrations
+alembic/versions/**                  # Alembic migrations
+database/migrations/**               # Laravel migrations
+
+# === Seed / fixture scripts (developer-only) ===
+scripts/seed/**                      # seeding scripts run manually
+tests/fixtures/**                    # fixture data writes (test env only)
+
+# === Specific rule suppressions ===
+# Suppress specific risk subtypes for individual paths when the risk is
+# accepted by design. Use sparingly and document the decision.
+WP-042:missing-transaction           # single-target write, tx not needed
+WP-055:fan-out-write                 # intentional CQRS command dispatch
+
+# === Legacy endpoints on a sunset track ===
+app/api/v1/**                        # deprecated — consumed by mobile app v1.x through Q3 2026

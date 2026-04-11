@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/solanticai/official-claude-plugins/schemas/dead-code-findings.schema.json",
+  "title": "Dead Code Audit Findings",
+  "description": "Machine-readable output for the dead-code-audit skill. Sidecar to the markdown audit report.",
+  "type": "object",
+  "required": ["schema_version", "audit", "findings"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "audit": {
+      "type": "object",
+      "required": ["project", "date", "stack", "tools", "score", "verdict"],
+      "properties": {
+        "project": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "stack": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Detected languages, e.g. ['typescript', 'python', 'sql']"
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "version", "ran"],
+            "properties": {
+              "name": { "type": "string" },
+              "version": { "type": "string" },
+              "ran": { "type": "boolean" },
+              "skipped_reason": { "type": "string" }
+            }
+          }
+        },
+        "score": {
+          "type": "object",
+          "required": ["total"],
+          "properties": {
+            "total": { "type": "number", "minimum": 0, "maximum": 100 },
+            "code_level": { "type": "number", "minimum": 0, "maximum": 25 },
+            "dependencies": { "type": "number", "minimum": 0, "maximum": 15 },
+            "assets_styles": { "type": "number", "minimum": 0, "maximum": 10 },
+            "infrastructure": { "type": "number", "minimum": 0, "maximum": 15 },
+            "documentation": { "type": "number", "minimum": 0, "maximum": 5 },
+            "verification": { "type": "number", "minimum": 0, "maximum": 20 },
+            "reporting": { "type": "number", "minimum": 0, "maximum": 10 }
+          }
+        },
+        "verdict": {
+          "type": "string",
+          "enum": ["CLEAN", "MODERATE DEBT", "HIGH DEBT", "CRITICAL DEBT"]
+        },
+        "ignore_file_loaded": { "type": "boolean" },
+        "ignore_entries_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "file", "category", "subtype", "confidence", "tool", "severity"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DC-\\d{3,}$",
+            "description": "Stable identifier, e.g. DC-001"
+          },
+          "file": { "type": "string" },
+          "line": { "type": "integer", "minimum": 0 },
+          "column": { "type": "integer", "minimum": 0 },
+          "symbol": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["code-level", "dependency", "asset-style", "infrastructure", "documentation"]
+          },
+          "subtype": {
+            "type": "string",
+            "enum": [
+              "unused-import",
+              "unused-local",
+              "unused-param",
+              "unreachable-code",
+              "unused-private-member",
+              "unused-export",
+              "unused-file",
+              "unused-react-component",
+              "unused-api-route",
+              "commented-code-block",
+              "orphaned-test-file",
+              "unused-runtime-dep",
+              "unused-dev-dep",
+              "duplicate-dep",
+              "lockfile-drift",
+              "unused-css-class",
+              "unused-asset-file",
+              "legacy-purge-config",
+              "unused-env-var",
+              "undefined-env-var-reference",
+              "dead-feature-flag",
+              "orphaned-migration",
+              "db-column-candidate",
+              "unused-ci-job",
+              "dead-docker-stage",
+              "broken-doc-link",
+              "stale-todo"
+            ]
+          },
+          "confidence": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Final confidence after verification adjustments"
+          },
+          "baseline_confidence": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "tool": { "type": "string" },
+          "raw_output_snippet": { "type": "string" },
+          "verification_evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["step", "result"],
+              "properties": {
+                "step": { "type": "integer", "minimum": 1, "maximum": 10 },
+                "result": { "type": "string" }
+              }
+            }
+          },
+          "loc_saved": { "type": "integer", "minimum": 0 },
+          "git_age_days": { "type": "integer", "minimum": 0 },
+          "recommendation": { "type": "string" },
+          "rollback_command": { "type": "string" },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL", "WARNING", "SUGGESTION", "FLAG-ONLY"]
+          },
+          "batch": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8,
+            "description": "Thematic batch number for the prioritised action list"
+          },
+          "flag_only_reason": {
+            "type": "string",
+            "description": "Required when severity = FLAG-ONLY. Explains why this finding cannot be auto-acted on."
+          }
+        }
+      }
+    },
+    "suppressed": {
+      "type": "object",
+      "properties": {
+        "by_ignore_file": { "type": "integer", "minimum": 0 },
+        "by_generated_path": { "type": "integer", "minimum": 0 },
+        "by_low_confidence": { "type": "integer", "minimum": 0 },
+        "by_framework_convention": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

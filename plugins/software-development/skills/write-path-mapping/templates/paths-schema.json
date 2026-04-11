@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/solanticai/official-claude-plugins/schemas/write-path-mapping.schema.json",
+  "title": "Write Path Mapping",
+  "description": "Machine-readable output for the write-path-mapping skill. Sidecar to the markdown report and Mermaid diagrams.",
+  "type": "object",
+  "required": ["schema_version", "audit", "paths"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+
+    "audit": {
+      "type": "object",
+      "required": ["project", "date", "stack", "persistence", "completeness"],
+      "properties": {
+        "project": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "stack": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Detected languages/frameworks, e.g. ['typescript','nextjs','supabase']"
+        },
+        "persistence": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Detected persistence stacks, e.g. ['supabase','redis']"
+        },
+        "schema_file_count": { "type": "integer", "minimum": 0 },
+        "tables_discovered": { "type": "integer", "minimum": 0 },
+        "rls_enabled_tables": { "type": "integer", "minimum": 0 },
+        "rls_policies_discovered": { "type": "integer", "minimum": 0 },
+        "live_db_mode": {
+          "type": "string",
+          "enum": ["none", "supabase-mcp", "psql", "env-file"],
+          "description": "How the skill enriched static schema data, if at all."
+        },
+        "ignore_file_loaded": { "type": "boolean" },
+        "ignore_entries_count": { "type": "integer", "minimum": 0 },
+
+        "completeness": {
+          "type": "object",
+          "description": "Completeness scoring — how thoroughly the skill traced the system, NOT a quality grade.",
+          "required": ["overall", "tier"],
+          "properties": {
+            "overall": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "coverage": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "depth": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "phase_scores": {
+              "type": "object",
+              "properties": {
+                "phase_1": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_2": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_3": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_4": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_5": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_6": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_7": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_8": { "type": "integer", "minimum": 0, "maximum": 100 }
+              }
+            },
+            "tier": {
+              "type": "string",
+              "enum": ["FULLY MAPPED", "MOSTLY MAPPED", "PARTIALLY MAPPED", "INSUFFICIENT"]
+            }
+          }
+        }
+      }
+    },
+
+    "paths": {
+      "type": "array",
+      "description": "Every mapped write path.",
+      "items": {
+        "type": "object",
+        "required": ["id", "entry", "handler", "persistence_targets"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^WP-\\d{3,}$",
+            "description": "Stable identifier, e.g. WP-001"
+          },
+
+          "entry": {
+            "type": "object",
+            "required": ["type", "file", "line", "framework"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "http-post", "http-put", "http-patch", "http-delete", "http-write", "http-unknown",
+                  "trpc-mutation", "grpc-unary-write", "gql-mutation",
+                  "next-server-action", "next-form-action",
+                  "cli-command", "queue-consumer", "cron-job",
+                  "webhook-receiver", "ws-message-write", "realtime-broadcast-write",
+                  "edge-function-write", "db-trigger", "migration-write"
+                ]
+              },
+              "file": { "type": "string" },
+              "line": { "type": "integer", "minimum": 0 },
+              "verb": { "type": "string" },
+              "route": { "type": ["string", "null"] },
+              "framework": { "type": "string" },
+              "handler_name": { "type": ["string", "null"] }
+            }
+          },
+
+          "middleware": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "role"],
+              "properties": {
+                "name": { "type": "string" },
+                "file": { "type": ["string", "null"] },
+                "line": { "type": ["integer", "null"], "minimum": 0 },
+                "role": {
+                  "type": "string",
+                  "enum": ["auth", "rate-limit", "cors", "csrf", "logging", "validation", "tenancy", "tracing", "webhook-signature", "other"]
+                }
+              }
+            }
+          },
+
+          "validator": {
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "required": ["lib"],
+                "properties": {
+                  "lib": {
+                    "type": "string",
+                    "enum": ["zod", "yup", "joi", "class-validator", "ajv", "valibot", "arktype", "pydantic", "drf-serializer", "marshmallow", "go-struct-tags", "attrs", "cerberus", "other"]
+                  },
+                  "schema": { "type": ["string", "null"] },
+                  "file": { "type": ["string", "null"] },
+                  "line": { "type": ["integer", "null"], "minimum": 0 }
+                }
+              }
+            ]
+          },
+
+          "auth": {
+            "type": "object",
+            "required": ["layer"],
+            "properties": {
+              "layer": {
+                "type": ["string", "null"],
+                "description": "Short label describing the auth approach (e.g. 'supabase-session + RLS', 'jwt-middleware', 'none')."
+              },
+              "evidence": { "type": ["string", "null"] },
+              "rls_policies": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+
+          "handler": {
+            "type": "object",
+            "required": ["file", "line"],
+            "properties": {
+              "file": { "type": "string" },
+              "line": { "type": "integer", "minimum": 0 },
+              "delegates_to": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Fully qualified symbols or file:line references reached from this handler"
+              }
+            }
+          },
+
+          "persistence_targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["kind"],
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "sql-insert", "sql-update", "sql-delete", "sql-upsert", "raw-sql",
+                    "supabase-from-insert", "supabase-from-upsert", "supabase-from-update", "supabase-from-delete",
+                    "supabase-rpc", "supabase-storage-write",
+                    "prisma-write", "prisma-transaction",
+                    "drizzle-write", "kysely-write", "typeorm-write", "sequelize-write", "mongoose-write",
+                    "django-orm-write", "sqlalchemy-write", "active-record-write", "eloquent-write", "doctrine-write", "gorm-write",
+                    "cache-write", "redis-write",
+                    "queue-publish",
+                    "fs-write", "s3-write",
+                    "external-api-write",
+                    "event-emit",
+                    "metric-write",
+                    "audit-log-write",
+                    "trigger-side-effect",
+                    "unknown"
+                  ]
+                },
+                "target": { "type": ["string", "null"] },
+                "file": { "type": ["string", "null"] },
+                "line": { "type": ["integer", "null"], "minimum": 0 },
+                "in_transaction": { "type": "boolean" },
+                "snippet": { "type": ["string", "null"] }
+              }
+            }
+          },
+
+          "fan_out_count": { "type": "integer", "minimum": 0 },
+
+          "downstream_effects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["kind"],
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": ["db-trigger", "realtime-broadcast", "queue-fanout", "event-subscriber", "audit-log", "cache-invalidation", "webhook-dispatch", "cron-followup"]
+                },
+                "name": { "type": ["string", "null"] },
+                "target": { "type": ["string", "null"] },
+                "channel": { "type": ["string", "null"] }
+              }
+            }
+          },
+
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["subtype", "severity"],
+              "properties": {
+                "subtype": {
+                  "type": "string",
+                  "enum": [
+                    "unauth-write",
+                    "missing-validation",
+                    "missing-rls",
+                    "service-role-overreach",
+                    "sqli-risk",
+                    "missing-transaction",
+                    "race-condition",
+                    "cache-invalidation-gap",
+                    "fan-out-write",
+                    "dynamic-dispatch-write",
+                    "unbounded-input",
+                    "idempotency-missing",
+                    "missing-audit-log",
+                    "orphan-queue-consumer",
+                    "orphan-queue-publish",
+                    "dead-trigger",
+                    "cross-tenant-leak",
+                    "unverified-webhook",
+                    "file-upload-no-mime-check",
+                    "missing-size-limit",
+                    "external-api-no-retry",
+                    "external-api-no-timeout"
+                  ]
+                },
+                "severity": {
+                  "type": "string",
+                  "enum": ["CRITICAL", "HIGH", "MEDIUM", "INFO", "OK"]
+                },
+                "evidence": { "type": "string" }
+              }
+            }
+          },
+
+          "depth": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9,
+            "description": "Deepest verification step reached for this path (see reference.md §8)."
+          },
+
+          "completeness_score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Per-path completeness (coverage * depth)."
+          }
+        }
+      }
+    },
+
+    "suppressed": {
+      "type": "array",
+      "description": "Paths suppressed by .write-path-ignore or framework-convention rules.",
+      "items": {
+        "type": "object",
+        "required": ["pattern", "reason"],
+        "properties": {
+          "pattern": { "type": "string" },
+          "reason": { "type": "string" },
+          "match_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+
+    "totals": {
+      "type": "object",
+      "properties": {
+        "paths": { "type": "integer", "minimum": 0 },
+        "entries_discovered": { "type": "integer", "minimum": 0 },
+        "persistence_targets": { "type": "integer", "minimum": 0 },
+        "risks_by_severity": {
+          "type": "object",
+          "properties": {
+            "CRITICAL": { "type": "integer", "minimum": 0 },
+            "HIGH": { "type": "integer", "minimum": 0 },
+            "MEDIUM": { "type": "integer", "minimum": 0 },
+            "INFO": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    }
+  }
+}

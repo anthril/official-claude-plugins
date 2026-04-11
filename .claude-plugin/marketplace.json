@@ -66,6 +66,14 @@
       "source": "brand-manager",
       "category": "business-operations",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/brand-manager"
+    },
+    {
+      "name": "software-development",
+      "version": "1.0.0",
+      "description": "2 audit skills for software teams — dead code detection across 9 languages (JS/TS, Python, Go, Rust, Java, PHP, Ruby, C#) and end-to-end write path mapping with framework and database introspection",
+      "source": "software-development",
+      "category": "developer-tools",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/software-development"
     }
   ]
 }
