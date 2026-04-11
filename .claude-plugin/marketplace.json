@@ -6,8 +6,8 @@
     "email": "john@solanticai.com"
   },
   "metadata": {
-    "description": "Official Solantic AI plugin marketplace — data analysis, knowledge engineering, business economics, and developer tooling",
-    "version": "1.0.1",
+    "description": "Official Solantic AI plugin marketplace — data analysis, knowledge engineering, business economics, brand management, and developer tooling",
+    "version": "1.1.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -58,6 +58,14 @@
       "source": "skill-creator",
       "category": "developer-tools",
       "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/skill-creator"
+    },
+    {
+      "name": "brand-manager",
+      "version": "1.0.0",
+      "description": "9 skills for end-to-end brand creation — identity, guidelines, audience, competitors, logo briefs, colour, design tokens, legal disclaimers, and website copy",
+      "source": "brand-manager",
+      "category": "business-operations",
+      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/brand-manager"
     }
   ]
 }
