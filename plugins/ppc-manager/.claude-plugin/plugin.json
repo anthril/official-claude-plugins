@@ -1,0 +1,67 @@
+{
+  "name": "ppc-manager",
+  "version": "1.0.0",
+  "description": "23 skills for end-to-end PPC — Google Ads, Meta Ads, GA4, and GTM — with OAuth-authenticated read/write across all four platforms via bundled Python MCP servers",
+  "author": {
+    "name": "Anthril",
+    "email": "john@anthril.com",
+    "url": "https://github.com/anthril"
+  },
+  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/ppc-manager",
+  "repository": "https://github.com/anthril/official-claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "ppc",
+    "google-ads",
+    "meta-ads",
+    "facebook-ads",
+    "ga4",
+    "google-analytics",
+    "gtm",
+    "tag-manager",
+    "campaign-management",
+    "keyword-research",
+    "utm",
+    "conversion-tracking",
+    "oauth",
+    "marketing"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json",
+  "userConfig": {
+    "ppc_vault_passphrase": {
+      "description": "Passphrase used to encrypt the ppc-manager token vault. Pick something strong (16+ chars). Stored in the OS keychain via Claude Code. You will be prompted for this once, on plugin enable.",
+      "sensitive": true
+    },
+    "google_ads_developer_token": {
+      "description": "Google Ads API developer token from ads.google.com > Tools > API Center. Apply for Standard access for production use. Leave blank during first enable and fill in during /ppc-manager:oauth-setup if you don't have one yet.",
+      "sensitive": true
+    },
+    "meta_app_secret": {
+      "description": "Meta app secret from developers.facebook.com > your app > Settings > Basic > App Secret. Never share this. Leave blank during first enable and fill in during /ppc-manager:oauth-setup.",
+      "sensitive": true
+    },
+    "google_oauth_client_secret_path": {
+      "description": "Absolute path to your Google Cloud Console OAuth client_secret.json file. Downloaded from APIs & Services > Credentials > Desktop client > Download JSON. Leave blank to be prompted during /ppc-manager:oauth-setup.",
+      "sensitive": false
+    },
+    "google_ads_login_customer_id": {
+      "description": "Optional MCC (manager account) customer ID for Google Ads, without dashes (e.g. 1234567890). Leave blank if you are not using a manager account.",
+      "sensitive": false
+    },
+    "meta_app_id": {
+      "description": "Meta app ID from developers.facebook.com > your app > Settings > Basic > App ID. This is public; not a secret.",
+      "sensitive": false
+    },
+    "ppc_default_google_account": {
+      "description": "Default Google account label to use when a skill does not specify one. Typically 'default' unless you manage multiple Google accounts.",
+      "sensitive": false
+    },
+    "ppc_default_meta_account": {
+      "description": "Default Meta account label to use when a skill does not specify one. Typically 'default' unless you manage multiple Meta accounts.",
+      "sensitive": false
+    }
+  }
+}

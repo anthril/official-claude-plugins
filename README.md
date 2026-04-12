@@ -1,6 +1,6 @@
 # Anthril Official Claude Plugins
 
-A curated library of Claude Code plugins for data analysis, entity modelling, business operations, and developer tooling — packaged as a Claude Code marketplace with standalone plugins.
+A curated library of Claude Code plugins for data analysis, entity modelling, business operations, PPC management, and developer tooling — packaged as a Claude Code marketplace with standalone plugins.
 
 Maintained by [@Anthril](https://github.com/anthril).
 
@@ -21,6 +21,7 @@ Maintained by [@Anthril](https://github.com/anthril).
 /plugin install skill-creator@anthril-claude-plugins
 /plugin install brand-manager@anthril-claude-plugins
 /plugin install software-development@anthril-claude-plugins
+/plugin install ppc-manager@anthril-claude-plugins
 ```
 
 ### Install a Single Skill
@@ -48,7 +49,7 @@ claude --plugin-dir ./plugins/data-analysis
 
 ## Plugins
 
-25 production-ready skills across eight standalone plugins:
+48 production-ready skills across nine standalone plugins:
 
 ### Data Analysis & Intelligence (`data-analysis`)
 
@@ -115,6 +116,33 @@ claude --plugin-dir ./plugins/data-analysis
 | [`dead-code-audit`](plugins/software-development/skills/dead-code-audit/) | Detect dead code across 9 languages — JS/TS, Python, Go, Rust, Java, PHP, Ruby, C# — with actionable removal plan |
 | [`write-path-mapper`](plugins/software-development/skills/write-path-mapper/) | Map end-to-end write paths from UI to database with framework and database introspection |
 
+### PPC Manager (`ppc-manager`)
+
+| Skill | Description |
+|-------|-------------|
+| [`oauth-setup`](plugins/ppc-manager/skills/oauth-setup/) | Walk through OAuth setup for Google and Meta platforms with encrypted vault storage |
+| [`gtm-setup`](plugins/ppc-manager/skills/gtm-setup/) | Set up Google Tag Manager containers, workspaces, and base configuration |
+| [`gtm-datalayer`](plugins/ppc-manager/skills/gtm-datalayer/) | Design and implement GTM data layer specifications |
+| [`gtm-tags`](plugins/ppc-manager/skills/gtm-tags/) | Create and configure GTM tags, triggers, and variables |
+| [`ga4-setup`](plugins/ppc-manager/skills/ga4-setup/) | Set up GA4 properties, data streams, and base configuration |
+| [`ga4-events`](plugins/ppc-manager/skills/ga4-events/) | Design and implement GA4 custom events and conversions |
+| [`google-ads-account-setup`](plugins/ppc-manager/skills/google-ads-account-setup/) | Set up Google Ads account structure, billing, and conversion tracking |
+| [`google-search-campaign`](plugins/ppc-manager/skills/google-search-campaign/) | Build Google Search campaigns with ad groups, keywords, and ads |
+| [`google-pmax-campaign`](plugins/ppc-manager/skills/google-pmax-campaign/) | Build Google Performance Max campaigns with asset groups and signals |
+| [`google-ads-copy`](plugins/ppc-manager/skills/google-ads-copy/) | Write Google Ads copy — headlines, descriptions, and extensions |
+| [`display-ad-specs`](plugins/ppc-manager/skills/display-ad-specs/) | Generate display ad specifications and creative briefs |
+| [`meta-pixel-setup`](plugins/ppc-manager/skills/meta-pixel-setup/) | Set up Meta Pixel with base code and standard events |
+| [`meta-capi-setup`](plugins/ppc-manager/skills/meta-capi-setup/) | Configure Meta Conversions API for server-side tracking |
+| [`meta-events-mapping`](plugins/ppc-manager/skills/meta-events-mapping/) | Map business events to Meta standard and custom events |
+| [`meta-audience-builder`](plugins/ppc-manager/skills/meta-audience-builder/) | Build Meta custom and lookalike audiences |
+| [`meta-creative-brief`](plugins/ppc-manager/skills/meta-creative-brief/) | Write creative briefs for Meta ad campaigns |
+| [`meta-ads-copy`](plugins/ppc-manager/skills/meta-ads-copy/) | Write Meta ad copy — primary text, headlines, and descriptions |
+| [`keyword-research`](plugins/ppc-manager/skills/keyword-research/) | Conduct keyword research for PPC campaigns across Google and Meta |
+| [`campaign-audit`](plugins/ppc-manager/skills/campaign-audit/) | Cross-platform campaign audit using all four MCP servers |
+| [`utm-builder`](plugins/ppc-manager/skills/utm-builder/) | Build UTM parameter conventions and tracking URLs |
+| [`landing-page-copy`](plugins/ppc-manager/skills/landing-page-copy/) | Write landing page copy optimised for PPC traffic |
+| [`youtube-campaign`](plugins/ppc-manager/skills/youtube-campaign/) | Plan and configure YouTube ad campaigns |
+
 ## Skill Features
 
 Every skill in this library includes:
@@ -165,7 +193,7 @@ official-claude-plugins/
 ├── .claude/
 │   └── CLAUDE.md                          # Project instructions for contributors
 ├── .claude-plugin/
-│   └── marketplace.json                   # Marketplace catalog (8 plugins)
+│   └── marketplace.json                   # Marketplace catalog (9 plugins)
 ├── plugins/
 │   ├── data-analysis/                     # Data Analysis & Intelligence (5 skills)
 │   ├── knowledge-engineering/             # Knowledge Engineering (4 skills)
@@ -174,7 +202,8 @@ official-claude-plugins/
 │   ├── plan-completion-audit/             # Plan Completion Audit (1 skill)
 │   ├── skill-creator/                     # Skill Creator (1 skill)
 │   ├── brand-manager/                     # Brand Manager (9 skills)
-│   └── software-development/              # Software Development (2 skills)
+│   ├── software-development/              # Software Development (2 skills)
+│   └── ppc-manager/                       # PPC Manager (23 skills)
 ├── settings.json                          # Root plugin settings
 ├── CHANGELOG.md                           # Version history
 ├── LICENSE                                # MIT

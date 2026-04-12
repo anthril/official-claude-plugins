@@ -6,7 +6,7 @@
     "email": "john@anthril.com"
   },
   "metadata": {
-    "description": "Official Anthril plugin marketplace — data analysis, knowledge engineering, business economics, brand management, and developer tooling",
+    "description": "Official Anthril plugin marketplace — data analysis, knowledge engineering, business economics, brand management, PPC management, and developer tooling",
     "version": "1.2.0",
     "pluginRoot": "./plugins"
   },
@@ -74,6 +74,14 @@
       "source": "software-development",
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/software-development"
+    },
+    {
+      "name": "ppc-manager",
+      "version": "1.0.0",
+      "description": "23 skills for end-to-end PPC — Google Ads, Meta Ads, GA4, and GTM — with OAuth-authenticated read/write across all four platforms via bundled Python MCP servers",
+      "source": "ppc-manager",
+      "category": "marketing",
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/ppc-manager"
     }
   ]
 }
