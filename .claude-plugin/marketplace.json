@@ -1,85 +1,72 @@
 {
-  "$schema": "https://code.claude.com/schemas/marketplace.schema.json",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "anthril-claude-plugins",
+  "description": "Official Anthril plugin marketplace — data analysis, knowledge engineering, business economics, brand management, PPC management, and developer tooling",
   "owner": {
     "name": "Anthril",
     "email": "john@anthril.com"
   },
-  "metadata": {
-    "description": "Official Anthril plugin marketplace — data analysis, knowledge engineering, business economics, brand management, PPC management, and developer tooling",
-    "version": "1.2.0",
-    "pluginRoot": "./plugins"
-  },
   "plugins": [
     {
       "name": "data-analysis",
-      "version": "1.0.1",
       "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
-      "source": "data-analysis",
+      "source": "./plugins/data-analysis",
       "category": "data-analysis",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/data-analysis"
     },
     {
       "name": "knowledge-engineering",
-      "version": "1.0.1",
       "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
-      "source": "knowledge-engineering",
+      "source": "./plugins/knowledge-engineering",
       "category": "knowledge-engineering",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/knowledge-engineering"
     },
     {
       "name": "business-economics",
-      "version": "1.0.1",
       "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
-      "source": "business-economics",
+      "source": "./plugins/business-economics",
       "category": "business-operations",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/business-economics"
     },
     {
       "name": "npm-package-audit",
-      "version": "1.0.1",
       "description": "Audit npm packages for publishing quality, cross-OS compatibility, types, security, and CI/CD",
-      "source": "npm-package-audit",
+      "source": "./plugins/npm-package-audit",
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/npm-package-audit"
     },
     {
       "name": "plan-completion-audit",
-      "version": "1.0.1",
       "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
-      "source": "plan-completion-audit",
+      "source": "./plugins/plan-completion-audit",
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/plan-completion-audit"
     },
     {
       "name": "skill-creator",
-      "version": "1.0.1",
       "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
-      "source": "skill-creator",
+      "source": "./plugins/skill-creator",
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/skill-creator"
     },
     {
       "name": "brand-manager",
-      "version": "1.0.0",
       "description": "9 skills for end-to-end brand creation — identity, guidelines, audience, competitors, logo briefs, colour, design tokens, legal disclaimers, and website copy",
-      "source": "brand-manager",
+      "source": "./plugins/brand-manager",
       "category": "business-operations",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/brand-manager"
     },
     {
       "name": "software-development",
-      "version": "1.0.0",
       "description": "2 audit skills for software teams — dead code detection across 9 languages (JS/TS, Python, Go, Rust, Java, PHP, Ruby, C#) and end-to-end write path mapping with framework and database introspection",
-      "source": "software-development",
+      "source": "./plugins/software-development",
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/software-development"
     },
     {
       "name": "ppc-manager",
-      "version": "1.0.0",
       "description": "23 skills for end-to-end PPC — Google Ads, Meta Ads, GA4, and GTM — with OAuth-authenticated read/write across all four platforms via bundled Python MCP servers",
-      "source": "ppc-manager",
+      "source": "./plugins/ppc-manager",
       "category": "marketing",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/ppc-manager"
     }
