@@ -13,12 +13,14 @@ Maintained by [@Anthril](https://github.com/anthril).
 /plugin marketplace add anthril/official-claude-plugins
 
 # Install individual plugins
-/plugin install data-analysis@anthril-official-claude-plugins
-/plugin install knowledge-engineering@anthril-official-claude-plugins
-/plugin install business-economics@anthril-official-claude-plugins
-/plugin install npm-package-audit@anthril-official-claude-plugins
-/plugin install plan-completion-audit@anthril-official-claude-plugins
-/plugin install skill-creator@anthril-official-claude-plugins
+/plugin install data-analysis@anthril-claude-plugins
+/plugin install knowledge-engineering@anthril-claude-plugins
+/plugin install business-economics@anthril-claude-plugins
+/plugin install npm-package-audit@anthril-claude-plugins
+/plugin install plan-completion-audit@anthril-claude-plugins
+/plugin install skill-creator@anthril-claude-plugins
+/plugin install brand-manager@anthril-claude-plugins
+/plugin install software-development@anthril-claude-plugins
 ```
 
 ### Install a Single Skill
@@ -46,7 +48,7 @@ claude --plugin-dir ./plugins/data-analysis
 
 ## Plugins
 
-14 production-ready skills across six standalone plugins:
+25 production-ready skills across eight standalone plugins:
 
 ### Data Analysis & Intelligence (`data-analysis`)
 
@@ -91,6 +93,27 @@ claude --plugin-dir ./plugins/data-analysis
 | Skill | Description |
 |-------|-------------|
 | [`skill-creator`](plugins/skill-creator/skills/skill-creator/) | Create new Claude Code skills with proper frontmatter, directory structure, templates, examples, and supporting files |
+
+### Brand Manager (`brand-manager`)
+
+| Skill | Description |
+|-------|-------------|
+| [`brand-identity`](plugins/brand-manager/skills/brand-identity/) | Define brand purpose, values, personality, voice, and positioning statement |
+| [`brand-guidelines`](plugins/brand-manager/skills/brand-guidelines/) | Create comprehensive brand guidelines covering typography, colour, imagery, and tone of voice |
+| [`audience-personas`](plugins/brand-manager/skills/audience-personas/) | Build detailed audience personas with demographics, psychographics, and journey maps |
+| [`competitor-analysis`](plugins/brand-manager/skills/competitor-analysis/) | Analyse competitors across positioning, messaging, visual identity, and market gaps |
+| [`logo-brief`](plugins/brand-manager/skills/logo-brief/) | Write a logo design brief with concept direction, usage rules, and file format specs |
+| [`colour-palette`](plugins/brand-manager/skills/colour-palette/) | Design a brand colour palette with primary, secondary, accent, and semantic colours |
+| [`design-tokens`](plugins/brand-manager/skills/design-tokens/) | Generate design tokens for typography, colour, spacing, and elevation in JSON/CSS format |
+| [`legal-disclaimers`](plugins/brand-manager/skills/legal-disclaimers/) | Draft legal disclaimers, terms, and compliance notices for Australian businesses |
+| [`website-copy`](plugins/brand-manager/skills/website-copy/) | Write website copy for landing pages, about sections, and CTAs aligned to brand voice |
+
+### Software Development (`software-development`)
+
+| Skill | Description |
+|-------|-------------|
+| [`dead-code-audit`](plugins/software-development/skills/dead-code-audit/) | Detect dead code across 9 languages — JS/TS, Python, Go, Rust, Java, PHP, Ruby, C# — with actionable removal plan |
+| [`write-path-mapper`](plugins/software-development/skills/write-path-mapper/) | Map end-to-end write paths from UI to database with framework and database introspection |
 
 ## Skill Features
 
@@ -138,18 +161,20 @@ plugins/<plugin-name>/
 ## Repository Structure
 
 ```
-anthril-official-claude-plugins/
+official-claude-plugins/
 ├── .claude/
 │   └── CLAUDE.md                          # Project instructions for contributors
 ├── .claude-plugin/
-│   └── marketplace.json                   # Marketplace catalog (6 plugins)
+│   └── marketplace.json                   # Marketplace catalog (8 plugins)
 ├── plugins/
 │   ├── data-analysis/                     # Data Analysis & Intelligence (5 skills)
 │   ├── knowledge-engineering/             # Knowledge Engineering (4 skills)
 │   ├── business-economics/                # Business Economics (2 skills)
 │   ├── npm-package-audit/                 # npm Package Audit (1 skill)
 │   ├── plan-completion-audit/             # Plan Completion Audit (1 skill)
-│   └── skill-creator/                     # Skill Creator (1 skill)
+│   ├── skill-creator/                     # Skill Creator (1 skill)
+│   ├── brand-manager/                     # Brand Manager (9 skills)
+│   └── software-development/              # Software Development (2 skills)
 ├── settings.json                          # Root plugin settings
 ├── CHANGELOG.md                           # Version history
 ├── LICENSE                                # MIT

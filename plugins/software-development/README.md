@@ -28,7 +28,7 @@ After Claude Code starts, run `/reload-plugins` to discover the skills.
 ### Marketplace install
 
 ```bash
-claude plugin install software-development@anthril-official-claude-plugins
+/plugin install software-development@anthril-claude-plugins
 ```
 
 ---

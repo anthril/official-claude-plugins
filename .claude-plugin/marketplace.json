@@ -1,13 +1,13 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.schema.json",
-  "name": "anthril-official-claude-plugins",
+  "name": "anthril-claude-plugins",
   "owner": {
     "name": "Anthril",
     "email": "john@anthril.com"
   },
   "metadata": {
     "description": "Official Anthril plugin marketplace — data analysis, knowledge engineering, business economics, brand management, and developer tooling",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
