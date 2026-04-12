@@ -4,19 +4,6 @@
   "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
   "author": {
     "name": "Anthril",
-    "email": "john@anthril.com",
-    "url": "https://github.com/anthril"
-  },
-  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/plan-completion-audit",
-  "repository": "https://github.com/anthril/official-claude-plugins",
-  "license": "MIT",
-  "keywords": [
-    "project-audit",
-    "plan-verification",
-    "code-quality",
-    "full-stack",
-    "supabase"
-  ],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+    "email": "john@anthril.com"
+  }
 }

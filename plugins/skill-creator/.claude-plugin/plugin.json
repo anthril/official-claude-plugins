@@ -4,18 +4,6 @@
   "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
   "author": {
     "name": "Anthril",
-    "email": "john@anthril.com",
-    "url": "https://github.com/anthril"
-  },
-  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/skill-creator",
-  "repository": "https://github.com/anthril/official-claude-plugins",
-  "license": "MIT",
-  "keywords": [
-    "skill-creator",
-    "claude-code",
-    "plugin-development",
-    "scaffolding"
-  ],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+    "email": "john@anthril.com"
+  }
 }

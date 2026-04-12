@@ -4,19 +4,6 @@
   "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
   "author": {
     "name": "Anthril",
-    "email": "john@anthril.com",
-    "url": "https://github.com/anthril"
-  },
-  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/knowledge-engineering",
-  "repository": "https://github.com/anthril/official-claude-plugins",
-  "license": "MIT",
-  "keywords": [
-    "entity-modelling",
-    "knowledge-graph",
-    "entity-disambiguation",
-    "data-model",
-    "schema-design"
-  ],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+    "email": "john@anthril.com"
+  }
 }

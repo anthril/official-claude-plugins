@@ -4,20 +4,6 @@
   "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
   "author": {
     "name": "Anthril",
-    "email": "john@anthril.com",
-    "url": "https://github.com/anthril"
-  },
-  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/data-analysis",
-  "repository": "https://github.com/anthril/official-claude-plugins",
-  "license": "MIT",
-  "keywords": [
-    "data-analysis",
-    "data-quality",
-    "data-pipeline",
-    "cohort-analysis",
-    "anomaly-detection",
-    "data-dictionary"
-  ],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+    "email": "john@anthril.com"
+  }
 }

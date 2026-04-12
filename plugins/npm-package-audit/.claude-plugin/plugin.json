@@ -4,19 +4,6 @@
   "description": "Audit npm packages for publishing quality, cross-OS compatibility, types, security, and CI/CD",
   "author": {
     "name": "Anthril",
-    "email": "john@anthril.com",
-    "url": "https://github.com/anthril"
-  },
-  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/npm-package-audit",
-  "repository": "https://github.com/anthril/official-claude-plugins",
-  "license": "MIT",
-  "keywords": [
-    "npm-audit",
-    "package-quality",
-    "code-quality",
-    "security",
-    "publishing"
-  ],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+    "email": "john@anthril.com"
+  }
 }

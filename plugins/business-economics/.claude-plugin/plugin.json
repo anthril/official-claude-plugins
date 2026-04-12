@@ -4,20 +4,6 @@
   "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
   "author": {
     "name": "Anthril",
-    "email": "john@anthril.com",
-    "url": "https://github.com/anthril"
-  },
-  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/business-economics",
-  "repository": "https://github.com/anthril/official-claude-plugins",
-  "license": "MIT",
-  "keywords": [
-    "unit-economics",
-    "market-sizing",
-    "tam",
-    "cac",
-    "ltv",
-    "revenue"
-  ],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+    "email": "john@anthril.com"
+  }
 }
