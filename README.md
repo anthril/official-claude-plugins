@@ -1,8 +1,8 @@
-# Solantic AI Official Claude Plugins
+# Anthril Official Claude Plugins
 
 A curated library of Claude Code plugins for data analysis, entity modelling, business operations, and developer tooling — packaged as a Claude Code marketplace with standalone plugins.
 
-Maintained by [@solanticai](https://github.com/solanticai).
+Maintained by [@Anthril](https://github.com/anthril).
 
 ## Quick Start
 
@@ -10,15 +10,15 @@ Maintained by [@solanticai](https://github.com/solanticai).
 
 ```bash
 # Add the marketplace
-/plugin marketplace add solanticai/official-claude-plugins
+/plugin marketplace add anthril/official-claude-plugins
 
 # Install individual plugins
-/plugin install data-analysis@solanticai-official-claude-plugins
-/plugin install knowledge-engineering@solanticai-official-claude-plugins
-/plugin install business-economics@solanticai-official-claude-plugins
-/plugin install npm-package-audit@solanticai-official-claude-plugins
-/plugin install plan-completion-audit@solanticai-official-claude-plugins
-/plugin install skill-creator@solanticai-official-claude-plugins
+/plugin install data-analysis@anthril-official-claude-plugins
+/plugin install knowledge-engineering@anthril-official-claude-plugins
+/plugin install business-economics@anthril-official-claude-plugins
+/plugin install npm-package-audit@anthril-official-claude-plugins
+/plugin install plan-completion-audit@anthril-official-claude-plugins
+/plugin install skill-creator@anthril-official-claude-plugins
 ```
 
 ### Install a Single Skill
@@ -138,7 +138,7 @@ plugins/<plugin-name>/
 ## Repository Structure
 
 ```
-solanticai-official-claude-plugins/
+anthril-official-claude-plugins/
 ├── .claude/
 │   └── CLAUDE.md                          # Project instructions for contributors
 ├── .claude-plugin/
@@ -191,9 +191,9 @@ See [`.claude/CLAUDE.md`](.claude/CLAUDE.md) for detailed development standards.
 
 ## Sponsors
 
-This project is maintained by [Solantic AI](https://github.com/solanticai) and funded by our sponsors.
+This project is maintained by [Anthril](https://github.com/anthril) and funded by our sponsors.
 
-[Become a sponsor](https://github.com/sponsors/solanticai)
+[Become a sponsor](https://github.com/sponsors/anthril)
 
 ### Featured Sponsors
 

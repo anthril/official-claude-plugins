@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/solanticai/official-claude-plugins/schemas/write-path-mapping.schema.json",
+  "$id": "https://github.com/anthril/official-claude-plugins/schemas/write-path-mapping.schema.json",
   "title": "Write Path Mapping",
   "description": "Machine-readable output for the write-path-mapping skill. Sidecar to the markdown report and Mermaid diagrams.",
   "type": "object",

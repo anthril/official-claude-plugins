@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/solanticai/official-claude-plugins/schemas/dead-code-findings.schema.json",
+  "$id": "https://github.com/anthril/official-claude-plugins/schemas/dead-code-findings.schema.json",
   "title": "Dead Code Audit Findings",
   "description": "Machine-readable output for the dead-code-audit skill. Sidecar to the markdown audit report.",
   "type": "object",

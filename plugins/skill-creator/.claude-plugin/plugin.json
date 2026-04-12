@@ -3,12 +3,12 @@
   "version": "1.0.1",
   "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
   "author": {
-    "name": "Solantic AI",
-    "email": "john@solanticai.com",
-    "url": "https://github.com/solanticai"
+    "name": "Anthril",
+    "email": "john@anthril.com",
+    "url": "https://github.com/anthril"
   },
-  "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/skill-creator",
-  "repository": "https://github.com/solanticai/official-claude-plugins",
+  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/skill-creator",
+  "repository": "https://github.com/anthril/official-claude-plugins",
   "license": "MIT",
   "keywords": [
     "skill-creator",

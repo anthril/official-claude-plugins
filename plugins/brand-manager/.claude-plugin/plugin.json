@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "9 skills for end-to-end brand creation — identity, guidelines, audience, competitors, logo briefs, colour, design tokens, legal disclaimers, and website copy",
   "author": {
-    "name": "Solantic AI",
-    "email": "john@solanticai.com",
-    "url": "https://github.com/solanticai"
+    "name": "Anthril",
+    "email": "john@anthril.com",
+    "url": "https://github.com/anthril"
   },
-  "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/brand-manager",
-  "repository": "https://github.com/solanticai/official-claude-plugins",
+  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/brand-manager",
+  "repository": "https://github.com/anthril/official-claude-plugins",
   "license": "MIT",
   "keywords": [
     "brand-management",

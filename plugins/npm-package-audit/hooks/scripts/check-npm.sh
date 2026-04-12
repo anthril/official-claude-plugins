@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Solantic AI — npm Package Audit: Pre-Tool Check for npm availability
+# Anthril — npm Package Audit: Pre-Tool Check for npm availability
 
 # Only check on first Bash invocation per session
 CHECK_FLAG="/tmp/.npm-package-audit-check-done"

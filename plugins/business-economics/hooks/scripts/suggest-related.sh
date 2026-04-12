@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Solantic AI — Business Economics Plugin: Suggest Related Skills
+# Anthril — Business Economics Plugin: Suggest Related Skills
 
 TRANSCRIPT="${CLAUDE_TRANSCRIPT:-}"
 DETECTED_SKILL=""

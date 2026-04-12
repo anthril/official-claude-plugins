@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Solantic AI — Knowledge Engineering Plugin Welcome Hook
+# Anthril — Knowledge Engineering Plugin Welcome Hook
 
 PLUGIN_ROOT="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}"
 SKILLS_DIR="$PLUGIN_ROOT/skills"
@@ -33,7 +33,7 @@ if [ -d "$SKILLS_DIR" ]; then
   done
 fi
 
-MESSAGE="Solantic AI — Knowledge Engineering plugin loaded. ${SKILL_COUNT} skills available:${SKILL_LIST}"
+MESSAGE="Anthril — Knowledge Engineering plugin loaded. ${SKILL_COUNT} skills available:${SKILL_LIST}"
 
 if [ -n "$WARNINGS" ]; then
   MESSAGE="${MESSAGE}\n\nQuality warnings:${WARNINGS}"

@@ -3,12 +3,12 @@
   "version": "1.0.1",
   "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
   "author": {
-    "name": "Solantic AI",
-    "email": "john@solanticai.com",
-    "url": "https://github.com/solanticai"
+    "name": "Anthril",
+    "email": "john@anthril.com",
+    "url": "https://github.com/anthril"
   },
-  "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/knowledge-engineering",
-  "repository": "https://github.com/solanticai/official-claude-plugins",
+  "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/knowledge-engineering",
+  "repository": "https://github.com/anthril/official-claude-plugins",
   "license": "MIT",
   "keywords": [
     "entity-modelling",

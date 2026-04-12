@@ -1,4 +1,4 @@
-# Software Development — Solantic AI Plugin
+# Software Development — Anthril Plugin
 
 Two deep-audit skills for pre-refactor and pre-launch reviews of real-world codebases. Both skills run in `ultrathink` mode and produce evidence-backed, confidence-scored reports that a senior engineer can act on.
 
@@ -28,7 +28,7 @@ After Claude Code starts, run `/reload-plugins` to discover the skills.
 ### Marketplace install
 
 ```bash
-claude plugin install software-development@solanticai-official-claude-plugins
+claude plugin install software-development@anthril-official-claude-plugins
 ```
 
 ---
@@ -131,4 +131,4 @@ MIT — see `.claude-plugin/plugin.json`. Per-skill `LICENSE.txt` files are Apac
 
 ## Author
 
-[Solantic AI](https://github.com/solanticai) — `john@solanticai.com`
+[Anthril](https://github.com/anthril) — `john@anthril.com`

@@ -1,12 +1,12 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.schema.json",
-  "name": "solanticai-official-claude-plugins",
+  "name": "anthril-official-claude-plugins",
   "owner": {
-    "name": "Solantic AI",
-    "email": "john@solanticai.com"
+    "name": "Anthril",
+    "email": "john@anthril.com"
   },
   "metadata": {
-    "description": "Official Solantic AI plugin marketplace — data analysis, knowledge engineering, business economics, brand management, and developer tooling",
+    "description": "Official Anthril plugin marketplace — data analysis, knowledge engineering, business economics, brand management, and developer tooling",
     "version": "1.1.0",
     "pluginRoot": "./plugins"
   },
@@ -17,7 +17,7 @@
       "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
       "source": "data-analysis",
       "category": "data-analysis",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/data-analysis"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/data-analysis"
     },
     {
       "name": "knowledge-engineering",
@@ -25,7 +25,7 @@
       "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
       "source": "knowledge-engineering",
       "category": "knowledge-engineering",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/knowledge-engineering"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/knowledge-engineering"
     },
     {
       "name": "business-economics",
@@ -33,7 +33,7 @@
       "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
       "source": "business-economics",
       "category": "business-operations",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/business-economics"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/business-economics"
     },
     {
       "name": "npm-package-audit",
@@ -41,7 +41,7 @@
       "description": "Audit npm packages for publishing quality, cross-OS compatibility, types, security, and CI/CD",
       "source": "npm-package-audit",
       "category": "developer-tools",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/npm-package-audit"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/npm-package-audit"
     },
     {
       "name": "plan-completion-audit",
@@ -49,7 +49,7 @@
       "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
       "source": "plan-completion-audit",
       "category": "developer-tools",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/plan-completion-audit"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/plan-completion-audit"
     },
     {
       "name": "skill-creator",
@@ -57,7 +57,7 @@
       "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
       "source": "skill-creator",
       "category": "developer-tools",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/skill-creator"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/skill-creator"
     },
     {
       "name": "brand-manager",
@@ -65,7 +65,7 @@
       "description": "9 skills for end-to-end brand creation — identity, guidelines, audience, competitors, logo briefs, colour, design tokens, legal disclaimers, and website copy",
       "source": "brand-manager",
       "category": "business-operations",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/brand-manager"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/brand-manager"
     },
     {
       "name": "software-development",
@@ -73,7 +73,7 @@
       "description": "2 audit skills for software teams — dead code detection across 9 languages (JS/TS, Python, Go, Rust, Java, PHP, Ruby, C#) and end-to-end write path mapping with framework and database introspection",
       "source": "software-development",
       "category": "developer-tools",
-      "homepage": "https://github.com/solanticai/official-claude-plugins/tree/main/plugins/software-development"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/software-development"
     }
   ]
 }
