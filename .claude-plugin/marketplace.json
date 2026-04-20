@@ -69,6 +69,13 @@
       "source": "./plugins/ppc-manager",
       "category": "marketing",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/ppc-manager"
+    },
+    {
+      "name": "database-design",
+      "description": "Postgres schema audit for Supabase or any Postgres 13+ database — per-schema parallel review of tables, columns, relationships, constraints, triggers, RPC functions, indexes, RLS policies, and array/JSONB design with prioritised migration suggestions",
+      "source": "./plugins/database-design",
+      "category": "developer-tools",
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/database-design"
     }
   ]
 }
