@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/anthril/official-claude-plugins/schemas/postgres-schema-audit.schema.json",
+  "title": "Postgres Schema Audit",
+  "description": "Machine-readable output for the postgres-schema-audit skill. Sidecar to the markdown report and migration SQL.",
+  "type": "object",
+  "required": ["schema_version", "audit", "schemas", "findings"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+
+    "audit": {
+      "type": "object",
+      "required": ["project_ref", "project_name", "date", "schemas_audited", "completeness"],
+      "properties": {
+        "project_ref": { "type": "string" },
+        "project_name": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "schemas_audited": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "schemas_skipped": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["schema", "reason"],
+            "properties": {
+              "schema": { "type": "string" },
+              "reason": { "type": "string" }
+            }
+          }
+        },
+        "advisors_called": { "type": "boolean" },
+        "ignore_file_loaded": { "type": "boolean" },
+        "ignore_entries_count": { "type": "integer", "minimum": 0 },
+
+        "totals": {
+          "type": "object",
+          "properties": {
+            "tables": { "type": "integer", "minimum": 0 },
+            "columns": { "type": "integer", "minimum": 0 },
+            "foreign_keys": { "type": "integer", "minimum": 0 },
+            "triggers": { "type": "integer", "minimum": 0 },
+            "functions": { "type": "integer", "minimum": 0 },
+            "policies": { "type": "integer", "minimum": 0 },
+            "indexes": { "type": "integer", "minimum": 0 },
+            "findings": { "type": "integer", "minimum": 0 },
+            "findings_by_severity": {
+              "type": "object",
+              "properties": {
+                "CRITICAL":   { "type": "integer", "minimum": 0 },
+                "HIGH":       { "type": "integer", "minimum": 0 },
+                "MEDIUM":     { "type": "integer", "minimum": 0 },
+                "LOW":        { "type": "integer", "minimum": 0 },
+                "INFO":       { "type": "integer", "minimum": 0 },
+                "FLAG-ONLY":  { "type": "integer", "minimum": 0 }
+              }
+            }
+          }
+        },
+
+        "completeness": {
+          "type": "object",
+          "description": "Completeness scoring — how thoroughly the skill traced the schema, NOT a quality grade.",
+          "required": ["overall", "tier"],
+          "properties": {
+            "overall": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "phase_scores": {
+              "type": "object",
+              "properties": {
+                "phase_1": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_2": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_3": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_4": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_5": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_6": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_7": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "phase_8": { "type": "integer", "minimum": 0, "maximum": 100 }
+              }
+            },
+            "tier": {
+              "type": "string",
+              "enum": ["FULLY AUDITED", "MOSTLY AUDITED", "PARTIALLY AUDITED", "INSUFFICIENT"]
+            }
+          }
+        }
+      }
+    },
+
+    "schemas": {
+      "type": "array",
+      "description": "Per-schema summary stats.",
+      "items": {
+        "type": "object",
+        "required": ["name", "tables", "columns"],
+        "properties": {
+          "name": { "type": "string" },
+          "tables": { "type": "integer", "minimum": 0 },
+          "columns": { "type": "integer", "minimum": 0 },
+          "foreign_keys": { "type": "integer", "minimum": 0 },
+          "triggers": { "type": "integer", "minimum": 0 },
+          "functions": { "type": "integer", "minimum": 0 },
+          "policies": { "type": "integer", "minimum": 0 },
+          "indexes": { "type": "integer", "minimum": 0 },
+          "rls_enabled_tables": { "type": "integer", "minimum": 0 },
+          "findings_count": { "type": "integer", "minimum": 0 },
+          "subagent_status": {
+            "type": "string",
+            "enum": ["ok", "partial", "failed"]
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["phase", "reason"],
+              "properties": {
+                "phase": { "type": "string" },
+                "reason": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "subtype", "severity", "target", "evidence", "description"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DB-\\d{3,}$"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["A","B","C","D","E","F","G","H","I","J","CROSS"]
+          },
+          "subtype": {
+            "type": "string",
+            "description": "One of the subtype codes from reference.md §3 (A1, A2, B1, ...)"
+          },
+          "subtype_label": { "type": "string" },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL","HIGH","MEDIUM","LOW","INFO","FLAG-ONLY"]
+          },
+          "target": {
+            "type": "object",
+            "required": ["kind","schema"],
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": ["table","column","constraint","index","trigger","function","policy","view","enum","domain","cross-schema"]
+              },
+              "schema":  { "type": "string" },
+              "table":   { "type": ["string","null"] },
+              "column":  { "type": ["string","null"] },
+              "function":{ "type": ["string","null"] },
+              "trigger": { "type": ["string","null"] },
+              "policy":  { "type": ["string","null"] },
+              "index":   { "type": ["string","null"] },
+              "other_schema": { "type": ["string","null"] }
+            }
+          },
+          "evidence": {
+            "type": "object",
+            "required": ["sql","evidence_source"],
+            "properties": {
+              "sql": { "type": "string" },
+              "rows": { "type": "array" },
+              "row_count": { "type": ["integer","null"], "minimum": 0 },
+              "advisor_code": { "type": ["string","null"] },
+              "evidence_source": {
+                "type": "string",
+                "enum": ["pg_catalog","information_schema","supabase-advisor","data-sample","cross-schema-merge"]
+              }
+            }
+          },
+          "description": { "type": "string" },
+          "remediation_sql": { "type": ["string","null"] },
+          "rollback_sql": { "type": ["string","null"] },
+          "crosslinks": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "confidence": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "severity_adjustments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["signal","direction"],
+              "properties": {
+                "signal": { "type": "string" },
+                "direction": { "enum": ["up","down","keep","suppress"] }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "cross_schema": {
+      "type": "object",
+      "properties": {
+        "foreign_keys": {
+          "type": "array",
+          "description": "FKs that cross schema boundaries.",
+          "items": {
+            "type": "object",
+            "required": ["from_schema","from_table","to_schema","to_table"],
+            "properties": {
+              "from_schema": { "type": "string" },
+              "from_table":  { "type": "string" },
+              "from_columns":{ "type": "array", "items": { "type": "string" } },
+              "to_schema":   { "type": "string" },
+              "to_table":    { "type": "string" },
+              "to_columns":  { "type": "array", "items": { "type": "string" } },
+              "fk_name":     { "type": "string" }
+            }
+          }
+        },
+        "duplicate_enums": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "enum_name": { "type": "string" },
+              "schemas":   { "type": "array", "items": { "type": "string" } },
+              "overlap_ratio": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          }
+        },
+        "shared_lookup_candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "table_name": { "type": "string" },
+              "schemas": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+
+    "suppressed": {
+      "type": "array",
+      "description": "Findings suppressed by .db-design-ignore.",
+      "items": {
+        "type": "object",
+        "required": ["pattern","reason"],
+        "properties": {
+          "pattern": { "type": "string" },
+          "reason": { "type": "string" },
+          "match_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+
+    "stale_ignores": {
+      "type": "array",
+      "description": "Patterns in .db-design-ignore that matched zero findings.",
+      "items": { "type": "string" }
+    }
+  }
+}

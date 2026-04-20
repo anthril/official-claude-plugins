@@ -1,0 +1,62 @@
+# .db-design-ignore — example ignore file for the postgres-schema-audit skill
+#
+# Format: <pattern>    # <required justification comment>
+#
+# Patterns can be:
+#   - schema.table              — suppress all findings on a table
+#   - schema.table.column       — suppress all findings on a column
+#   - schema.function_name      — suppress all findings on a function
+#   - schema.*:<code>           — suppress a specific subtype code in a schema
+#   - public.*:H5               — suppress "missing-table-comment" in public
+#   - DB-042                    — suppress a specific finding ID from a prior run
+#
+# Every entry MUST have a justification comment. Unjustified entries are
+# reported as "unjustified ignore" warnings during Phase 6.
+#
+# Patterns matching zero findings in the current run are reported as
+# "stale ignore" warnings — remove them to keep the file tidy.
+
+# === Framework / managed conventions ===
+# Supabase internal schemas (already excluded globally, listed here for clarity)
+auth.*                              # managed by Supabase
+storage.*                           # managed by Supabase
+
+# === Tables intentionally without RLS ===
+# Reference-data tables that are world-readable by design.
+public.countries                    # public reference data — RLS not needed
+public.currencies                   # public reference data
+public.timezones                    # public reference data
+
+# === Tables intentionally using text keys ===
+# Some tables use human-readable keys by design (slugs, codes).
+public.plans                        # plan codes are the primary key by design
+public.feature_flags                # flag names are the primary key by design
+
+# === Columns intentionally nullable ===
+# Columns that are semantically optional and should not be NOT NULL.
+operations.tasks.completed_at       # NULL means "not yet complete" — correct
+operations.contracts.terminated_at  # NULL means "still active" — correct
+operations.users.last_login_at      # NULL means "never logged in" — correct
+
+# === Suppress specific subtype codes ===
+# The whole schema is legacy and we're not making design improvements to it.
+legacy.*:*                          # legacy schema on sunset track — Q4 2026 decommission
+
+# Don't nag about H5 (missing-table-comment) in public — we use schema.org comments elsewhere.
+public.*:H5                         # comments live in schema.org docs, not in pg_catalog
+
+# === Intentionally denormalised JSONB ===
+# JSONB columns whose shape is deliberately flexible.
+analytics.events.properties         # freeform event properties — must stay JSONB
+operations.audit_log.changeset      # polymorphic diff payload
+
+# === Functions with locked search_path intentionally ===
+# These are SECURITY INVOKER so search_path doesn't need locking; the audit's
+# F2 check is a false positive here.
+public.pgrst_watch                  # PostgREST watchdog — SECURITY INVOKER
+public.graphql_introspection        # pg_graphql hook — SECURITY INVOKER
+
+# === Specific finding IDs suppressed from a prior run ===
+# Use sparingly. Reference a specific audit report.
+DB-042                              # reviewed 11/04/2026 — accepted design decision
+DB-067                              # reviewed 11/04/2026 — scheduled for Q3 migration
