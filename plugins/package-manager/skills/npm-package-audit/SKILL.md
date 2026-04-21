@@ -54,11 +54,11 @@ This phase is context-only — no score.
 
 **Objective:** Verify all critical package.json fields are present, correct, and complete.
 
-Refer to the field reference in `${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/reference.md` for validation rules.
+Refer to the field reference in `${CLAUDE_PLUGIN_ROOT}/skills/npm-package-audit/reference.md` for validation rules.
 
 Run the automated check:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/scripts/validate-package-json.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/npm-package-audit/scripts/validate-package-json.sh" .
 ```
 
 Check three tiers:
@@ -93,7 +93,7 @@ Check three tiers:
 
 Run the automated check:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/scripts/check-exports.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/npm-package-audit/scripts/check-exports.sh" .
 ```
 
 1. If `"exports"` is defined, for every path entry verify:
@@ -170,7 +170,7 @@ bash "${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/scripts/check-e
 
 Run the automated check:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/scripts/cross-os-lint.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/npm-package-audit/scripts/cross-os-lint.sh" .
 ```
 
 1. **Path separators** — grep for hardcoded `/` or `\\` in path construction; must use `path.join()`, `path.resolve()`, or `path.sep`
@@ -242,7 +242,7 @@ bash "${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/scripts/cross-o
 
 ## Scoring
 
-Calculate scores per phase using the rubric in `${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/reference.md`.
+Calculate scores per phase using the rubric in `${CLAUDE_PLUGIN_ROOT}/skills/npm-package-audit/reference.md`.
 
 **Verdict thresholds:**
 - **90-100**: PASS — production-ready
@@ -254,7 +254,7 @@ Calculate scores per phase using the rubric in `${CLAUDE_PLUGIN_ROOT}/skills/dev
 
 ## Reporting
 
-After all phases, produce a structured report. Use the template from `${CLAUDE_PLUGIN_ROOT}/skills/development/npm-package-audit/templates/output-template.md`.
+After all phases, produce a structured report. Use the template from `${CLAUDE_PLUGIN_ROOT}/skills/npm-package-audit/templates/output-template.md`.
 
 The report must include:
 - A clear PASS / FAIL / PASS WITH WARNINGS verdict per phase

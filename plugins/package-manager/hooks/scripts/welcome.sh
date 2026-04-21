@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Anthril — npm Package Audit Plugin Welcome Hook
+# Anthril — Package Manager Plugin Welcome Hook
 
 PLUGIN_ROOT="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}"
 
@@ -13,6 +13,6 @@ else
   ENV_INFO="⚠ Warning: npm or Node.js not detected. Some audit features require npm to be installed."
 fi
 
-MESSAGE="Anthril — npm Package Audit plugin loaded. 1 skill available:\n  - npm-package-audit\n\n${ENV_INFO}"
+MESSAGE="Anthril — Package Manager plugin loaded. 2 skills available:\n  - npm-package-audit — publishing quality, types, security, CI/CD\n  - cli-ux-audit — terminal UX, help text, errors, output formatting\n\n${ENV_INFO}"
 
 echo "{\"systemMessage\": \"$(echo -e "$MESSAGE" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')\"}"

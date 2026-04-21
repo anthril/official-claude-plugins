@@ -9,6 +9,7 @@
   "plugins": [
     {
       "name": "data-analysis",
+      "version": "1.0.1",
       "description": "5 skills for data profiling, quality auditing, pipeline design, cohort analysis, and anomaly detection",
       "source": "./plugins/data-analysis",
       "category": "data-analysis",
@@ -16,6 +17,7 @@
     },
     {
       "name": "knowledge-engineering",
+      "version": "1.0.1",
       "description": "4 skills for entity disambiguation, relationship mapping, knowledge graph building, and business data modelling",
       "source": "./plugins/knowledge-engineering",
       "category": "knowledge-engineering",
@@ -23,20 +25,23 @@
     },
     {
       "name": "business-economics",
+      "version": "1.0.1",
       "description": "2 skills for unit economics calculation and market sizing (TAM/SAM/SOM) estimation",
       "source": "./plugins/business-economics",
       "category": "business-operations",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/business-economics"
     },
     {
-      "name": "npm-package-audit",
-      "description": "Audit npm packages for publishing quality, cross-OS compatibility, types, security, and CI/CD",
-      "source": "./plugins/npm-package-audit",
+      "name": "package-manager",
+      "version": "1.1.0",
+      "description": "Audit npm package publishing quality and CLI terminal UX — publishing/security/build checks plus help-text, error-message, and output-formatting review",
+      "source": "./plugins/package-manager",
       "category": "developer-tools",
-      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/npm-package-audit"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/package-manager"
     },
     {
       "name": "plan-completion-audit",
+      "version": "1.0.1",
       "description": "Full-stack audit of project plans versus actual implementation with Supabase schema verification",
       "source": "./plugins/plan-completion-audit",
       "category": "developer-tools",
@@ -44,6 +49,7 @@
     },
     {
       "name": "skill-creator",
+      "version": "1.0.1",
       "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
       "source": "./plugins/skill-creator",
       "category": "developer-tools",
@@ -51,6 +57,7 @@
     },
     {
       "name": "brand-manager",
+      "version": "1.0.0",
       "description": "9 skills for end-to-end brand creation — identity, guidelines, audience, competitors, logo briefs, colour, design tokens, legal disclaimers, and website copy",
       "source": "./plugins/brand-manager",
       "category": "business-operations",
@@ -58,6 +65,7 @@
     },
     {
       "name": "software-development",
+      "version": "1.0.0",
       "description": "2 audit skills for software teams — dead code detection across 9 languages (JS/TS, Python, Go, Rust, Java, PHP, Ruby, C#) and end-to-end write path mapping with framework and database introspection",
       "source": "./plugins/software-development",
       "category": "developer-tools",
@@ -65,6 +73,7 @@
     },
     {
       "name": "ppc-manager",
+      "version": "1.0.1",
       "description": "23 skills for end-to-end PPC — Google Ads, Meta Ads, GA4, and GTM — with OAuth-authenticated read/write across all four platforms via bundled Python MCP servers",
       "source": "./plugins/ppc-manager",
       "category": "marketing",
@@ -72,6 +81,7 @@
     },
     {
       "name": "database-design",
+      "version": "1.1.0",
       "description": "Postgres schema audit for Supabase or any Postgres 13+ database — per-schema parallel review of tables, columns, relationships, constraints, triggers, RPC functions, indexes, RLS policies, and array/JSONB design with prioritised migration suggestions",
       "source": "./plugins/database-design",
       "category": "developer-tools",

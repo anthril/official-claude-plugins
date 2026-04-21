@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CLI UX Audit Findings",
+  "type": "object",
+  "required": ["cli", "version", "date", "overallScore", "verdict", "phases", "findings"],
+  "properties": {
+    "cli": { "type": "string" },
+    "version": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "binaryPath": { "type": "string" },
+    "language": { "type": "string" },
+    "framework": { "type": "string" },
+    "overallScore": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS", "PASS WITH WARNINGS", "CONDITIONAL", "FAIL"]
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["phase", "name", "score", "max", "status"],
+        "properties": {
+          "phase": { "type": "integer", "minimum": 1, "maximum": 10 },
+          "name": { "type": "string" },
+          "score": { "type": "integer", "minimum": 0 },
+          "max": { "type": "integer", "minimum": 0 },
+          "status": {
+            "type": "string",
+            "enum": ["PASS", "FAIL", "N/A", "CONTEXT"]
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "phase", "severity", "title", "probe", "observed", "expected", "fix"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+          "phase": { "type": "integer", "minimum": 1, "maximum": 10 },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL", "WARNING", "SUGGESTION"]
+          },
+          "title": { "type": "string" },
+          "probe": { "type": "string" },
+          "observed": { "type": "string" },
+          "expected": { "type": "string" },
+          "fix": { "type": "string" },
+          "source": {
+            "type": "object",
+            "properties": {
+              "file": { "type": "string" },
+              "line": { "type": "integer" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
