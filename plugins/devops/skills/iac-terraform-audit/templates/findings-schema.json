@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IaC Terraform Audit Findings",
+  "type": "object",
+  "required": ["audit_id", "audited_at", "mode", "modules_audited", "findings", "aggregate_score", "verdict"],
+  "properties": {
+    "audit_id": { "type": "string" },
+    "audited_at": { "type": "string", "format": "date-time" },
+    "mode": { "type": "string", "enum": ["static", "live", "apply"] },
+    "modules_audited": { "type": "integer" },
+    "aggregate_score": { "type": "number" },
+    "verdict": { "type": "string", "enum": ["PASS", "PASS WITH WARNINGS", "CONDITIONAL", "FAIL"] },
+    "category_scores": {
+      "type": "object",
+      "properties": {
+        "A_state_backend": { "type": "number" },
+        "B_provider_pinning": { "type": "number" },
+        "C_security": { "type": "number" },
+        "D_module_hygiene": { "type": "number" },
+        "E_env_separation": { "type": "number" },
+        "F_drift_risk": { "type": "number" },
+        "G_cost": { "type": "number" },
+        "H_testing_ci": { "type": "number" }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "subtype", "severity", "target", "evidence", "remediation"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^IAC-\\d{3,}$" },
+          "category": { "type": "string", "enum": ["A", "B", "C", "D", "E", "F", "G", "H"] },
+          "subtype": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "INFO"] },
+          "target": { "type": "string" },
+          "module": { "type": "string" },
+          "evidence": { "type": "string" },
+          "remediation": { "type": "string" },
+          "auto_applicable": { "type": "boolean" },
+          "source": { "type": "string", "enum": ["static-analysis", "live-plan", "tfsec", "checkov"] },
+          "tool_rule_id": { "type": "string", "nullable": true }
+        }
+      }
+    },
+    "live_plan": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "module": { "type": "string" },
+              "add": { "type": "integer" },
+              "change": { "type": "integer" },
+              "destroy": { "type": "integer" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

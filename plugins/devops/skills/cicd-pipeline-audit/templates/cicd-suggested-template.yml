@@ -1,0 +1,61 @@
+# =============================================================================
+# CI/CD Pipeline Audit — Suggested Changes
+# Audit ID: {{audit_id}}
+# Generated: {{DD/MM/YYYY HH:mm}}
+# Mode: {{mode}}
+# MANUAL REVIEW REQUIRED — do not apply any block without reading it first.
+# =============================================================================
+#
+# Blocks are ordered: CRITICAL first, then HIGH, then MEDIUM.
+# Each block names the workflow file and line it targets. Apply the YAML
+# fragment by replacing the matching block in the referenced file.
+#
+# Destructive changes (disabling a workflow, removing an environment) are
+# commented with a leading `# DANGER:` and require human review before any
+# application.
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# CI-001 — CRITICAL — A.3 (third-party action not pinned by SHA)
+# Target: .github/workflows/release.yml:17
+# Evidence: `actions/checkout@v4` is a tag pin. Tags can be moved by the action
+#           author; for a release workflow handling signing material, pin by
+#           commit SHA.
+# -----------------------------------------------------------------------------
+# Suggested change (replace line 17):
+    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
+
+# -----------------------------------------------------------------------------
+# CI-002 — HIGH — F.1 (secret echoed to logs)
+# Target: .github/workflows/deploy.yml:33
+# Evidence: `run: echo "Token: ${{ secrets.DEPLOY_TOKEN }}"` prints the token
+#           to the workflow log. GitHub masks known secrets but formatting like
+#           space-separated or base64-decoded output can bypass masking.
+# -----------------------------------------------------------------------------
+# Suggested change (replace line 33):
+    - name: Validate deploy token is set
+      run: |
+        if [ -z "${{ secrets.DEPLOY_TOKEN }}" ]; then
+          echo "DEPLOY_TOKEN secret is not set"
+          exit 1
+        fi
+        echo "DEPLOY_TOKEN is set (length: ${#DEPLOY_TOKEN})"
+      env:
+        DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+
+# -----------------------------------------------------------------------------
+# CI-003 — MEDIUM — B.2 (no timeout on long-running job)
+# Target: .github/workflows/e2e.yml:8
+# Evidence: The e2e job has no `timeout-minutes`. GitHub's default is 360
+#           minutes (6 hours). A hung test suite will burn through billing for
+#           6 hours before auto-cancelling.
+# -----------------------------------------------------------------------------
+# Suggested change (add to job definition, line 8):
+  e2e:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30   # sensible ceiling for the e2e suite
+
+# -----------------------------------------------------------------------------
+# (further findings follow in severity order...)
+# -----------------------------------------------------------------------------

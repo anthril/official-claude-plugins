@@ -5,19 +5,84 @@ All notable changes to the Anthril Official Claude Plugins marketplace will be d
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-05-20
+## [1.4.0] - 2026-04-21
 
 ### Added
-- 6 standalone plugins with 14 production-ready skills
-- **data-analysis** — anomaly-detection-rule-builder, cohort-analysis-builder, data-dictionary-generator, data-pipeline-architecture, dataset-profiling-quality-audit
-- **knowledge-engineering** — business-data-model-designer, entity-disambiguation, entity-relationship-mapper, knowledge-graph-builder
-- **business-economics** — market-sizing-tam-estimator, unit-economics-calculator
-- **npm-package-audit** — npm-package-audit
-- **plan-completion-audit** — plan-completion-audit
-- **skill-creator** — skill-creator
-- `.claude-plugin/plugin.json` manifest for each individual plugin with `skills` and `hooks` component paths
-- Marketplace catalog at `.claude-plugin/marketplace.json` with `repository` and `homepage` fields
+- **devops** plugin v1.0.0 — 9 skills for DevOps and SRE posture audit across CI/CD, IaC, containers, Kubernetes, observability, release readiness, supply chain, and reliability
+  - `devops-needs-assessment` — plain-language triage for non-experts, scoring nine dimensions on a four-point scale
+  - `cicd-pipeline-audit` — GitHub Actions, GitLab CI, CircleCI, Azure Pipelines, Jenkins, Bitbucket; parallel sub-agent per workflow
+  - `iac-terraform-audit` — Terraform, OpenTofu, Terragrunt, Pulumi; parallel sub-agent per module
+  - `container-audit` — Dockerfiles and docker-compose; parallel sub-agent per Dockerfile
+  - `kubernetes-manifest-audit` — CIS Kubernetes Benchmark + NSA/CISA hardening; sub-agent per chart or manifest group
+  - `observability-audit` — four-pillar score across logs, metrics, traces, alerts/dashboards
+  - `release-readiness-audit` — pre-production go/no-go gate with migration safety, rollback, deploy strategy
+  - `devsecops-supply-chain-audit` — per-ecosystem supply-chain posture with SLSA self-assessment
+  - `sre-reliability-audit` — SLOs, runbooks, on-call, postmortems, game days
+- Three operating modes across all DevOps skills: static-file audit (default), `--live` (uses `gh`, `kubectl`, `terraform`, cloud CLIs, Trivy/Grype, Prometheus/Grafana/Datadog read APIs, PagerDuty/Opsgenie), and `--apply` (opt-in remediation with per-change confirmation and `DESTROY` gate on destructive operations)
+- `--runtime` mode for synthetic alerts, canary smoke tests, chaos experiments, and game-day exercises — with a production-name guard requiring `--i-really-mean-prod` on prod-like targets
+
+### Changed
+- **package-manager** plugin v1.1.0 — renamed from `npm-package-audit`; added new `cli-ux-audit` skill that reviews terminal UX (help text, command structure, error messages, output formatting, discoverability, accessibility) and produces a scored report with actionable fixes
+
+## [1.3.0] - 2026-04-20
+
+### Added
+- **database-design** plugin v1.1.0 — `postgres-schema-audit` skill
+  - Dual connection modes: Supabase MCP or direct Postgres (works with RDS, Cloud SQL, Neon, Railway, self-hosted, local)
+  - Parallel per-schema sub-agents across ten audit categories (Keys & Relationships, Data Types, Constraints & Defaults, Arrays & JSONB, Indexes, Triggers & RPC, RLS, Naming, Timestamps, Orphans)
+  - Produces markdown report, JSON sidecar, Mermaid ER diagram, and a draft `migrations-suggested.sql` file
+  - Interactive setup wizard reads credentials via silent input outside the chat; credentials never touch the conversation transcript
+  - All queries SELECT-only, wrapped in `BEGIN TRANSACTION READ ONLY; ... ROLLBACK;` — skill never writes to the database
+- `scripts/check-versions.mjs` — CI helper that verifies per-plugin `plugin.json` versions match the `marketplace.json` catalogue
+
+## [1.2.0] - 2026-04-12
+
+### Added
+- **ppc-manager** plugin v1.0.1 — 22 skills for end-to-end PPC campaign management across Google Ads, Meta Ads, GA4, and GTM
+  - OAuth-authenticated read/write across all four platforms via bundled Python MCP servers
+  - Campaign build, audit, copywriting, audience building, creative briefs, UTM tracking, and landing page copy
+  - GTM data layer, tag, and trigger configuration; GA4 event mapping; Meta Pixel and CAPI setup
+- **brand-manager** plugin v1.0.0 — 9 skills for end-to-end brand creation (identity, guidelines, audience, competitors, logo brief, colour palette, design tokens, legal disclaimers, website copy)
+- **software-development** plugin v1.0.0 — `dead-code-audit` (9 languages: JS/TS, Python, Go, Rust, Java, PHP, Ruby, C#) and `write-path-mapping` (UI → DB with framework and database introspection)
+
+### Changed
+- Rebranded marketplace from previous namespace to `Anthril` across all plugins, manifests, hooks, and documentation
+- Removed redundant metadata from `plugin.json` files (version moved to single source of truth per plugin)
+- Updated `.mcp.json` and marketplace schema to the current plugin-marketplace specification
+
+## [1.1.0] - 2026-04-08
+
+### Added
+- **plan-completion-audit** plugin v1.0.1 — full-stack audit of a project plan versus actual implementation; verifies plan vs code, types, bugs, security, Supabase schema, RLS, frontend-backend alignment
+- **npm-package-audit** plugin v1.0.0 (later renamed to `package-manager` in 1.4.0) — audits npm packages for publishing quality, cross-OS compatibility, type declarations, build config, security, and CI/CD
+- **skill-creator** plugin v1.0.1 — scaffolds new Claude Code skills with proper frontmatter, directory structure, templates, examples, and supporting files
+- Categorised sub-marketplaces under `.claude-plugin/marketplace.json`
+- Restructured repository into standalone per-plugin directories under `plugins/<plugin-name>/`
+
+### Changed
+- Bumped plugin versions across the board
+- Removed SessionStart hooks in favour of per-skill Stop hooks that suggest related skills
+- Normalised shebangs across helper scripts (`#!/usr/bin/env bash`, `#!/usr/bin/env python3`)
+- Aligned plugin manifests with the current plugin-marketplace schema
+
+### Fixed
+- Marketplace install compatibility and skill loading on fresh installs
+- Removed conflicting root `settings.json` and `.claude/` directory that blocked marketplace detection
+- Plugin-prefix renames for consistency across all plugins
+
+## [1.0.0] - 2026-04-04
+
+### Added
+- Initial marketplace release — transformed `ai-cookbook` repo into a fully-featured Claude Code plugin
+- Skills collection, sponsors documentation, and GitHub Actions workflow
+- `.claude-plugin/plugin.json` manifest per plugin with `skills` and `hooks` component paths
+- `.claude-plugin/marketplace.json` catalogue with `repository` and `homepage` fields
 - Per-plugin hooks (SessionStart welcome, Stop suggestions, PreToolUse/PostToolUse validation)
-- Example outputs and output templates for all skills
+- **data-analysis** plugin — anomaly-detection-rule-builder, cohort-analysis-builder, data-dictionary-generator, data-pipeline-architecture, dataset-profiling-quality-audit
+- **knowledge-engineering** plugin — business-data-model-designer, entity-disambiguation, entity-relationship-mapper, knowledge-graph-builder
+- **business-economics** plugin — market-sizing-tam-estimator, unit-economics-calculator
+- Example outputs and output templates for every skill
 - Helper scripts (Python and Bash) for skill validation and computation
 - MIT license
+
+> **Note:** The previous 1.0.0 entry was dated 2025-05-20; the actual initial-release commit was 2026-04-04. Plan-completion-audit, npm-package-audit, and skill-creator are now correctly listed under 1.1.0 (2026-04-08) when they were introduced.

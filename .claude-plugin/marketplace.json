@@ -86,6 +86,14 @@
       "source": "./plugins/database-design",
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/database-design"
+    },
+    {
+      "name": "devops",
+      "version": "1.0.0",
+      "description": "9 DevOps and SRE skills for audit, remediation, and runtime testing — plain-language needs assessment, CI/CD, Terraform IaC, Docker, Kubernetes, observability, release readiness, DevSecOps supply chain, and SRE reliability. Static-file audit by default; opt-in --live, --apply, --runtime modes",
+      "source": "./plugins/devops",
+      "category": "developer-tools",
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/devops"
     }
   ]
 }

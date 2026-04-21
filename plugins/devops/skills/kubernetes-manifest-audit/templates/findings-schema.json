@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kubernetes Manifest Audit Findings",
+  "type": "object",
+  "required": ["audit_id", "audited_at", "mode", "groups_audited", "findings", "aggregate_score", "verdict"],
+  "properties": {
+    "audit_id": { "type": "string" },
+    "audited_at": { "type": "string", "format": "date-time" },
+    "mode": { "type": "string", "enum": ["static", "live", "apply", "runtime"] },
+    "groups_audited": { "type": "integer" },
+    "manifests_audited": { "type": "integer" },
+    "aggregate_score": { "type": "number" },
+    "verdict": { "type": "string", "enum": ["PASS", "PASS WITH WARNINGS", "CONDITIONAL", "FAIL"] },
+    "category_scores": {
+      "type": "object",
+      "properties": {
+        "A_pod_security": { "type": "number" },
+        "B_resources": { "type": "number" },
+        "C_probes": { "type": "number" },
+        "D_image_hygiene": { "type": "number" },
+        "E_secrets_config": { "type": "number" },
+        "F_networking": { "type": "number" },
+        "G_rbac": { "type": "number" },
+        "H_availability": { "type": "number" },
+        "I_helm_hygiene": { "type": "number" }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "subtype", "severity", "target", "evidence", "remediation"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^K8S-\\d{3,}$" },
+          "category": { "type": "string", "enum": ["A", "B", "C", "D", "E", "F", "G", "H", "I"] },
+          "subtype": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "INFO"] },
+          "target": { "type": "string" },
+          "group": { "type": "string", "description": "chart name or manifest directory" },
+          "workload_kind": { "type": "string" },
+          "workload_name": { "type": "string" },
+          "evidence": { "type": "string" },
+          "remediation": { "type": "string" },
+          "auto_applicable": { "type": "boolean" },
+          "source": { "type": "string", "enum": ["static-analysis", "live-inspection", "kube-bench", "kube-hunter"] },
+          "cis_id": { "type": "string", "nullable": true }
+        }
+      }
+    },
+    "runtime_test": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "target": { "type": "string" },
+        "experiment": { "type": "string" },
+        "recovery_seconds": { "type": "number" },
+        "passed": { "type": "boolean" }
+      }
+    }
+  }
+}

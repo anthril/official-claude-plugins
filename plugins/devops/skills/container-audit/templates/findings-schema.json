@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Container Audit Findings",
+  "type": "object",
+  "required": ["audit_id", "audited_at", "mode", "dockerfiles_audited", "findings", "aggregate_score", "verdict"],
+  "properties": {
+    "audit_id": { "type": "string" },
+    "audited_at": { "type": "string", "format": "date-time" },
+    "mode": { "type": "string", "enum": ["static", "live", "apply"] },
+    "dockerfiles_audited": { "type": "integer" },
+    "compose_files_audited": { "type": "integer" },
+    "aggregate_score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "verdict": { "type": "string", "enum": ["PASS", "PASS WITH WARNINGS", "CONDITIONAL", "FAIL"] },
+    "category_scores": {
+      "type": "object",
+      "properties": {
+        "A_base_image": { "type": "number" },
+        "B_user_privileges": { "type": "number" },
+        "C_secrets_leaks": { "type": "number" },
+        "D_layer_efficiency": { "type": "number" },
+        "E_signals_shutdown": { "type": "number" },
+        "F_healthcheck": { "type": "number" },
+        "G_dockerignore": { "type": "number" },
+        "H_compose": { "type": "number" }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "subtype", "severity", "target", "evidence", "remediation"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CT-\\d{3,}$" },
+          "category": { "type": "string", "enum": ["A", "B", "C", "D", "E", "F", "G", "H"] },
+          "subtype": { "type": "string" },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "INFO"] },
+          "target": { "type": "string" },
+          "evidence": { "type": "string" },
+          "remediation": { "type": "string" },
+          "auto_applicable": { "type": "boolean" },
+          "source": { "type": "string", "enum": ["static-analysis", "live-inspection"] },
+          "cve_ids": { "type": "array", "items": { "type": "string" }, "description": "Live-mode CVE references (Trivy/Grype)" }
+        }
+      }
+    },
+    "image_scan": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "scanner": { "type": "string", "enum": ["trivy", "grype", "snyk"] },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "image": { "type": "string" },
+              "critical": { "type": "integer" },
+              "high": { "type": "integer" },
+              "medium": { "type": "integer" },
+              "low": { "type": "integer" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

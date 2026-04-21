@@ -1,6 +1,6 @@
 # Anthril Official Claude Plugins
 
-A curated library of Claude Code plugins for data analysis, entity modelling, business operations, PPC management, and developer tooling — packaged as a Claude Code marketplace with standalone plugins.
+A curated library of Claude Code plugins for data analysis, entity modelling, business operations, brand management, marketing, developer tooling, database design, and DevOps — packaged as a Claude Code marketplace with standalone plugins.
 
 Maintained by [@Anthril](https://github.com/anthril).
 
@@ -16,12 +16,14 @@ Maintained by [@Anthril](https://github.com/anthril).
 /plugin install data-analysis@anthril-claude-plugins
 /plugin install knowledge-engineering@anthril-claude-plugins
 /plugin install business-economics@anthril-claude-plugins
-/plugin install npm-package-audit@anthril-claude-plugins
+/plugin install package-manager@anthril-claude-plugins
 /plugin install plan-completion-audit@anthril-claude-plugins
 /plugin install skill-creator@anthril-claude-plugins
 /plugin install brand-manager@anthril-claude-plugins
 /plugin install software-development@anthril-claude-plugins
 /plugin install ppc-manager@anthril-claude-plugins
+/plugin install database-design@anthril-claude-plugins
+/plugin install devops@anthril-claude-plugins
 ```
 
 ### Install a Single Skill
@@ -49,7 +51,7 @@ claude --plugin-dir ./plugins/data-analysis
 
 ## Plugins
 
-48 production-ready skills across nine standalone plugins:
+58 production-ready skills across 11 standalone plugins:
 
 ### Data Analysis & Intelligence (`data-analysis`)
 
@@ -77,11 +79,12 @@ claude --plugin-dir ./plugins/data-analysis
 | [`unit-economics-calculator`](plugins/business-economics/skills/unit-economics-calculator/) | Calculate CAC, LTV, payback period, contribution margin with scenario analysis for service, SaaS, and hybrid businesses |
 | [`market-sizing-tam-estimator`](plugins/business-economics/skills/market-sizing-tam-estimator/) | Estimate TAM, SAM, and SOM using top-down and bottom-up methods with sensitivity analysis, calibrated for Australian markets |
 
-### npm Package Audit (`npm-package-audit`)
+### Package Manager (`package-manager`)
 
 | Skill | Description |
 |-------|-------------|
-| [`npm-package-audit`](plugins/npm-package-audit/skills/npm-package-audit/) | Audit npm packages for publishing quality, cross-OS compatibility, type declarations, build config, security, and CI/CD — produces a scored report with actionable fixes |
+| [`npm-package-audit`](plugins/package-manager/skills/npm-package-audit/) | Audit npm packages for publishing quality, cross-OS compatibility, type declarations, build config, security, and CI/CD — produces a scored report with actionable fixes |
+| [`cli-ux-audit`](plugins/package-manager/skills/cli-ux-audit/) | Audit any CLI tool for terminal UX — help text, command structure, error messages, output formatting, discoverability, and accessibility |
 
 ### Plan Completion Audit (`plan-completion-audit`)
 
@@ -101,10 +104,10 @@ claude --plugin-dir ./plugins/data-analysis
 |-------|-------------|
 | [`brand-identity`](plugins/brand-manager/skills/brand-identity/) | Define brand purpose, values, personality, voice, and positioning statement |
 | [`brand-guidelines`](plugins/brand-manager/skills/brand-guidelines/) | Create comprehensive brand guidelines covering typography, colour, imagery, and tone of voice |
-| [`audience-personas`](plugins/brand-manager/skills/audience-personas/) | Build detailed audience personas with demographics, psychographics, and journey maps |
+| [`target-audience`](plugins/brand-manager/skills/target-audience/) | Build detailed audience personas with demographics, psychographics, and journey maps |
 | [`competitor-analysis`](plugins/brand-manager/skills/competitor-analysis/) | Analyse competitors across positioning, messaging, visual identity, and market gaps |
 | [`logo-brief`](plugins/brand-manager/skills/logo-brief/) | Write a logo design brief with concept direction, usage rules, and file format specs |
-| [`colour-palette`](plugins/brand-manager/skills/colour-palette/) | Design a brand colour palette with primary, secondary, accent, and semantic colours |
+| [`color-palette`](plugins/brand-manager/skills/color-palette/) | Design a brand colour palette with primary, secondary, accent, and semantic colours |
 | [`design-tokens`](plugins/brand-manager/skills/design-tokens/) | Generate design tokens for typography, colour, spacing, and elevation in JSON/CSS format |
 | [`legal-disclaimers`](plugins/brand-manager/skills/legal-disclaimers/) | Draft legal disclaimers, terms, and compliance notices for Australian businesses |
 | [`website-copy`](plugins/brand-manager/skills/website-copy/) | Write website copy for landing pages, about sections, and CTAs aligned to brand voice |
@@ -114,7 +117,7 @@ claude --plugin-dir ./plugins/data-analysis
 | Skill | Description |
 |-------|-------------|
 | [`dead-code-audit`](plugins/software-development/skills/dead-code-audit/) | Detect dead code across 9 languages — JS/TS, Python, Go, Rust, Java, PHP, Ruby, C# — with actionable removal plan |
-| [`write-path-mapper`](plugins/software-development/skills/write-path-mapper/) | Map end-to-end write paths from UI to database with framework and database introspection |
+| [`write-path-mapping`](plugins/software-development/skills/write-path-mapping/) | Map end-to-end write paths from UI to database with framework and database introspection |
 
 ### PPC Manager (`ppc-manager`)
 
@@ -143,11 +146,33 @@ claude --plugin-dir ./plugins/data-analysis
 | [`landing-page-copy`](plugins/ppc-manager/skills/landing-page-copy/) | Write landing page copy optimised for PPC traffic |
 | [`youtube-campaign`](plugins/ppc-manager/skills/youtube-campaign/) | Plan and configure YouTube ad campaigns |
 
+### Database Design (`database-design`)
+
+| Skill | Description |
+|-------|-------------|
+| [`postgres-schema-audit`](plugins/database-design/skills/postgres-schema-audit/) | Audit any Postgres 13+ schema (Supabase via MCP, or RDS/Cloud SQL/Neon/Railway/self-hosted via a read-only connection) — parallel per-schema sub-agents across ten audit categories, producing evidence-backed findings, an ER diagram, and draft migration SQL |
+
+### DevOps (`devops`)
+
+| Skill | Description |
+|-------|-------------|
+| [`devops-needs-assessment`](plugins/devops/skills/devops-needs-assessment/) | Plain-language DevOps triage for non-experts — scores nine dimensions and names the top three fixes |
+| [`cicd-pipeline-audit`](plugins/devops/skills/cicd-pipeline-audit/) | Audit CI/CD pipelines (GitHub Actions, GitLab CI, CircleCI, Azure Pipelines, Jenkins, Bitbucket) — one sub-agent per workflow |
+| [`iac-terraform-audit`](plugins/devops/skills/iac-terraform-audit/) | Audit Terraform, OpenTofu, Terragrunt, and Pulumi modules — one sub-agent per module |
+| [`container-audit`](plugins/devops/skills/container-audit/) | Audit Dockerfiles and docker-compose files — one sub-agent per Dockerfile |
+| [`kubernetes-manifest-audit`](plugins/devops/skills/kubernetes-manifest-audit/) | Audit Kubernetes manifests and Helm charts against CIS and NSA/CISA hardening guides |
+| [`observability-audit`](plugins/devops/skills/observability-audit/) | Score observability across the four pillars — logs, metrics, traces, alerts/dashboards |
+| [`release-readiness-audit`](plugins/devops/skills/release-readiness-audit/) | Pre-production go/no-go gate — migration safety, rollback, monitoring, deploy strategy |
+| [`devsecops-supply-chain-audit`](plugins/devops/skills/devsecops-supply-chain-audit/) | Audit supply chain across every ecosystem detected — pinning, vulnerabilities, secrets, SBOM, signing, branch protection |
+| [`sre-reliability-audit`](plugins/devops/skills/sre-reliability-audit/) | Assess Site Reliability maturity — SLOs, runbooks, on-call, postmortems, game days |
+
+Every DevOps skill supports three operating modes: static (default), `--live` (uses `gh`, `kubectl`, `terraform`, cloud CLIs, scanners), and `--apply` (opt-in remediation with per-change confirmation). Runtime testing (`--runtime`) is available where applicable with production-name guards.
+
 ## Skill Features
 
 Every skill in this library includes:
 
-- **YAML frontmatter** — `name`, `description`, `argument-hint`, `allowed-tools`, `effort`
+- **YAML frontmatter** — `name`, `description` (<250 chars), `argument-hint`, `allowed-tools`, `effort`
 - **`$ARGUMENTS`** — Accept user input directly (e.g., `/skill-name my business description`)
 - **`ultrathink`** — Extended thinking enabled for complex analytical skills
 - **Output templates** — Structured output format with section headers
@@ -160,6 +185,7 @@ Select skills also include:
 - **`paths`** — Auto-activation when working with matching file patterns
 - **`reference.md`** — Dense reference material (SQL templates, scoring rubrics, lookup tables) extracted to keep SKILL.md under 500 lines
 - **Dynamic context injection** — Shell commands that inject project state before the skill runs
+- **Parallel sub-agents** — Independent audit targets (schemas, workflows, modules, Dockerfiles, charts, ecosystems) are audited in parallel for large-repo throughput
 
 ## Plugin Directory Structure
 
@@ -179,7 +205,7 @@ plugins/<plugin-name>/
 │       ├── examples/
 │       │   └── example-output.md     # Realistic completed example
 │       └── scripts/
-│           └── helper.py             # Utility script (where relevant)
+│           └── helper.sh             # Utility script (where relevant)
 ├── hooks/
 │   ├── hooks.json                # Plugin hooks configuration
 │   └── scripts/                  # Hook scripts
@@ -193,17 +219,21 @@ official-claude-plugins/
 ├── .claude/
 │   └── CLAUDE.md                          # Project instructions for contributors
 ├── .claude-plugin/
-│   └── marketplace.json                   # Marketplace catalog (9 plugins)
+│   └── marketplace.json                   # Marketplace catalog (11 plugins)
 ├── plugins/
 │   ├── data-analysis/                     # Data Analysis & Intelligence (5 skills)
 │   ├── knowledge-engineering/             # Knowledge Engineering (4 skills)
 │   ├── business-economics/                # Business Economics (2 skills)
-│   ├── npm-package-audit/                 # npm Package Audit (1 skill)
+│   ├── package-manager/                   # Package Manager (2 skills)
 │   ├── plan-completion-audit/             # Plan Completion Audit (1 skill)
 │   ├── skill-creator/                     # Skill Creator (1 skill)
 │   ├── brand-manager/                     # Brand Manager (9 skills)
 │   ├── software-development/              # Software Development (2 skills)
-│   └── ppc-manager/                       # PPC Manager (23 skills)
+│   ├── ppc-manager/                       # PPC Manager (22 skills)
+│   ├── database-design/                   # Database Design (1 skill)
+│   └── devops/                            # DevOps (9 skills)
+├── scripts/
+│   └── check-versions.mjs                 # Verify marketplace ↔ plugin.json version sync
 ├── settings.json                          # Root plugin settings
 ├── CHANGELOG.md                           # Version history
 ├── LICENSE                                # MIT
@@ -231,6 +261,7 @@ Or follow the conventions in [`.claude/CLAUDE.md`](.claude/CLAUDE.md) to create 
 - [ ] `templates/` directory has at least one output template
 - [ ] `examples/` directory has at least one example output
 - [ ] Dense reference material is in `reference.md`, not SKILL.md
+- [ ] Plugin version in `plugin.json` matches marketplace entry (run `node scripts/check-versions.mjs`)
 - [ ] Tested locally with `claude --plugin-dir .`
 
 ## Contributing
@@ -247,15 +278,9 @@ See [`.claude/CLAUDE.md`](.claude/CLAUDE.md) for detailed development standards.
 
 This project is maintained by [Anthril](https://github.com/anthril) and funded by our sponsors.
 
-[Become a sponsor](https://github.com/sponsors/anthril)
+[Become a sponsor →](https://github.com/sponsors/anthril)
 
-### Featured Sponsors
-
-<!-- readme-sponsors-featured --><!-- readme-sponsors-featured -->
-
-### All Sponsors
-
-<!-- readme-sponsors-all --><!-- readme-sponsors-all -->
+<!-- sponsors --><!-- sponsors -->
 
 ## License
 

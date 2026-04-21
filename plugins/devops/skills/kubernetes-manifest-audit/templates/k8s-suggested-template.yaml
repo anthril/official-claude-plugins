@@ -1,0 +1,68 @@
+# =============================================================================
+# Kubernetes Manifest Audit — Suggested Changes
+# Audit ID: {{audit_id}}
+# Generated: {{DD/MM/YYYY HH:mm}}
+# MANUAL REVIEW REQUIRED — each block may affect production workloads.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# K8S-001 — CRITICAL — A.7 (privileged: true on app workload)
+# Target: charts/api/templates/deployment.yaml:42
+# Workload: Deployment/api
+# -----------------------------------------------------------------------------
+# Remove privileged flag. Replace with explicit capabilities if any are needed.
+spec:
+  template:
+    spec:
+      containers:
+      - name: api
+        # OLD: securityContext: { privileged: true }
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          runAsGroup: 10001
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          seccompProfile:
+            type: RuntimeDefault
+
+# -----------------------------------------------------------------------------
+# K8S-002 — HIGH — B.3 (no memory limit)
+# Target: charts/api/templates/deployment.yaml:55
+# -----------------------------------------------------------------------------
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    memory: 512Mi  # add
+
+# -----------------------------------------------------------------------------
+# K8S-003 — HIGH — E.1 (plaintext Secret in git)
+# Target: charts/api/templates/secret-db.yaml:1
+# -----------------------------------------------------------------------------
+# Replace the committed Secret with a SealedSecret (kubeseal) OR
+# an ExternalSecrets CR pointing at your secret manager.
+#
+# kubeseal example:
+#   kubectl create secret generic db-url --from-literal=URL=... --dry-run=client -o yaml \
+#     | kubeseal --format=yaml > charts/api/templates/sealed-secret-db.yaml
+#
+# Delete the existing secret-db.yaml and replace with the sealed version.
+
+# -----------------------------------------------------------------------------
+# K8S-004 — MEDIUM — H.1 (no PDB on critical workload)
+# Target: charts/api/templates/pdb.yaml (new file)
+# -----------------------------------------------------------------------------
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: api
+  namespace: {{ .Release.Namespace }}
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: api

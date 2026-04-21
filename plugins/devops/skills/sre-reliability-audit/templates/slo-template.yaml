@@ -1,0 +1,50 @@
+# OpenSLO-style SLO specification example
+# See: https://github.com/openslo/openslo
+apiVersion: openslo/v1
+kind: SLO
+metadata:
+  name: api-availability
+  displayName: API availability
+spec:
+  service: api
+  description: |
+    Percentage of /api/* requests that return status code < 500.
+  indicator:
+    metadata:
+      name: api-success-rate
+    spec:
+      ratioMetric:
+        counter: true
+        good:
+          metricSource:
+            type: Prometheus
+            metricSourceRef: prom-main
+            spec:
+              query: |
+                sum(rate(http_requests_total{service="api", status!~"5..", path=~"/api/.*"}[5m]))
+        total:
+          metricSource:
+            type: Prometheus
+            metricSourceRef: prom-main
+            spec:
+              query: |
+                sum(rate(http_requests_total{service="api", path=~"/api/.*"}[5m]))
+  objectives:
+    - displayName: 99.9% success in 30 days
+      target: 0.999
+  timeWindow:
+    - duration: 30d
+      isRolling: true
+  alertPolicies:
+    - name: api-fast-burn
+      conditions:
+        - kind: BurnRate
+          burnRateThreshold: 14.4
+          timeWindow: 1h
+          severity: page
+    - name: api-slow-burn
+      conditions:
+        - kind: BurnRate
+          burnRateThreshold: 6
+          timeWindow: 6h
+          severity: page

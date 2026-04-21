@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Observability Audit Findings",
+  "type": "object",
+  "required": ["audit_id", "audited_at", "mode", "services", "pillar_scores", "aggregate_score", "verdict", "findings"],
+  "properties": {
+    "audit_id": { "type": "string" },
+    "audited_at": { "type": "string", "format": "date-time" },
+    "mode": { "type": "string", "enum": ["static", "live", "runtime"] },
+    "services": { "type": "array", "items": { "type": "string" } },
+    "pillar_scores": {
+      "type": "object",
+      "required": ["logs", "metrics", "traces", "alerts"],
+      "properties": {
+        "logs": { "type": "number", "minimum": 0, "maximum": 5 },
+        "metrics": { "type": "number", "minimum": 0, "maximum": 5 },
+        "traces": { "type": "number", "minimum": 0, "maximum": 5 },
+        "alerts": { "type": "number", "minimum": 0, "maximum": 5 }
+      }
+    },
+    "service_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "service": { "type": "string" },
+          "logs": { "type": "number" },
+          "metrics": { "type": "number" },
+          "traces": { "type": "number" },
+          "alerts": { "type": "number" }
+        }
+      }
+    },
+    "aggregate_score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "verdict": { "type": "string" },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "pillar", "severity", "target", "evidence", "remediation"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^OBS-\\d{3,}$" },
+          "pillar": { "type": "string", "enum": ["logs", "metrics", "traces", "alerts"] },
+          "severity": { "type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "INFO"] },
+          "target": { "type": "string" },
+          "evidence": { "type": "string" },
+          "remediation": { "type": "string" },
+          "source": { "type": "string", "enum": ["static-analysis", "live-query", "runtime-observed"] }
+        }
+      }
+    },
+    "synthetic_alert": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "alert_name": { "type": "string" },
+        "hops": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hop": { "type": "string" },
+              "latency_ms": { "type": "number" },
+              "result": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
