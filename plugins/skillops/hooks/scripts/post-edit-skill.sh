@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# AI Cookbook — PostToolUse hook for Write|Edit
-# Checks frontmatter and line count after editing skill.md files
+# SkillOps — PostToolUse hook for Write|Edit
+# Checks frontmatter, line count, and YAML parse validity after editing skill.md files.
 
 set -euo pipefail
 
@@ -32,6 +32,14 @@ if [ "$FIRST_LINE" != "---" ]; then
   WARNINGS="${WARNINGS}Missing YAML frontmatter: skill.md should start with --- and include name, description fields. "
 fi
 
+# Delegate YAML parse validation to skill-evaluator if the parser script is available.
+PARSER="${CLAUDE_PLUGIN_ROOT:-}/skills/skill-evaluator/scripts/parse-frontmatter.sh"
+if [ -n "${CLAUDE_PLUGIN_ROOT:-}" ] && [ -x "$PARSER" ]; then
+  if ! bash "$PARSER" "$FILE_PATH" >/dev/null 2>&1; then
+    WARNINGS="${WARNINGS}Frontmatter YAML parse failed — run /skill-evaluator ${FILE_PATH%/*} for details. "
+  fi
+fi
+
 # Check line count
 LINES=$(wc -l < "$FILE_PATH" 2>/dev/null || echo "0")
 if [ "$LINES" -gt 500 ]; then
@@ -43,7 +51,7 @@ fi
 if [ -n "$WARNINGS" ]; then
   cat <<EOF
 {
-  "systemMessage": "⚠ AI Cookbook quality check: ${WARNINGS}"
+  "systemMessage": "⚠ SkillOps quality check: ${WARNINGS}Run /skill-evaluator on this skill for a full audit."
 }
 EOF
 fi

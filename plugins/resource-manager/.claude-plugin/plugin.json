@@ -1,0 +1,9 @@
+{
+  "name": "resource-manager",
+  "version": "1.0.0",
+  "description": "Monitor and reclaim machine resources used by Claude Desktop, Claude Code sessions, and their MCP servers — orphan-killer Stop hook, on-demand audit skills, and a localhost process dashboard.",
+  "author": {
+    "name": "Anthril",
+    "email": "john@anthril.com"
+  }
+}

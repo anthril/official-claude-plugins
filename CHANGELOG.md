@@ -5,6 +5,20 @@ All notable changes to the Anthril Official Claude Plugins marketplace will be d
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-04-22
+
+### Added
+- **skillops** plugin v1.1.0 — renamed from `skill-creator` (signals broader scope beyond scaffolding)
+  - `skill-evaluator` skill — audits any Claude Code skill against an eight-dimension rubric (Discovery & Metadata, Scope & Focus, Conciseness, Information Architecture, Content Quality, Tool & Security, Testing & Examples, Standards Compliance) with 35 deterministic heuristic checks plus an optional qualitative sub-agent review; produces a scored markdown report with file:line evidence, prioritised fix list, and JSON sidecar for CI use
+- `.github/workflows/virustotal-audit.yml` + `scripts/virustotal-audit.mjs` — weekly VirusTotal scan of each plugin tarball with hash-first dedup and 20s rate-limit headroom for the public-API 4 req/min cap
+- `SECURITY.md` — repo security policy + auto-updated VirusTotal summary table
+- `plugins/<name>/VIRUSTOTAL.md` — per-plugin VirusTotal report (generated on first workflow run)
+- `.virustotal/<name>.json` — machine-readable scan sidecars
+
+### Changed
+- `plugins/skill-creator/` → `plugins/skillops/`; slash command `/skill-creator` preserved (the `skill-creator` skill retained its name); marketplace entry and install command updated to `skillops@anthril-claude-plugins`
+- Extended `plugins/skillops/hooks/scripts/post-edit-skill.sh` to delegate YAML parse validation to `skill-evaluator/scripts/parse-frontmatter.sh` and suggest `/skill-evaluator` for full audits
+
 ## [1.4.0] - 2026-04-21
 
 ### Added

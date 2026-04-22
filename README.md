@@ -18,7 +18,7 @@ Maintained by [@Anthril](https://github.com/anthril).
 /plugin install business-economics@anthril-claude-plugins
 /plugin install package-manager@anthril-claude-plugins
 /plugin install plan-completion-audit@anthril-claude-plugins
-/plugin install skill-creator@anthril-claude-plugins
+/plugin install skillops@anthril-claude-plugins
 /plugin install brand-manager@anthril-claude-plugins
 /plugin install software-development@anthril-claude-plugins
 /plugin install ppc-manager@anthril-claude-plugins
@@ -51,7 +51,7 @@ claude --plugin-dir ./plugins/data-analysis
 
 ## Plugins
 
-58 production-ready skills across 11 standalone plugins:
+59 production-ready skills across 11 standalone plugins:
 
 ### Data Analysis & Intelligence (`data-analysis`)
 
@@ -92,11 +92,12 @@ claude --plugin-dir ./plugins/data-analysis
 |-------|-------------|
 | [`plan-completion-audit`](plugins/plan-completion-audit/skills/plan-completion-audit/) | Full-stack audit of a project plan versus actual implementation — verifies plan vs code, types, bugs, security, Supabase schema, RLS, and frontend-backend alignment |
 
-### Skill Creator (`skill-creator`)
+### SkillOps (`skillops`)
 
 | Skill | Description |
 |-------|-------------|
-| [`skill-creator`](plugins/skill-creator/skills/skill-creator/) | Create new Claude Code skills with proper frontmatter, directory structure, templates, examples, and supporting files |
+| [`skill-creator`](plugins/skillops/skills/skill-creator/) | Create new Claude Code skills with proper frontmatter, directory structure, templates, examples, and supporting files |
+| [`skill-evaluator`](plugins/skillops/skills/skill-evaluator/) | Audit an existing skill for quality across eight dimensions — metadata, scope, conciseness, architecture, content, tooling, testing, standards — with a scored markdown report and JSON sidecar |
 
 ### Brand Manager (`brand-manager`)
 
@@ -226,7 +227,7 @@ official-claude-plugins/
 │   ├── business-economics/                # Business Economics (2 skills)
 │   ├── package-manager/                   # Package Manager (2 skills)
 │   ├── plan-completion-audit/             # Plan Completion Audit (1 skill)
-│   ├── skill-creator/                     # Skill Creator (1 skill)
+│   ├── skillops/                          # SkillOps (2 skills)
 │   ├── brand-manager/                     # Brand Manager (9 skills)
 │   ├── software-development/              # Software Development (2 skills)
 │   ├── ppc-manager/                       # PPC Manager (22 skills)

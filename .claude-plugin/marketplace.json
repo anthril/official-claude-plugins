@@ -48,12 +48,12 @@
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/plan-completion-audit"
     },
     {
-      "name": "skill-creator",
-      "version": "1.0.1",
-      "description": "Create new Claude Code skills with proper frontmatter, directory structure, templates, and examples",
-      "source": "./plugins/skill-creator",
+      "name": "skillops",
+      "version": "1.1.0",
+      "description": "Operate on Claude Code skills — scaffold new skills with skill-creator and audit existing skills with skill-evaluator (scored report across 8 quality dimensions)",
+      "source": "./plugins/skillops",
       "category": "developer-tools",
-      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/skill-creator"
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/skillops"
     },
     {
       "name": "brand-manager",
@@ -94,6 +94,14 @@
       "source": "./plugins/devops",
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/devops"
+    },
+    {
+      "name": "resource-manager",
+      "version": "1.0.0",
+      "description": "Monitor and reclaim machine resources used by Claude Desktop, Claude Code, and their MCP servers — orphan-killer Stop hook, on-demand audit skills, and a localhost process dashboard",
+      "source": "./plugins/resource-manager",
+      "category": "developer-tools",
+      "homepage": "https://github.com/anthril/official-claude-plugins/tree/main/plugins/resource-manager"
     }
   ]
 }

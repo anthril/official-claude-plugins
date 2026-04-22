@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claude Resource Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0b0d11;
+    --panel: #141820;
+    --panel-2: #1b2029;
+    --border: #252b36;
+    --text: #e5e8ee;
+    --muted: #8a93a3;
+    --accent: #7cb5ff;
+    --warn: #ffb36b;
+    --danger: #ff6b7a;
+    --good: #6bd48f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 -apple-system, Segoe UI, system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  header { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: 0.02em; }
+  .kpi { display: flex; gap: 18px; flex-wrap: wrap; }
+  .kpi div { font-size: 13px; color: var(--muted); }
+  .kpi strong { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .kpi .alert strong { color: var(--danger); }
+  button {
+    font: inherit; color: var(--text); background: var(--panel-2); border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 6px; cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); }
+  button.danger { border-color: var(--danger); color: var(--danger); }
+  button.danger:hover { background: rgba(255, 107, 122, 0.08); }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  section { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  section h2 { margin: 0; padding: 12px 16px; font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  th { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px; background: var(--panel-2); color: var(--muted); }
+  .tag.main { background: rgba(124, 181, 255, 0.15); color: var(--accent); }
+  .tag.code { background: rgba(107, 212, 143, 0.15); color: var(--good); }
+  .tag.mcp { background: rgba(255, 179, 107, 0.15); color: var(--warn); }
+  .tag.codex { background: rgba(255, 107, 122, 0.12); color: var(--danger); }
+  tr.orphan td { background: rgba(255, 107, 122, 0.07); }
+  .muted { color: var(--muted); }
+  .right { text-align: right; }
+  #chartWrap { padding: 12px 16px; }
+  canvas { width: 100%; height: 140px; display: block; }
+  .pill { padding: 3px 8px; border-radius: 10px; font-size: 11px; background: var(--panel-2); color: var(--muted); }
+  .pill.on { background: rgba(107, 212, 143, 0.12); color: var(--good); }
+  .pill.off { background: rgba(138, 147, 163, 0.15); color: var(--muted); }
+  footer { padding: 12px 20px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Claude Resource Manager</h1>
+  <div class="kpi">
+    <div>Claude procs <strong id="k-claude">–</strong></div>
+    <div>MCP servers <strong id="k-mcp">–</strong></div>
+    <div class="alert">Orphans <strong id="k-orphans">–</strong></div>
+    <div>Codex <strong id="k-codex">–</strong></div>
+    <div>Total memory <strong id="k-mem">–</strong> MB</div>
+  </div>
+  <div style="margin-left:auto; display:flex; gap:8px;">
+    <button id="killAll" class="danger" disabled>Kill all orphans</button>
+    <button id="shutdown">Stop dashboard</button>
+  </div>
+</header>
+
+<main>
+  <section style="grid-column: 1 / -1;">
+    <h2>Memory over time</h2>
+    <div id="chartWrap"><canvas id="chart"></canvas></div>
+  </section>
+
+  <section>
+    <h2>Claude process tree</h2>
+    <table id="procTable">
+      <thead><tr><th>PID</th><th>Label</th><th>Parent</th><th class="right">Mem&nbsp;MB</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>MCP servers (live)</h2>
+    <table id="mcpTable">
+      <thead><tr><th>PID</th><th>Parent</th><th class="right">Mem&nbsp;MB</th><th>Status</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section style="grid-column: 1 / -1;">
+    <h2>MCP servers (registered in configs)</h2>
+    <table id="auditTable">
+      <thead><tr><th>Name</th><th>Scope</th><th>Enabled</th><th>Config path</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <span id="status">connecting…</span>
+  <span id="ts" class="muted"></span>
+</footer>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const historyMs = 2 * 60 * 1000;
+  const history = []; // [{t, mem}]
+
+  async function api(path, opts) {
+    const r = await fetch(path, opts);
+    if (!r.ok) throw new Error(path + " " + r.status);
+    return r.json();
+  }
+
+  function fmt(n) { return n == null ? "–" : Number(n).toLocaleString(undefined, { maximumFractionDigits: 1 }); }
+
+  function labelClass(label) {
+    if (!label) return "";
+    if (label === "desktop-main") return "main";
+    if (label.startsWith("code-")) return "code";
+    if (label === "mcp-server") return "mcp";
+    if (label === "codex") return "codex";
+    return "";
+  }
+
+  function renderProcs(data) {
+    $("k-claude").textContent = data.totals.claude_processes;
+    $("k-mcp").textContent = data.totals.mcp_servers;
+    $("k-orphans").textContent = data.totals.orphans;
+    $("k-codex").textContent = data.totals.codex_processes;
+    $("k-mem").textContent = fmt(data.totals.total_memory_mb);
+
+    const tree = data.claude_family.slice().sort((a, b) => b.memory_mb - a.memory_mb);
+    $("procTable").querySelector("tbody").innerHTML = tree.map(p => `
+      <tr>
+        <td>${p.pid}</td>
+        <td><span class="tag ${labelClass(p.label)}">${p.label}</span></td>
+        <td class="muted">${p.ppid}</td>
+        <td class="right">${fmt(p.memory_mb)}</td>
+      </tr>`).join("") || `<tr><td colspan="4" class="muted">no Claude processes detected</td></tr>`;
+
+    const mcp = data.mcp_servers.slice().sort((a, b) => Number(b.is_orphan) - Number(a.is_orphan));
+    $("mcpTable").querySelector("tbody").innerHTML = mcp.map(p => `
+      <tr class="${p.is_orphan ? 'orphan' : ''}">
+        <td>${p.pid}</td>
+        <td class="muted">${p.ppid} <span class="tag">${p.parent_label || 'dead'}</span></td>
+        <td class="right">${fmt(p.memory_mb)}</td>
+        <td>${p.is_orphan ? '<span class="pill off">orphan</span>' : '<span class="pill on">in use</span>'}</td>
+        <td class="right">${p.is_orphan ? `<button class="danger" data-kill="${p.pid}">Kill</button>` : ''}</td>
+      </tr>`).join("") || `<tr><td colspan="5" class="muted">no MCP servers running</td></tr>`;
+
+    $("killAll").disabled = data.totals.orphans === 0;
+
+    history.push({ t: Date.now(), mem: data.totals.total_memory_mb });
+    const cutoff = Date.now() - historyMs;
+    while (history.length && history[0].t < cutoff) history.shift();
+    drawChart();
+
+    $("ts").textContent = `updated ${new Date().toLocaleTimeString()}`;
+    $("status").textContent = "connected";
+  }
+
+  function renderAudit(data) {
+    const rows = data.entries.slice().sort((a, b) => a.scope.localeCompare(b.scope) || a.name.localeCompare(b.name));
+    $("auditTable").querySelector("tbody").innerHTML = rows.map(e => `
+      <tr>
+        <td>${e.name}</td>
+        <td><span class="tag">${e.scope}</span></td>
+        <td>${e.disabled ? '<span class="pill off">disabled</span>' : '<span class="pill on">enabled</span>'}</td>
+        <td class="muted">${e.config_path}</td>
+      </tr>`).join("") || `<tr><td colspan="4" class="muted">no MCP servers registered</td></tr>`;
+  }
+
+  function drawChart() {
+    const canvas = $("chart");
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight || 140;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const ctx = canvas.getContext("2d");
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    if (history.length < 2) return;
+
+    const max = Math.max(...history.map(p => p.mem)) * 1.1 || 1;
+    const minT = history[0].t;
+    const maxT = history[history.length - 1].t;
+    const span = Math.max(maxT - minT, 1);
+
+    ctx.strokeStyle = "#7cb5ff";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    history.forEach((p, i) => {
+      const x = ((p.t - minT) / span) * (w - 8) + 4;
+      const y = h - ((p.mem / max) * (h - 16)) - 8;
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    ctx.fillStyle = "#8a93a3";
+    ctx.font = "11px -apple-system, Segoe UI, sans-serif";
+    ctx.fillText(`${Math.round(max)} MB`, 4, 12);
+    ctx.fillText(`${Math.round(history[history.length - 1].mem)} MB now`, w - 90, 12);
+  }
+
+  async function killPid(pid) {
+    try {
+      const r = await fetch(`/api/kill/${pid}`, { method: "POST" });
+      const body = await r.json();
+      if (!body.terminated) console.warn("kill failed", pid, body);
+    } catch (e) { console.warn(e); }
+    refresh();
+  }
+
+  document.addEventListener("click", (ev) => {
+    const t = ev.target;
+    if (t instanceof HTMLElement && t.dataset.kill) killPid(Number(t.dataset.kill));
+  });
+
+  $("killAll").addEventListener("click", async () => {
+    const snap = await api("/api/processes");
+    await Promise.all(snap.orphans.map(o => killPid(o.pid)));
+  });
+
+  $("shutdown").addEventListener("click", async () => {
+    try { await fetch("/api/shutdown", { method: "POST" }); } catch {}
+    $("status").textContent = "stopped";
+  });
+
+  async function refresh() {
+    try {
+      renderProcs(await api("/api/processes"));
+    } catch (e) {
+      $("status").textContent = "disconnected";
+    }
+  }
+  async function refreshAudit() {
+    try { renderAudit(await api("/api/mcp-audit")); } catch {}
+  }
+
+  refresh(); refreshAudit();
+  setInterval(refresh, 2000);
+  setInterval(refreshAudit, 30000);
+})();
+</script>
+</body>
+</html>

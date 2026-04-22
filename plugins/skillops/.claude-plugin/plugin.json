@@ -1,0 +1,9 @@
+{
+  "name": "skillops",
+  "version": "1.1.0",
+  "description": "Operate on Claude Code skills — scaffold new skills with skill-creator and audit existing skills with skill-evaluator (scored report across 8 quality dimensions)",
+  "author": {
+    "name": "Anthril",
+    "email": "john@anthril.com"
+  }
+}
