@@ -33,7 +33,18 @@ If you discover a security issue in any plugin or in the marketplace tooling, pl
 For dependency vulnerabilities surfaced by VirusTotal scans (non-zero detections in the table below), review the linked VT report first — false positives are common for gzipped shell-heavy archives. Confirmed true positives are treated as P0 and the affected plugin is delisted from `marketplace.json` pending remediation.
 
 <!-- vt-summary:start -->
-## Latest scan
+## Latest scan — 2026-04-22
 
-_No scan has been run yet. The weekly workflow or a manual dispatch of `VirusTotal Audit` will populate this table._
+| Plugin | Detections | Last scan | Report |
+|---|---:|---|---|
+| brand-manager | 0 / 76 | 2026-04-22 | [detail](plugins/brand-manager/VIRUSTOTAL.md) |
+| business-economics | 0 / 76 | 2026-04-22 | [detail](plugins/business-economics/VIRUSTOTAL.md) |
+| database-design | 0 / 76 | 2026-04-22 | [detail](plugins/database-design/VIRUSTOTAL.md) |
+| devops | 0 / 76 | 2026-04-22 | [detail](plugins/devops/VIRUSTOTAL.md) |
+| package-manager | 0 / 76 | 2026-04-22 | [detail](plugins/package-manager/VIRUSTOTAL.md) |
+| plan-completion-audit | 0 / 76 | 2026-04-22 | [detail](plugins/plan-completion-audit/VIRUSTOTAL.md) |
+| ppc-manager | 0 / 76 | 2026-04-22 | [detail](plugins/ppc-manager/VIRUSTOTAL.md) |
+| resource-manager | 0 / 76 | 2026-04-22 | [detail](plugins/resource-manager/VIRUSTOTAL.md) |
+| skillops | 0 / 76 | 2026-04-22 | [detail](plugins/skillops/VIRUSTOTAL.md) |
+| software-development | 0 / 76 | 2026-04-22 | [detail](plugins/software-development/VIRUSTOTAL.md) |
 <!-- vt-summary:end -->
