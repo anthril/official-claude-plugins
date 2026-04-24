@@ -108,8 +108,8 @@
       "version": "0.1.0-alpha.1",
       "description": "A Claude-maintained wiki for any project — hook-enforced documentation discipline, LLM-owned knowledge base, ingest/query/lint loop. Ships SessionStart, UserPromptSubmit, PreToolUse, and Stop hooks",
       "source": {
-        "source": "git",
-        "url": "https://github.com/anthril/claude-memex.git"
+        "source": "github",
+        "repo": "anthril/claude-memex"
       },
       "category": "developer-tools",
       "homepage": "https://github.com/anthril/claude-memex"

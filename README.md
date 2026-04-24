@@ -10,7 +10,7 @@ Maintained by [@Anthril](https://github.com/anthril).
 
 ```bash
 # Add the marketplace
-/plugin marketplace add anthril/official-claude-plugins
+/plugin marketplace add Anthril/official-claude-plugins
 
 # Install individual plugins
 /plugin install data-analysis@anthril-claude-plugins
