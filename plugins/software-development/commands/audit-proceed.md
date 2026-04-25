@@ -1,4 +1,5 @@
 ---
+name: audit-proceed
 description: Resume an `application-audit` run after answering open questions filed under `.anthril/questions/`. Pass `all` or one or more agent names.
 argument-hint: "<all | agent-name> [agent-name ...]"
 ---

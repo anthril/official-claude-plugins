@@ -1,10 +1,19 @@
 ---
 name: plan-orchestrator
-description: Orchestrate a multi-agent investigation and consolidated plan from a list of notes, tasks, issues, or bug reports. Designed for Claude Code Plan Mode — you toggle plan mode on, paste bullets after the slash command, and the skill fans out specialist sub-agents (frontend, backend, database, infrastructure, testing, security, documentation) in parallel to investigate the codebase, then compiles their findings into a single ordered plan with full coverage verification. Use when the user pastes a bullet list of tasks/issues/bugs/notes after a slash command, or mentions plan orchestration, multi-agent planning, batch task investigation, parallel investigation, fan-out planning, or pre-refactor task triage. Read-only — never modifies source files.
+description: Turns a bullet list of tasks/issues/bugs into one ordered plan with full coverage verification. Fans out specialist sub-agents in parallel. Designed for Claude Code Plan Mode. Read-only — produces a plan, never edits.
 argument-hint: [bullet list of tasks, issues, notes, or bug reports — one per line, prefixed with * or - or numbered]
 allowed-tools: Read Grep Glob Bash Agent
 effort: high
 ---
+
+<!--
+Runtime dependencies: bash, python3. The bare `Bash` entry in `allowed-tools`
+is required to invoke the helper scripts under `scripts/` (parse-bullets,
+classify-tasks, verify-coverage, compile-plan, detect-stack, stop-hook). Bash
+is never used to mutate project source — the read-only guarantee is enforced
+by the "no Write, no Edit" principle in the body.
+-->
+
 
 # Plan Orchestrator
 
@@ -65,7 +74,7 @@ Execute every phase in order. Read-only guarantee: this skill never modifies sou
 
 **Objective:** Each sub-agent investigates its assigned tasks against the actual codebase and returns a structured report.
 
-**Spawn all sub-agents in parallel** by emitting multiple `Agent` tool calls in a single assistant message. Each call uses the matching `subagent_type`:
+**Spawn all sub-agents in parallel** by emitting multiple `Agent` tool calls in a single assistant message. Each call uses the matching `subagent_type`. The full prompt scaffold the orchestrator fills in for each agent lives in `reference.md` §3, and the per-task report shape it expects back is defined in §4.
 
 | Domain | `subagent_type` |
 |---|---|
@@ -95,7 +104,7 @@ Wait for all sub-agents to return. If any agent fails, fall back to running the 
 **Objective:** Confirm every input task ID has at least one corresponding section across all sub-agent reports.
 
 1. Concatenate every sub-agent report into a single buffer (separated by `\n\n---\n\n`).
-2. Pipe the buffer plus the parsed task JSON through `scripts/verify-coverage.py`. The script accepts `--tasks <path>` and reads the buffer from stdin, returns JSON with `{covered: [...], missing: [...], duplicates: [...]}` and exits non-zero if `missing` is non-empty.
+2. Pipe the buffer plus the parsed task JSON through `scripts/verify-coverage.py`. The script accepts `--tasks <path>` and reads the buffer from stdin, returns JSON with `{covered: [...], missing: [...], duplicates: [...]}` and exits non-zero if `missing` is non-empty. The exact regex used for heading detection (`^###\s+(T\d+)\b`) is documented in `reference.md` §5 — agents that put the ID elsewhere are treated as missing.
 3. **If `missing` is empty:** proceed to Phase 5.
 4. **If `missing` is non-empty:** spawn `coverage-sweeper` (a single agent) with ONLY the missing task IDs and their original text. When it returns, append its report to the buffer and re-run verification. Allow at most 2 sweeper rounds — if tasks are still missing, surface them in the final plan as `UNRESOLVED — investigate manually` rather than fabricating coverage.
 5. **Duplicates** (same task covered by multiple agents) are not failures — they're expected for cross-cutting tasks. Note them so the compiler can deduplicate.
@@ -109,7 +118,7 @@ Wait for all sub-agents to return. If any agent fails, fall back to running the 
 1. Pipe the verified report buffer plus the task JSON through `scripts/compile-plan.py`. The script:
    - Parses each agent report's per-task sections.
    - Groups findings by task ID first (so the user sees every input bullet addressed in order), then by file (so changes to the same file are batched), then by risk tier.
-   - Emits the final plan in the structure of `templates/plan-template.md`.
+   - Emits the final plan in the structure of `templates/plan-template.md`. The deterministic section order is documented in `reference.md` §6, and the hard caps that gate Phases 1–4 are listed in `reference.md` §7.
 2. The compiled plan must include:
    - Header with run metadata (timestamp, agent count, task count, coverage status).
    - **Task coverage table** — one row per input task ID with a green/yellow/red marker.
@@ -129,6 +138,8 @@ Wait for all sub-agents to return. If any agent fails, fall back to running the 
 The Stop hook (`hooks/hooks.json` → `scripts/stop-hook.sh`) checks for any orphaned state markers under `/tmp/plan-orchestrator-*` from previous runs of this session. If a marker exists without a matching `*.complete` flag, the hook prints a warning to stderr so the user knows the prior orchestrator run never finalised. The hook is advisory only — it never blocks the conversation.
 
 The skill's normal happy-path writes a marker on entry (Phase 1) and the matching `.complete` flag on Phase 5 success, both via Bash so they work in Plan Mode.
+
+If `/tmp` is not writable (locked-down environments, read-only filesystems), the marker write degrades silently — Phase 1 continues without writing, and the stop hook simply finds nothing to surface. The orchestrator never depends on the marker for correctness; it is purely advisory state for the next session.
 
 ---
 

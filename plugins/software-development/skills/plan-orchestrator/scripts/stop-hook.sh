@@ -13,7 +13,7 @@
 # A marker without a matching .complete is treated as orphaned and surfaced.
 # Markers older than 6 hours are auto-pruned.
 
-set -uo pipefail
+set -euo pipefail
 
 MARKERS_GLOB="/tmp/plan-orchestrator-*.json"
 PRUNE_HOURS=6

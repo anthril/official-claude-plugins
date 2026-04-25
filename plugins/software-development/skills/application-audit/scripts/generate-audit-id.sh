@@ -6,7 +6,7 @@
 # Output: the audit ID, single line, no trailing newline.
 # Exit 0 always (or 1 if the project root is bad).
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 

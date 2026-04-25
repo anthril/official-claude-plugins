@@ -1,7 +1,7 @@
 ---
 name: application-audit-frontend-auditor
 description: Audit a Next.js 15 + React 19 + Tailwind frontend for rendering-mode correctness, client-boundary minimisation, caching pitfalls, bundle bloat, image/font optimisation, and Tailwind scanning. Read-only — writes only to .anthril/audits/<id>/agent-reports/frontend-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Frontend Auditor

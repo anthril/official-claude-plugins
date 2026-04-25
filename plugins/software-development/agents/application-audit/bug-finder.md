@@ -1,7 +1,7 @@
 ---
 name: application-audit-bug-finder
 description: Hunt cross-cutting defects in a Next.js 15 + React 19 + Supabase app — uncaught promises, missing error boundaries, stale revalidation, route-handler freshness bugs, hydration mismatches, async-API misuse, race conditions on mutations. Read-only — writes only to .anthril/audits/<id>/agent-reports/bug-finder.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Bug Finder

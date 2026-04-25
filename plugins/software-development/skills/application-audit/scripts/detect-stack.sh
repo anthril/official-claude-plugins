@@ -5,7 +5,7 @@
 # Usage: bash scripts/detect-stack.sh <project-root>
 # Output: short text block to stdout. Exit 0 always (skill decides what to do with the result).
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 

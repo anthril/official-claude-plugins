@@ -1,7 +1,7 @@
 ---
 name: application-audit-postgres-auditor
 description: Audit direct Postgres / ORM connection patterns from Next.js + Supabase server code — Supavisor session vs transaction mode, prepared statements in transaction mode, ORM wiring per runtime, query telemetry, index alignment, bloat. Read-only — writes only to .anthril/audits/<id>/agent-reports/postgres-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Postgres Auditor

@@ -1,10 +1,19 @@
 ---
 name: application-audit
-description: Multi-agent audit for Next.js 15 + React 19 + TypeScript Strict + Supabase + Tailwind apps. Bootstraps a project profile on first run, fans out ten specialist auditors in parallel (frontend, backend, bug-finder, cross-cutting security, client-connection, server-client, postgres, leak-detection, connection-limits, validator), pauses on open questions, and synthesises a ranked, evidence-backed improvement report at `.anthril/audits/<ID>/REPORT.md`. Read-only on project source — writes only to `.anthril/`.
+description: Multi-agent audit for Next.js + React + Supabase apps. Ten specialist auditors run in parallel, findings get validated, and a ranked evidence-backed report is written to `.anthril/audits/<ID>/REPORT.md`. Read-only on source.
 argument-hint: "[target-dir] (optional, defaults to cwd) [--refresh-profile]"
 allowed-tools: Read Grep Glob Bash Agent Write
 effort: high
 ---
+
+<!--
+Runtime dependencies: bash, python3, jq. The orchestrator delegates parsing,
+freshness checks, and report compilation to scripts under `scripts/`. The bare
+`Bash` entry in `allowed-tools` is required to invoke the dozen helpers — it is
+never used to mutate project source (the read-only guarantee is enforced by
+"writes only to `.anthril/`" below).
+-->
+
 
 # Application Audit
 
@@ -214,11 +223,15 @@ The report structure (driven by `audit-report-template.md`):
 
    Next steps:
    - Read the full report: .anthril/audits/<AUDIT_ID>/REPORT.md
-   - Generate an implementation plan: /software-development:plan-orchestrator <paste top findings as bullets>
+   - Compile an executable action plan: /audit-compile-plan
+   - Step through items one at a time: /audit-work
+   - Or generate a richer implementation plan: /software-development:plan-orchestrator <paste top findings as bullets>
    - Re-audit after fixes: re-run this skill (a new audit ID will be generated)
    ```
-2. Do not auto-spawn `plan-orchestrator`. The user decides whether to act.
-3. End the run. The skill never modifies project source — the user (or a follow-up session) applies any changes.
+2. Do not auto-spawn `plan-orchestrator` or `/audit-compile-plan`. The user decides whether to act.
+3. End the run. The skill never modifies project source — the user (or a follow-up session, e.g. `/audit-work`) applies any changes.
+
+The companion commands `/audit-compile-plan` and `/audit-work` (defined in `commands/`) turn the validated `findings[]` into a stateful, resumable remediation loop — see their command files for the full contract.
 
 ---
 

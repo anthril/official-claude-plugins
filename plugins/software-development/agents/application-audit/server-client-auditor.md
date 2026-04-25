@@ -1,7 +1,7 @@
 ---
 name: application-audit-server-client-auditor
 description: Audit Next.js + Supabase server/client SSR boundaries — two-client utility pattern, middleware Proxy matcher overspill, auth-refresh churn, auth-aware caching pitfalls, opportunities to shift reads server-side. Read-only — writes only to .anthril/audits/<id>/agent-reports/server-client-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Server-Client Auditor

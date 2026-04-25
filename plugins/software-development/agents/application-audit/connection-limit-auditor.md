@@ -1,7 +1,7 @@
 ---
 name: application-audit-connection-limit-auditor
 description: Audit Supabase connection-limit configuration — pool size vs PostgREST headroom, dual-pooler stacking, idle session monitoring, alert coverage. Read-only — writes only to .anthril/audits/<id>/agent-reports/connection-limit-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Connection Limit Auditor

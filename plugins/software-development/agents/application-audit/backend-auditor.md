@@ -1,7 +1,7 @@
 ---
 name: application-audit-backend-auditor
 description: Audit a Next.js 15 + Supabase backend for SSR auth setup, Edge Function exposure, mutation boundaries, schema migrations, type generation, telemetry, and load-testing readiness. Read-only — writes only to .anthril/audits/<id>/agent-reports/backend-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Backend Auditor

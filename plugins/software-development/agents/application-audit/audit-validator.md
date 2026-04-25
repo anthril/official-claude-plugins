@@ -1,7 +1,7 @@
 ---
 name: application-audit-validator
 description: Validate the nine application-audit auditor reports — confirm evidence, reject fabrication, dedupe across domains, calibrate severity, identify cross-cutting risks. Runs after Phase 5's open-questions gate clears. Read-only — writes only to .anthril/audits/<id>/validation.md and .anthril/audits/<id>/validation.json.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Audit Validator

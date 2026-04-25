@@ -15,7 +15,7 @@
 # anything other than "(awaiting answer)" or whitespace. Answered files are
 # left in `.anthril/questions/` until /audit-proceed moves them to .resolved/.
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 QUESTIONS_DIR="$PROJECT_ROOT/.anthril/questions"

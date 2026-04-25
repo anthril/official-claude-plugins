@@ -4,7 +4,7 @@
 # Output: a single line `MEMEX_MODE=plugin|wiki|none` plus diagnostic lines.
 # Exit 0 always.
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 

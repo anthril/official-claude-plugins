@@ -1,7 +1,7 @@
 ---
 name: application-audit-leak-detection-auditor
 description: Detect leaks in a Next.js + Supabase app — Realtime channels never torn down, hardcoded secrets, exposed API keys, unmasked logging, PII in error responses, file-handle/timer leaks. Read-only — writes only to .anthril/audits/<id>/agent-reports/leak-detection-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Leak Detection Auditor

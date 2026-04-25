@@ -1,7 +1,7 @@
 ---
 name: database-investigator
 description: Investigate database-domain tasks (schema, migrations, queries, RLS, indexes, performance, ORM mappings, triggers, stored functions). Use as part of the plan-orchestrator skill when tasks involve table changes, migrations, RLS policies, query performance, indexes, triggers, RPCs, or any persistence-layer change. Read-only — produces an evidence-backed plan, never edits files or runs DDL.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Database Investigator

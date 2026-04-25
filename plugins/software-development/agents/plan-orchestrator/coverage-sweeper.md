@@ -1,7 +1,7 @@
 ---
 name: coverage-sweeper
 description: Sweep up tasks that did not receive coverage from any specialist agent in the plan-orchestrator skill's Phase 3. Use ONLY as a Phase 4 fallback when the verifier reports missing task IDs. Cross-domain by design — picks up tasks the heuristic classifier or the assigned specialists could not address. Read-only — produces an evidence-backed plan, never edits files.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Coverage Sweeper

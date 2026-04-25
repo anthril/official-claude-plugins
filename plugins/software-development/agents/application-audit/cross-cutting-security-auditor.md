@@ -1,7 +1,7 @@
 ---
 name: application-audit-cross-cutting-security-auditor
 description: Audit security across a Next.js 15 + Supabase app — RLS per-op coverage, API key separation (publishable vs service_role), storage policies, security headers / CSP, server-action CSRF (allowedOrigins), env var exposure, input sanitisation. Read-only — writes only to .anthril/audits/<id>/agent-reports/cross-cutting-security-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Cross-Cutting Security Auditor

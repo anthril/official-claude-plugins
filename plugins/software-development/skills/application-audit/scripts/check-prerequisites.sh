@@ -3,7 +3,7 @@
 # Usage: bash scripts/check-prerequisites.sh <project-root>
 # Output: short text block to stdout. Exit 0 always.
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 

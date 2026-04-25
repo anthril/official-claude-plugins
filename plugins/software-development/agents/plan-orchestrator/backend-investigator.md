@@ -1,7 +1,7 @@
 ---
 name: backend-investigator
 description: Investigate backend-domain tasks (server routes, API handlers, business logic, validation, queues, background jobs, webhooks, RPCs). Use as part of the plan-orchestrator skill when tasks involve REST or GraphQL endpoints, server actions, edge functions, request validation, queue producers/consumers, cron jobs, webhook handlers, or any server-side logic. Read-only — produces an evidence-backed plan, never edits files.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Backend Investigator

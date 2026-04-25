@@ -1,7 +1,7 @@
 ---
 name: application-audit-client-connection-auditor
 description: Audit browser-side connection patterns in a Next.js 15 + Supabase app — Data API usage, request deduplication, browser client instantiation, Realtime subscription lifecycle in client components. Read-only — writes only to .anthril/audits/<id>/agent-reports/client-connection-auditor.md and .anthril/questions/ as needed.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Client Connection Auditor

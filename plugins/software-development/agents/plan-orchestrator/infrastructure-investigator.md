@@ -1,7 +1,7 @@
 ---
 name: infrastructure-investigator
 description: Investigate infrastructure-domain tasks (CI/CD, Docker, deployment, environment variables, secrets, monitoring, logging, hosting platform configuration). Use as part of the plan-orchestrator skill when tasks involve GitHub Actions, Docker images, Vercel/Cloudflare/Fly.io deployment, environment configuration, secret management, or runtime monitoring/alerting. Read-only — produces an evidence-backed plan, never edits files or triggers deploys.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Infrastructure Investigator

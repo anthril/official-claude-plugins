@@ -1,7 +1,7 @@
 ---
 name: documentation-investigator
 description: Investigate documentation-domain tasks (READMEs, inline docs, API docs, changelogs, ADRs, docstrings, code comments). Use as part of the plan-orchestrator skill when tasks involve writing, updating, restructuring, or auditing documentation. Read-only — produces an evidence-backed plan, never edits files.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Documentation Investigator

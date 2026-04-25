@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/anthril/official-claude-plugins/schemas/application-audit-action-plan.schema.json",
+  "title": "Application Audit Action Plan",
+  "description": "Stateful work-item ledger compiled from a validated audit run. Sidecar to .anthril/audits/<id>/ACTION-PLAN.md. Mutated in-place by the /audit-work command as items are completed.",
+  "type": "object",
+  "required": ["schema_version", "audit", "summary", "items"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "audit": {
+      "type": "object",
+      "required": ["id", "compiled_at", "target", "source_validation_path"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^\\d{8}-\\d{4}(-\\d+)?$",
+          "description": "Audit ID this plan was compiled from (matches validation.json audit.id)."
+        },
+        "compiled_at": { "type": "string", "format": "date-time" },
+        "last_updated_at": { "type": "string", "format": "date-time" },
+        "target": { "type": "string" },
+        "source_validation_path": { "type": "string" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["total_items", "by_severity", "by_status"],
+      "properties": {
+        "total_items": { "type": "integer", "minimum": 0 },
+        "by_severity": {
+          "type": "object",
+          "properties": {
+            "CRITICAL": { "type": "integer", "minimum": 0 },
+            "HIGH": { "type": "integer", "minimum": 0 },
+            "MEDIUM": { "type": "integer", "minimum": 0 },
+            "LOW": { "type": "integer", "minimum": 0 },
+            "INFO": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "by_status": {
+          "type": "object",
+          "properties": {
+            "pending": { "type": "integer", "minimum": 0 },
+            "in_progress": { "type": "integer", "minimum": 0 },
+            "done": { "type": "integer", "minimum": 0 },
+            "blocked": { "type": "integer", "minimum": 0 },
+            "skipped": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "severity", "domain", "title", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^AA-\\d{3,}$",
+            "description": "Stable identifier inherited from validation.json findings."
+          },
+          "agent": { "type": "string" },
+          "domain": { "type": "string" },
+          "category": { "type": "string" },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          },
+          "phase": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Remediation phase derived from PHASE_FOR_DOMAIN (1=Security & correctness, 2=Server/client fundamentals, 3=Connection hygiene, 4=Initial-load performance, 5=Measured DB optimisation)."
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "1-based execution order across the whole plan, after applying phase + severity + confidence sort."
+          },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["type", "value"],
+              "properties": {
+                "type": { "type": "string" },
+                "value": { "type": "string" },
+                "observation": { "type": "string" }
+              }
+            }
+          },
+          "remediation_steps": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "risks": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "verification": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "in_progress", "done", "blocked", "skipped"],
+            "default": "pending"
+          },
+          "started_at": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes captured during /audit-work — design decisions, deferrals, scope clarifications."
+          },
+          "blockers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["reason"],
+              "properties": {
+                "reason": { "type": "string" },
+                "logged_at": { "type": "string", "format": "date-time" }
+              }
+            }
+          },
+          "files_touched": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Repo-relative file paths edited while resolving this item."
+          },
+          "git_branch": {
+            "type": "string",
+            "description": "Optional: git branch created or used for this item's remediation."
+          }
+        }
+      }
+    }
+  }
+}

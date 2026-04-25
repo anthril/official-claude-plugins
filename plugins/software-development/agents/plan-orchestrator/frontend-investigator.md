@@ -1,7 +1,7 @@
 ---
 name: frontend-investigator
 description: Investigate frontend-domain tasks (UI components, client routing, styling, browser state, accessibility, animations). Use as part of the plan-orchestrator skill when tasks involve React/Vue/Svelte components, page layouts, forms, modals, Tailwind/CSS, responsive design, a11y, or any browser-side concern. Read-only — produces an evidence-backed plan, never edits files.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Frontend Investigator

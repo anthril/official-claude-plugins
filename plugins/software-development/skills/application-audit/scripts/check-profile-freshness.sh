@@ -13,7 +13,7 @@
 # This script just answers: "is the recorded next/react/typescript/supabase/tailwind
 # version still consistent with package.json?"
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 

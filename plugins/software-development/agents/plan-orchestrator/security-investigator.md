@@ -1,7 +1,7 @@
 ---
 name: security-investigator
 description: Investigate security-domain tasks (authentication, authorization, secrets handling, input sanitisation, vulnerability findings, supply chain, RLS, CORS, CSRF/XSS/SSRF, rate limiting, audit logging). Use as part of the plan-orchestrator skill when tasks involve auth flows, RBAC, vulnerability remediation, secret rotation, sanitisation, or any user-data-protection concern. Read-only — produces an evidence-backed plan, never edits files or rotates real secrets.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Security Investigator

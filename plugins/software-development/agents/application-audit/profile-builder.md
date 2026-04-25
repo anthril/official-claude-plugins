@@ -1,7 +1,7 @@
 ---
 name: application-audit-profile-builder
 description: Build or refresh the .anthril/preset-profile.md project profile that the application-audit skill's nine auditors read before investigating. Detects Next/React/TS/Supabase/Tailwind versions, repo layout, MCP connections, memex availability. Preserves human-edited blocks on --update.
-tools: Read, Grep, Glob, Bash, Write
+allowed-tools: Read Grep Glob Bash Write
 ---
 
 # Profile Builder

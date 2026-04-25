@@ -3,7 +3,7 @@ name: campaign-auditor
 description: Deep PPC account audit specialist. Invoked by the campaign-audit skill when a cross-platform audit needs an isolated, long-running analysis context.
 model: sonnet
 effort: max
-tools: Read Grep Bash
+allowed-tools: Read Grep Bash
 ---
 
 # Campaign Auditor

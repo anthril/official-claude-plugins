@@ -1,7 +1,7 @@
 ---
 name: testing-investigator
 description: Investigate testing-domain tasks (unit, integration, e2e tests, fixtures, mocks, test utilities, coverage gates). Use as part of the plan-orchestrator skill when tasks involve adding tests, fixing flaky tests, raising coverage, restructuring fixtures, mocking external services, or wiring up a new test runner. Read-only — produces an evidence-backed plan, never edits files or runs destructive test commands.
-tools: Read, Grep, Glob, Bash
+allowed-tools: Read Grep Glob Bash
 ---
 
 # Testing Investigator

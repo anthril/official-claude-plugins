@@ -8,7 +8,7 @@
 #   { "audit_id": "...", "expected": [...], "found": [...], "missing": [...] }
 # Exit 0 always.
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 AUDIT_ID="${2:-}"

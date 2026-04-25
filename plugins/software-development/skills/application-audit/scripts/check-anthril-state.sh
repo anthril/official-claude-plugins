@@ -3,7 +3,7 @@
 # Usage: bash scripts/check-anthril-state.sh <project-root>
 # Output: short text block to stdout. Exit 0 always.
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 
