@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T09:47:35.299Z",
+  "scanned_at": "2026-04-25T10:49:22.580Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/resource-manager",
-    "sha256": "cc96a6ca3f8c377f12e81cdaad5fb8f2bc542914b56519165a0a3c5fa7ff2fab",
-    "size_bytes": 17127
+    "sha256": "6ad0d2cd620de2b5ed5a95839115a0fbc876f3276eb88e6a6d8daf03e2621b2a",
+    "size_bytes": 25929
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777110334,
-  "gui_url": "https://www.virustotal.com/gui/file/cc96a6ca3f8c377f12e81cdaad5fb8f2bc542914b56519165a0a3c5fa7ff2fab",
+  "last_analysis_date": 1777114081,
+  "gui_url": "https://www.virustotal.com/gui/file/6ad0d2cd620de2b5ed5a95839115a0fbc876f3276eb88e6a6d8daf03e2621b2a",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -75,7 +75,7 @@
       "result": null
     },
     {
-      "engine": "K7AntiVirus",
+      "engine": "CrowdStrike",
       "category": "undetected",
       "result": null
     },
@@ -85,12 +85,7 @@
       "result": null
     },
     {
-      "engine": "CrowdStrike",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Arcabit",
+      "engine": "K7AntiVirus",
       "category": "undetected",
       "result": null
     },
@@ -145,7 +140,7 @@
       "result": null
     },
     {
-      "engine": "Rising",
+      "engine": "Tencent",
       "category": "undetected",
       "result": null
     },
@@ -180,7 +175,12 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "SentinelOne",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -190,7 +190,12 @@
       "result": null
     },
     {
-      "engine": "SentinelOne",
+      "engine": "Ikarus",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
@@ -200,7 +205,7 @@
       "result": null
     },
     {
-      "engine": "Google",
+      "engine": "Varist",
       "category": "undetected",
       "result": null
     },
@@ -230,7 +235,7 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -245,12 +250,12 @@
       "result": null
     },
     {
-      "engine": "GData",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Varist",
+      "engine": "Google",
       "category": "undetected",
       "result": null
     },
@@ -275,17 +280,12 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Zoner",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -345,12 +345,17 @@
       "result": null
     },
     {
+      "engine": "DeepInstinct",
+      "category": "type-unsupported",
+      "result": null
+    },
+    {
       "engine": "Elastic",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "DeepInstinct",
+      "engine": "Webroot",
       "category": "type-unsupported",
       "result": null
     },
@@ -365,17 +370,12 @@
       "result": null
     },
     {
-      "engine": "Trapmine",
-      "category": "type-unsupported",
-      "result": null
-    },
-    {
       "engine": "Alibaba",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Webroot",
+      "engine": "Trapmine",
       "category": "type-unsupported",
       "result": null
     },

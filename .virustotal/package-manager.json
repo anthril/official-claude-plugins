@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T09:31:19.289Z",
+  "scanned_at": "2026-04-25T10:33:04.991Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/package-manager",
-    "sha256": "36947d00b657b26924b8bf23ac2b32c807768396ba6bbec5db903152df0d4336",
-    "size_bytes": 53834
+    "sha256": "04233be67d2b6754de9461053a454da4a9af7208d1ddf3e33d9b951de51b3d12",
+    "size_bytes": 54436
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777109398,
-  "gui_url": "https://www.virustotal.com/gui/file/36947d00b657b26924b8bf23ac2b32c807768396ba6bbec5db903152df0d4336",
+  "last_analysis_date": 1777113083,
+  "gui_url": "https://www.virustotal.com/gui/file/04233be67d2b6754de9461053a454da4a9af7208d1ddf3e33d9b951de51b3d12",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -75,7 +75,7 @@
       "result": null
     },
     {
-      "engine": "CrowdStrike",
+      "engine": "K7AntiVirus",
       "category": "undetected",
       "result": null
     },
@@ -85,7 +85,7 @@
       "result": null
     },
     {
-      "engine": "K7AntiVirus",
+      "engine": "CrowdStrike",
       "category": "undetected",
       "result": null
     },
@@ -145,7 +145,7 @@
       "result": null
     },
     {
-      "engine": "Sophos",
+      "engine": "Emsisoft",
       "category": "undetected",
       "result": null
     },
@@ -175,17 +175,22 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Emsisoft",
+      "engine": "Sophos",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
@@ -215,11 +220,6 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Gridinsoft",
       "category": "undetected",
       "result": null
@@ -245,7 +245,7 @@
       "result": null
     },
     {
-      "engine": "GData",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
@@ -295,7 +295,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },

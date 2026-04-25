@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T09:45:13.466Z",
+  "scanned_at": "2026-04-25T10:47:41.111Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/devops",
-    "sha256": "fda34a4c156fdd981002efd0c482b747f94858fc8b500d379cd3bfb840286fab",
-    "size_bytes": 91235
+    "sha256": "2730ede387f4d45127c6b3c881b197b437da8eeed1b9cae3cddd5957dbc4cb87",
+    "size_bytes": 91336
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777110231,
-  "gui_url": "https://www.virustotal.com/gui/file/fda34a4c156fdd981002efd0c482b747f94858fc8b500d379cd3bfb840286fab",
+  "last_analysis_date": 1777113979,
+  "gui_url": "https://www.virustotal.com/gui/file/2730ede387f4d45127c6b3c881b197b437da8eeed1b9cae3cddd5957dbc4cb87",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -65,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -86,11 +86,6 @@
     },
     {
       "engine": "CrowdStrike",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -145,7 +140,7 @@
       "result": null
     },
     {
-      "engine": "Rising",
+      "engine": "Tencent",
       "category": "undetected",
       "result": null
     },
@@ -165,7 +160,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -191,6 +186,11 @@
     },
     {
       "engine": "Ikarus",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
@@ -230,7 +230,7 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -245,7 +245,7 @@
       "result": null
     },
     {
-      "engine": "GData",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
@@ -280,7 +280,7 @@
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -340,17 +340,12 @@
       "result": null
     },
     {
-      "engine": "Elastic",
-      "category": "type-unsupported",
-      "result": null
-    },
-    {
       "engine": "DeepInstinct",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Webroot",
+      "engine": "Elastic",
       "category": "type-unsupported",
       "result": null
     },
@@ -365,12 +360,17 @@
       "result": null
     },
     {
+      "engine": "Trapmine",
+      "category": "type-unsupported",
+      "result": null
+    },
+    {
       "engine": "Alibaba",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Trapmine",
+      "engine": "Webroot",
       "category": "type-unsupported",
       "result": null
     },

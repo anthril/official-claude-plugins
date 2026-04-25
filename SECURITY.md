@@ -40,7 +40,6 @@ For dependency vulnerabilities surfaced by VirusTotal scans (non-zero detections
 | brand-manager | 0 / 75 | 2026-04-25 | [detail](plugins/brand-manager/VIRUSTOTAL.md) |
 | business-economics | 0 / 75 | 2026-04-25 | [detail](plugins/business-economics/VIRUSTOTAL.md) |
 | devops | 0 / 75 | 2026-04-25 | [detail](plugins/devops/VIRUSTOTAL.md) |
-| knowledge-engineering | 0 / 75 | 2026-04-25 | [detail](plugins/knowledge-engineering/VIRUSTOTAL.md) |
 | package-manager | 0 / 75 | 2026-04-25 | [detail](plugins/package-manager/VIRUSTOTAL.md) |
 | plan-completion-audit | 0 / 75 | 2026-04-25 | [detail](plugins/plan-completion-audit/VIRUSTOTAL.md) |
 | ppc-manager | 0 / 75 | 2026-04-25 | [detail](plugins/ppc-manager/VIRUSTOTAL.md) |

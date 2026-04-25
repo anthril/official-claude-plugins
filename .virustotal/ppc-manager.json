@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T09:40:47.902Z",
+  "scanned_at": "2026-04-25T10:43:16.693Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/ppc-manager",
-    "sha256": "37f5eb872eb419a3a025cef539c63b333c1ca98ac6823aaf65951e83389f5364",
-    "size_bytes": 276076
+    "sha256": "4b8c18b52ffbc6484739afe3d6434f8831d5a13f3855a4948dd36c1648f05bd2",
+    "size_bytes": 276914
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777109967,
-  "gui_url": "https://www.virustotal.com/gui/file/37f5eb872eb419a3a025cef539c63b333c1ca98ac6823aaf65951e83389f5364",
+  "last_analysis_date": 1777113675,
+  "gui_url": "https://www.virustotal.com/gui/file/4b8c18b52ffbc6484739afe3d6434f8831d5a13f3855a4948dd36c1648f05bd2",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -65,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -165,7 +165,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -180,12 +180,7 @@
       "result": null
     },
     {
-      "engine": "SentinelOne",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -195,7 +190,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "SentinelOne",
       "category": "undetected",
       "result": null
     },
@@ -280,6 +275,11 @@
       "result": null
     },
     {
+      "engine": "Ikarus",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "Zoner",
       "category": "undetected",
       "result": null
@@ -345,17 +345,12 @@
       "result": null
     },
     {
-      "engine": "DeepInstinct",
-      "category": "type-unsupported",
-      "result": null
-    },
-    {
       "engine": "Elastic",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Webroot",
+      "engine": "DeepInstinct",
       "category": "type-unsupported",
       "result": null
     },
@@ -370,12 +365,17 @@
       "result": null
     },
     {
+      "engine": "Trapmine",
+      "category": "type-unsupported",
+      "result": null
+    },
+    {
       "engine": "Alibaba",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Trapmine",
+      "engine": "Webroot",
       "category": "type-unsupported",
       "result": null
     },

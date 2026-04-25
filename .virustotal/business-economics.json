@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T09:29:37.878Z",
+  "scanned_at": "2026-04-25T10:31:03.084Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/business-economics",
-    "sha256": "baf101e904fede27118433b588ef0fcc83d5e2ea07e34090dd9a307a95f0b230",
-    "size_bytes": 32050
+    "sha256": "0b58dc7badede0b6a498070622f0de26b5e678caae2b0dbb9c742369846076a9",
+    "size_bytes": 32087
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777109297,
-  "gui_url": "https://www.virustotal.com/gui/file/baf101e904fede27118433b588ef0fcc83d5e2ea07e34090dd9a307a95f0b230",
+  "last_analysis_date": 1777112941,
+  "gui_url": "https://www.virustotal.com/gui/file/0b58dc7badede0b6a498070622f0de26b5e678caae2b0dbb9c742369846076a9",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -180,11 +180,6 @@
       "result": null
     },
     {
-      "engine": "SentinelOne",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "CMC",
       "category": "undetected",
       "result": null
@@ -195,7 +190,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -280,6 +275,11 @@
       "result": null
     },
     {
+      "engine": "Ikarus",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "Zoner",
       "category": "undetected",
       "result": null
@@ -300,7 +300,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "SentinelOne",
       "category": "undetected",
       "result": null
     },

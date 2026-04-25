@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T09:37:24.435Z",
+  "scanned_at": "2026-04-25T10:38:52.030Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/brand-manager",
-    "sha256": "0d9368f8d2921eddb64e1e2e9555867fb8ea26f1c0734e67b1def6762efaa619",
-    "size_bytes": 185158
+    "sha256": "fe606254a93ecfbeb51ae927317d7ae6ddc1751bde5c34a71be6f960cc625fe0",
+    "size_bytes": 186558
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777109682,
-  "gui_url": "https://www.virustotal.com/gui/file/0d9368f8d2921eddb64e1e2e9555867fb8ea26f1c0734e67b1def6762efaa619",
+  "last_analysis_date": 1777113450,
+  "gui_url": "https://www.virustotal.com/gui/file/fe606254a93ecfbeb51ae927317d7ae6ddc1751bde5c34a71be6f960cc625fe0",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -65,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -75,7 +75,7 @@
       "result": null
     },
     {
-      "engine": "K7AntiVirus",
+      "engine": "CrowdStrike",
       "category": "undetected",
       "result": null
     },
@@ -85,7 +85,12 @@
       "result": null
     },
     {
-      "engine": "CrowdStrike",
+      "engine": "K7AntiVirus",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -160,7 +165,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -175,7 +180,12 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "SentinelOne",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -185,12 +195,7 @@
       "result": null
     },
     {
-      "engine": "SentinelOne",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "GData",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -200,7 +205,7 @@
       "result": null
     },
     {
-      "engine": "Google",
+      "engine": "Varist",
       "category": "undetected",
       "result": null
     },
@@ -230,7 +235,7 @@
       "result": null
     },
     {
-      "engine": "Arcabit",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
@@ -245,12 +250,12 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Varist",
+      "engine": "Google",
       "category": "undetected",
       "result": null
     },
@@ -271,11 +276,6 @@
     },
     {
       "engine": "TACHYON",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
