@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-22T05:24:11.796Z",
+  "scanned_at": "2026-04-25T03:26:10.080Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/plan-completion-audit",
-    "sha256": "c6332a008d97c026ec00df21319958d97035b5e550f0012f772c93eed5dac899",
-    "size_bytes": 26168
+    "sha256": "1587e1fe9d3d7e0cf9926af7f4319334160d108b5f3cc8dca93ac8293bcbea1f",
+    "size_bytes": 26510
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 62,
+    "undetected": 61,
     "timeout": 0,
-    "total_engines": 76
+    "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1776835350,
-  "gui_url": "https://www.virustotal.com/gui/file/c6332a008d97c026ec00df21319958d97035b5e550f0012f772c93eed5dac899",
+  "last_analysis_date": 1777087489,
+  "gui_url": "https://www.virustotal.com/gui/file/1587e1fe9d3d7e0cf9926af7f4319334160d108b5f3cc8dca93ac8293bcbea1f",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -30,12 +30,7 @@
       "result": null
     },
     {
-      "engine": "MicroWorld-eScan",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "ClamAV",
+      "engine": "Cynet",
       "category": "undetected",
       "result": null
     },
@@ -95,11 +90,6 @@
       "result": null
     },
     {
-      "engine": "Baidu",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "VirIT",
       "category": "undetected",
       "result": null
@@ -125,7 +115,7 @@
       "result": null
     },
     {
-      "engine": "Cynet",
+      "engine": "ClamAV",
       "category": "undetected",
       "result": null
     },
@@ -146,6 +136,11 @@
     },
     {
       "engine": "ViRobot",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "MicroWorld-eScan",
       "category": "undetected",
       "result": null
     },
@@ -195,7 +190,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -300,7 +295,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },

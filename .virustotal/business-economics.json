@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-22T05:19:48.523Z",
+  "scanned_at": "2026-04-25T03:22:46.695Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/business-economics",
-    "sha256": "bd387d6a98ba899ee225017a93af1f0d2d6604e1ce4ff98cc1fbf7d94418a1a8",
-    "size_bytes": 31715
+    "sha256": "69080308072f8299efd202cfd701a2476a9e420db682a89ebb9da47011e1fac9",
+    "size_bytes": 32053
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 63,
+    "undetected": 62,
     "timeout": 0,
-    "total_engines": 76
+    "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1776835066,
-  "gui_url": "https://www.virustotal.com/gui/file/bd387d6a98ba899ee225017a93af1f0d2d6604e1ce4ff98cc1fbf7d94418a1a8",
+  "last_analysis_date": 1777087244,
+  "gui_url": "https://www.virustotal.com/gui/file/69080308072f8299efd202cfd701a2476a9e420db682a89ebb9da47011e1fac9",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -86,16 +86,6 @@
     },
     {
       "engine": "CrowdStrike",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "huorong",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Baidu",
       "category": "undetected",
       "result": null
     },
@@ -185,7 +175,12 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "SentinelOne",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -210,7 +205,7 @@
       "result": null
     },
     {
-      "engine": "Google",
+      "engine": "Varist",
       "category": "undetected",
       "result": null
     },
@@ -260,7 +255,7 @@
       "result": null
     },
     {
-      "engine": "Varist",
+      "engine": "Google",
       "category": "undetected",
       "result": null
     },
@@ -305,7 +300,7 @@
       "result": null
     },
     {
-      "engine": "SentinelOne",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -360,6 +355,11 @@
       "result": null
     },
     {
+      "engine": "Webroot",
+      "category": "type-unsupported",
+      "result": null
+    },
+    {
       "engine": "APEX",
       "category": "type-unsupported",
       "result": null
@@ -370,17 +370,12 @@
       "result": null
     },
     {
-      "engine": "Trapmine",
-      "category": "type-unsupported",
-      "result": null
-    },
-    {
       "engine": "Alibaba",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Webroot",
+      "engine": "Trapmine",
       "category": "type-unsupported",
       "result": null
     },

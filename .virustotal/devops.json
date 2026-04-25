@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-22T05:35:21.629Z",
+  "scanned_at": "2026-04-25T03:37:41.758Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/devops",
-    "sha256": "ae488dbded894640d1878f7268e1df479ab7d01aa983e475834d775cc5df6fd4",
-    "size_bytes": 90901
+    "sha256": "8a21051303798c5c0bb895bce297b20c268e939b04035be7f52fc5f9e0f50501",
+    "size_bytes": 91233
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 62,
+    "undetected": 60,
     "timeout": 0,
-    "total_engines": 76
+    "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1776836040,
-  "gui_url": "https://www.virustotal.com/gui/file/ae488dbded894640d1878f7268e1df479ab7d01aa983e475834d775cc5df6fd4",
+  "last_analysis_date": 1777088139,
+  "gui_url": "https://www.virustotal.com/gui/file/8a21051303798c5c0bb895bce297b20c268e939b04035be7f52fc5f9e0f50501",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,17 +40,12 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
     {
       "engine": "CAT-QuickHeal",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Skyhigh",
       "category": "undetected",
       "result": null
     },
@@ -65,7 +60,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -86,11 +81,6 @@
     },
     {
       "engine": "CrowdStrike",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Baidu",
       "category": "undetected",
       "result": null
     },
@@ -150,7 +140,7 @@
       "result": null
     },
     {
-      "engine": "Sophos",
+      "engine": "Emsisoft",
       "category": "undetected",
       "result": null
     },
@@ -165,7 +155,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -180,17 +170,17 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Emsisoft",
+      "engine": "Sophos",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -300,7 +290,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -327,6 +317,11 @@
     {
       "engine": "alibabacloud",
       "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "Skyhigh",
+      "category": "failure",
       "result": null
     },
     {

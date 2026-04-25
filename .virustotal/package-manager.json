@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-22T05:22:10.295Z",
+  "scanned_at": "2026-04-25T03:24:28.410Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/package-manager",
-    "sha256": "1c976da95938a641fc3158d9fc7024dd17c57f31cbc9564e915705f7a9a49966",
-    "size_bytes": 53504
+    "sha256": "53e471b27131ae8006d9d24cc2d3470a5f68dba7848b28888aa0b3003b4acff1",
+    "size_bytes": 53838
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 62,
+    "undetected": 61,
     "timeout": 0,
-    "total_engines": 76
+    "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1776835209,
-  "gui_url": "https://www.virustotal.com/gui/file/1c976da95938a641fc3158d9fc7024dd17c57f31cbc9564e915705f7a9a49966",
+  "last_analysis_date": 1777087387,
+  "gui_url": "https://www.virustotal.com/gui/file/53e471b27131ae8006d9d24cc2d3470a5f68dba7848b28888aa0b3003b4acff1",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -90,11 +90,6 @@
       "result": null
     },
     {
-      "engine": "Baidu",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "VirIT",
       "category": "undetected",
       "result": null
@@ -150,7 +145,7 @@
       "result": null
     },
     {
-      "engine": "Emsisoft",
+      "engine": "Sophos",
       "category": "undetected",
       "result": null
     },
@@ -185,7 +180,7 @@
       "result": null
     },
     {
-      "engine": "Sophos",
+      "engine": "Emsisoft",
       "category": "undetected",
       "result": null
     },

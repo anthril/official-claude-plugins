@@ -1,10 +1,10 @@
 # VirusTotal — brand-manager
 
-**Last scan:** 2026-04-22 · **Verdict:** clean
-**Detections:** 0 malicious · 0 suspicious · 0 harmless · 63 undetected (of 76 engines)
+**Last scan:** 2026-04-25 · **Verdict:** clean
+**Detections:** 0 malicious · 0 suspicious · 0 harmless · 62 undetected (of 75 engines)
 **Reputation:** 0
-**Tarball SHA-256:** `c0b6d23c067c884447f3a2f2de8d83d980b789e5e7226aff54cd5da85ba17b5d`
-**Full report:** https://www.virustotal.com/gui/file/c0b6d23c067c884447f3a2f2de8d83d980b789e5e7226aff54cd5da85ba17b5d
+**Tarball SHA-256:** `0897b052347d22ab228240dc0e2bcbe73fee8213357caaf5587a8c0af19f722f`
+**Full report:** https://www.virustotal.com/gui/file/0897b052347d22ab228240dc0e2bcbe73fee8213357caaf5587a8c0af19f722f
 
 ## Engine results
 

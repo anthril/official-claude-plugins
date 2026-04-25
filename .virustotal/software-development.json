@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-22T05:29:57.144Z",
+  "scanned_at": "2026-04-25T03:31:35.489Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/software-development",
-    "sha256": "bff60ea048f0edaa17501c1a7820000df7add51cb3bebeefa825da95c0e786ea",
-    "size_bytes": 95961
+    "sha256": "2b80fbca7c234efa493d7e53af5875d11a2a0b4b54db94e57300c64854312454",
+    "size_bytes": 135298
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 63,
+    "undetected": 62,
     "timeout": 0,
-    "total_engines": 76
+    "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1776835675,
-  "gui_url": "https://www.virustotal.com/gui/file/bff60ea048f0edaa17501c1a7820000df7add51cb3bebeefa825da95c0e786ea",
+  "last_analysis_date": 1777087814,
+  "gui_url": "https://www.virustotal.com/gui/file/2b80fbca7c234efa493d7e53af5875d11a2a0b4b54db94e57300c64854312454",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -65,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -91,11 +91,6 @@
     },
     {
       "engine": "huorong",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Baidu",
       "category": "undetected",
       "result": null
     },
@@ -155,7 +150,7 @@
       "result": null
     },
     {
-      "engine": "Emsisoft",
+      "engine": "Sophos",
       "category": "undetected",
       "result": null
     },
@@ -170,7 +165,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -185,12 +180,12 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Sophos",
+      "engine": "Emsisoft",
       "category": "undetected",
       "result": null
     },
