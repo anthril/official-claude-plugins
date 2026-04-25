@@ -49,6 +49,24 @@ claude --plugin-dir ./plugins/data-analysis
 /knowledge-graph-builder Build a knowledge graph for a consulting firm
 ```
 
+## Updating
+
+Claude Code does **not** auto-refresh marketplaces — it reads from a local cache (`~/.claude/plugins/marketplaces/<name>/`) that is only re-fetched on demand. If a `/plugin` view shows you on the latest version when a newer release exists, the cache is stale.
+
+To pick up a new release:
+
+```bash
+# 1. Re-fetch the marketplace clone (pulls the latest commit)
+/plugin marketplace update anthril-claude-plugins
+
+# 2. Update one or more installed plugins
+/plugin update software-development@anthril-claude-plugins
+```
+
+The first command advances the cached marketplace's git HEAD; the second installs the new version into `~/.claude/plugins/cache/anthril-claude-plugins/<plugin>/<version>/` and rewrites the entry in `installed_plugins.json`.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for what is in each release before updating.
+
 ## Plugins
 
 59 production-ready skills across 11 standalone plugins:

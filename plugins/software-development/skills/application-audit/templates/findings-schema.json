@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/anthril/official-claude-plugins/schemas/application-audit-findings.schema.json",
+  "title": "Application Audit Findings",
+  "description": "Machine-readable output for the application-audit skill. Sidecar to .anthril/audits/<id>/REPORT.md.",
+  "type": "object",
+  "required": ["schema_version", "audit", "findings"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "audit": {
+      "type": "object",
+      "required": ["id", "generated_at", "target", "profile_path", "permissive_mode", "agents_run"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^\\d{8}-\\d{4}(-\\d+)?$",
+          "description": "Audit ID in YYYYMMDD-HHMM format, optionally suffixed with -N for collisions."
+        },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "target": { "type": "string" },
+        "profile_path": { "type": "string" },
+        "permissive_mode": { "type": "boolean" },
+        "memex_mode": {
+          "type": "string",
+          "enum": ["plugin", "wiki", "none"]
+        },
+        "agents_run": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "report_path", "findings_count", "open_questions_count"],
+            "properties": {
+              "name": { "type": "string" },
+              "report_path": { "type": "string" },
+              "findings_count": { "type": "integer", "minimum": 0 },
+              "open_questions_count": { "type": "integer", "minimum": 0 },
+              "mcps_used": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "mcps_unreachable": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "validator": {
+          "type": "object",
+          "required": ["confirmed_count", "rejected_count", "confidence_pct"],
+          "properties": {
+            "confirmed_count": { "type": "integer", "minimum": 0 },
+            "rejected_count": { "type": "integer", "minimum": 0 },
+            "confidence_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "agent", "domain", "category", "severity", "confidence", "title", "evidence"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^AA-\\d{3,}$",
+            "description": "Stable cross-agent identifier assigned by the validator, e.g. AA-001."
+          },
+          "agent": { "type": "string" },
+          "domain": {
+            "type": "string",
+            "enum": [
+              "frontend",
+              "backend",
+              "bug-finder",
+              "security",
+              "client-connection",
+              "server-client",
+              "postgres",
+              "leak-detection",
+              "connection-limit"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "description": "Sub-domain category, e.g. rendering, caching, rls, pool-sizing, secret-leak, bundle, a11y."
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["type", "value"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["file-line", "mcp-query", "command-output", "config-value"]
+                },
+                "value": { "type": "string" },
+                "observation": { "type": "string" }
+              }
+            }
+          },
+          "remediation_steps": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "risks": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "verification": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source_notes_ref": {
+            "type": "string",
+            "description": "Cross-reference to the canonical source notes (tasks.md or client-connection-audit.md), e.g. 'tasks.md §3'."
+          },
+          "validator_decision": {
+            "type": "object",
+            "required": ["status"],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["confirmed", "rejected", "merged"]
+              },
+              "reason": { "type": "string" },
+              "merged_into": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "rejected_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agent", "title", "reason"],
+        "properties": {
+          "agent": { "type": "string" },
+          "title": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "open_questions_resolved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["agent", "question", "answer"],
+        "properties": {
+          "agent": { "type": "string" },
+          "question": { "type": "string" },
+          "answer": { "type": "string" },
+          "file": { "type": "string" }
+        }
+      }
+    }
+  }
+}

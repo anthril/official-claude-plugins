@@ -1,6 +1,6 @@
 # Software Development — Anthril Plugin
 
-Three skills for software teams: two deep-audit skills for pre-refactor and pre-launch reviews, and one multi-agent plan orchestrator for Claude Code Plan Mode. The audit skills run in `ultrathink` mode and produce evidence-backed, confidence-scored reports. The orchestrator fans out specialist sub-agents in parallel and compiles their findings into a single ordered plan with full coverage verification.
+Four skills for software teams: two deep-audit skills for pre-refactor and pre-launch reviews, one multi-agent plan orchestrator for Plan Mode, and one stack-specific application audit that fans out ten specialist auditors in parallel. The audit skills run in `ultrathink` mode and produce evidence-backed, confidence-scored reports. The orchestrators fan out specialist sub-agents in parallel and compile their findings.
 
 ---
 
@@ -11,6 +11,7 @@ Three skills for software teams: two deep-audit skills for pre-refactor and pre-
 | 1 | `dead-code-audit` | Find unused exports, orphaned files, dead dependencies, unreachable branches, abandoned feature flags, and unused CSS — across JS/TS, Python, Go, Rust, Java/Kotlin, PHP, Ruby, and C#. Ships with `knip` and `vulture` integration. |
 | 2 | `write-path-mapping` | Map every place data enters the system and is persisted or mutated — HTTP/RPC/CLI/webhook/queue entry points, validation, auth, transactions, cache writes, file uploads, event emissions. Produces four Mermaid diagrams + JSON sidecar. |
 | 3 | `plan-orchestrator` | Take a bullet list of tasks/issues/bugs/notes, fan out specialist sub-agents (frontend, backend, database, infrastructure, testing, security, documentation) in parallel against the codebase, verify every bullet is addressed, and compile a single ordered plan. Designed for Plan Mode. |
+| 4 | `application-audit` | Stack-specific audit for **Next.js 15 + React 19 + TypeScript Strict + Supabase + Tailwind** apps. Bootstraps a project profile (`.anthril/preset-profile.md`) on first run, fans out ten specialist auditors (frontend, backend, bug-finder, cross-cutting security, client-connection, server-client, postgres, leak-detection, connection-limits, validator), pauses on open questions, then synthesises a ranked report at `.anthril/audits/<id>/REPORT.md`. Resumes via `/audit-proceed`. Read-only on project source — only `.anthril/` is written to. |
 
 The two audit skills are interview-driven (Phase 1 is always "locate the target and check the stack") and fail loud when prerequisites are missing — they never fabricate findings. The orchestrator is bullet-driven — it parses your input list, dispatches a dynamic number of agents (one per non-empty domain, capped at 8), and refuses to silently drop any bullet from the final plan.
 
@@ -45,6 +46,9 @@ Skills are namespaced under `software-development`:
 * Add a sign-out button to the user menu
 - Fix the 500 on /api/orders when cart is empty
 1. Migrate the orders table to add a `currency` column
+
+/software-development:application-audit     ./apps/web
+/audit-proceed all
 ```
 
 The audit skills take a target directory as the argument. The orchestrator takes a bullet list pasted on the lines after the slash command — `*`, `-`, and numbered (`1.` / `1)`) bullets are all accepted. An optional `target: <path>` line at the top scopes the run to a sub-tree.
@@ -79,6 +83,15 @@ Works offline with reduced confidence if the database is unreachable.
 - **MCPs** are inherited from the Claude Code session. Each specialist agent's prompt nudges it toward the MCPs relevant to its domain (Supabase for `database-investigator`, Stripe/Cloudflare/Sentry/Vercel for `backend-` and `infrastructure-investigator`, Figma for `frontend-investigator`, etc.). With no MCPs connected, agents fall back to filesystem-only investigation.
 - **No external tools required** beyond `python3` and `bash`. The skill does not invoke `npm`, `pip`, `cargo`, etc., for its own operation — sub-agents may run read-only language tools as part of their investigation, but nothing is required.
 
+### `application-audit`
+
+- **Stack-targeted.** Calibrated for Next.js 15 + React 19 + TS strict + Supabase + Tailwind. Drift is permissive — the skill records actual versions and flags reduced confidence; it does not hard-fail.
+- **`python3`** and **`bash`** on `PATH` for the orchestration scripts (no third-party deps).
+- **MCPs.** Auditors will use any of these when connected: Supabase MCP (postgres-auditor, security-auditor, backend-auditor, connection-limit-auditor), Vercel MCP (frontend-auditor, server-client-auditor, bug-finder), Sentry MCP (bug-finder, leak-detection-auditor), GitHub MCP (security-auditor, leak-detection-auditor, backend-auditor), Figma MCP (frontend-auditor). Without MCPs, auditors degrade to filesystem-only and flag the gap.
+- **Memex integration (optional).** If `claude-memex` is connected or a `.memex/` wiki exists, auditors call `memex:doc-query` to self-answer questions before filing them. With no memex, auditors skip the self-answer step and go straight to the question file flow.
+- **`.anthril/` workspace.** All audit artefacts live under `.anthril/` in the target project. No project source is modified.
+- **Resume command.** `/audit-proceed <agent-name | all>` resumes a paused run after the user answers open questions in `.anthril/questions/<agent>-<n>.md`.
+
 ---
 
 ## Output formats
@@ -107,6 +120,17 @@ Works offline with reduced confidence if the database is unreachable.
   - Suggested execution order (database → infra → security → backend → frontend → testing → documentation)
   - Unresolved items (only present when sweep rounds couldn't address every bullet)
 - The plan is emitted to the assistant's response. In Plan Mode it becomes the argument to `ExitPlanMode`. Outside Plan Mode it's printed inline.
+
+### `application-audit`
+
+- `.anthril/preset-profile.md` — canonical project profile, generated on first run, refreshed when stale, preserves human-edited blocks
+- `.anthril/audits/<YYYYMMDD-HHMM>/` — one folder per run, containing:
+  - `agent-reports/<agent-name>.md` — nine per-auditor reports
+  - `validation.md` + `validation.json` — validator's calibrated output (confirmed / rejected / cross-cutting)
+  - `REPORT.md` — final ranked report (executive summary + per-domain sections + remediation order + rejected appendix)
+  - `REPORT.json` — sidecar matching `templates/findings-schema.json`
+- `.anthril/audits/latest/` — mirror of the most recent run
+- `.anthril/questions/` — open-question files filed by auditors when uncertain. Once answered, `/audit-proceed` moves them to `.resolved/`.
 
 All outputs are markdown-first and copy-pasteable into issue trackers, PR descriptions, or architecture docs.
 

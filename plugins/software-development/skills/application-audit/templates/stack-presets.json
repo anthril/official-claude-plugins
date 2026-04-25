@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/anthril/official-claude-plugins/schemas/application-audit-presets.schema.json",
+  "title": "Application Audit Stack Presets",
+  "description": "The canonical stack the application-audit skill is calibrated for. The skill runs against any project, but matches against this preset to flag drift.",
+  "presets": [
+    {
+      "id": "next15-react19-supabase-tailwind-ts-strict",
+      "label": "Next.js 15 + React 19 + Supabase + Tailwind + TS strict",
+      "default": true,
+      "expected": {
+        "framework": {
+          "name": "next",
+          "min_version": "15.0.0",
+          "drift_below": "14.0.0"
+        },
+        "react": {
+          "min_version": "19.0.0",
+          "drift_below": "18.0.0"
+        },
+        "typescript": {
+          "min_version": "5.0.0",
+          "strict_required": true
+        },
+        "data_layer": {
+          "primary": "@supabase/supabase-js",
+          "ssr_companion": "@supabase/ssr",
+          "alternatives_acceptable": [
+            "drizzle-orm",
+            "prisma",
+            "postgres"
+          ]
+        },
+        "styling": {
+          "primary": "tailwindcss",
+          "min_version": "3.4.0"
+        }
+      },
+      "auditor_calibration": {
+        "frontend-auditor": {
+          "treats_as_authoritative": [
+            "next 15 caching is opt-in",
+            "react 19 actions, useOptimistic, useActionState, useFormStatus",
+            "RSC default + minimal use-client boundaries",
+            "tailwind 3.4 content-scan rules"
+          ]
+        },
+        "backend-auditor": {
+          "treats_as_authoritative": [
+            "@supabase/ssr cookie-based auth (not auth-helpers)",
+            "edge functions verify JWT by default",
+            "schema migrations live in supabase/migrations"
+          ]
+        },
+        "client-connection-auditor": {
+          "treats_as_authoritative": [
+            "browser uses Data API not direct postgres",
+            "Realtime subscriptions cleaned up on unmount, route change, sign-out"
+          ]
+        },
+        "server-client-auditor": {
+          "treats_as_authoritative": [
+            "two-client pattern: lib/supabase/client + lib/supabase/server",
+            "middleware matcher excludes routes that do not touch Supabase"
+          ]
+        },
+        "postgres-auditor": {
+          "treats_as_authoritative": [
+            "serverless runtimes use Supavisor transaction mode (port 6543)",
+            "transaction mode disables prepared statements",
+            "persistent runtimes prefer direct connections"
+          ]
+        },
+        "connection-limit-auditor": {
+          "treats_as_authoritative": [
+            "pool size + PostgREST headroom budget",
+            "Supavisor and PgBouncer share pool budget when both enabled",
+            "monitor before tuning"
+          ]
+        }
+      }
+    }
+  ]
+}

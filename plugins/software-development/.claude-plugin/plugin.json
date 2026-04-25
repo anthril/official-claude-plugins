@@ -1,7 +1,7 @@
 {
   "name": "software-development",
-  "version": "1.1.0",
-  "description": "3 audit/orchestration skills for software teams — dead code detection across 9 languages, end-to-end write path mapping, and parallel multi-agent plan orchestration for Claude Code Plan Mode",
+  "version": "1.2.0",
+  "description": "4 audit/orchestration skills for software teams — dead code detection across 9 languages, end-to-end write path mapping, parallel multi-agent plan orchestration for Plan Mode, and a multi-agent application audit for Next.js 15 + React 19 + TypeScript Strict + Supabase + Tailwind apps",
   "author": {
     "name": "Anthril",
     "email": "john@anthril.com"

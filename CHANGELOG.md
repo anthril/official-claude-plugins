@@ -5,6 +5,20 @@ All notable changes to the Anthril Official Claude Plugins marketplace will be d
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-04-25
+
+### Added
+- **software-development** plugin v1.1.0 — new `plan-orchestrator` skill for Claude Code Plan Mode
+  - Multi-agent parallel orchestration across eight specialist investigator agents (backend, frontend, database, infrastructure, testing, security, documentation) plus a coverage-sweeper that verifies every task is covered before plan compilation
+  - Plugin-level `Stop` hook that runs the orchestrator's stop-hook after a plan is compiled
+  - Plan and tasks JSON Schemas, plus markdown templates for plan output and agent-report output
+  - Helper scripts (Python and Bash): `classify-tasks.py`, `compile-plan.py`, `detect-stack.sh`, `parse-bullets.py`, `stop-hook.sh`, `verify-coverage.py`
+- `## Updating` section in `README.md` documenting the two-step `/plugin marketplace update` + `/plugin update` flow, since Claude Code does not auto-refresh marketplaces
+- `.claude/hooks/changelog-reminder.sh` + `.claude/settings.json` — PostToolUse hook that blocks Claude from finishing edits to a `plugin.json` or `marketplace.json` without a corresponding `CHANGELOG.md` update
+
+### Changed
+- `software-development` marketplace description updated to reflect the third skill (now: dead code detection, write path mapping, plan orchestration)
+
 ## [1.5.0] - 2026-04-22
 
 ### Added
