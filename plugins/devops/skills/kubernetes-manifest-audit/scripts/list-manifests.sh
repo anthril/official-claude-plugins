@@ -2,7 +2,7 @@
 # Anthril — Kubernetes Manifest Audit: Inventory
 # Prints one line per detected group: "<kind>:<path>"
 
-set -u
+set -euo pipefail
 
 # Helm charts
 find . -maxdepth 6 -type f -name "Chart.yaml" 2>/dev/null | while read -r f; do

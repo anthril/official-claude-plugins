@@ -2,7 +2,7 @@
 name: oauth-setup
 description: Connect Google (GTM, GA4, Google Ads) and Meta Ads to ppc-manager via OAuth. Walks through Google Cloud Console and Meta app setup, runs browser-based OAuth, and stores encrypted tokens in the plugin vault.
 argument-hint: [platforms-to-connect]
-allowed-tools: Read Write Edit Bash Grep
+allowed-tools: Read Write Edit Bash(ls:*) Bash(cat:*) Bash(rg:*) Grep
 effort: high
 ---
 

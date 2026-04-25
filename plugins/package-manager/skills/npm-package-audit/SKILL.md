@@ -2,7 +2,7 @@
 name: npm-package-audit
 description: Audit npm packages for publishing quality, cross-OS compatibility, type declarations, build config, security, and CI/CD — produces a scored report with actionable fixes
 argument-hint: [package-path-or-name]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash(npm:*), Bash(node:*), Bash(jq:*), Bash(git:*), Bash(./scripts/*:*), Agent
 effort: high
 paths: "**/package.json"
 ---
@@ -10,6 +10,17 @@ paths: "**/package.json"
 # npm Package Audit
 
 ultrathink
+
+## Dependencies
+
+External tools required at runtime:
+
+- **`node`** (>= 18) — runs `package.json` introspection one-liners
+- **`npm`** — executes `npm run build`, `npm pack --dry-run`, audit commands
+- **`jq`** — parses JSON in scripts under `scripts/`
+- **`git`** (optional) — used for repository metadata checks
+
+Scripts under `scripts/` assume a POSIX shell (`bash`). All run from the package root.
 
 ## Before You Start
 

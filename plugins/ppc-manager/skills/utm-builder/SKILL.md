@@ -2,7 +2,7 @@
 name: utm-builder
 description: Generate UTM-tagged URLs for paid and organic campaigns — consistent naming conventions, bulk CSV output, and validation against existing GA4 traffic sources to prevent data fragmentation.
 argument-hint: [landing-url-and-campaign-context]
-allowed-tools: Read Write Edit Bash
+allowed-tools: Read Write Edit Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: low
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: landing-page-copy
-description: Generate landing page copy for a paid traffic destination — hero, benefits, social proof, objection handling, and CTA — aligned with a specific ad angle, audience, and funnel stage.
+description: Generate landing page copy for a paid traffic destination — hero, benefits, and CTA — aligned with the ad angle and audience.
 argument-hint: [ad-angle-and-audience]
 allowed-tools: Read Write Edit
 effort: medium

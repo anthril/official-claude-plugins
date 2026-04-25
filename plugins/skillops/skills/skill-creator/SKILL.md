@@ -1,8 +1,8 @@
 ---
 name: skill-creator
-description: Create new Claude Code skills with proper frontmatter, directory structure, templates, examples, and supporting files
+description: Scaffold new Claude Code skills with proper frontmatter, directory structure, templates, examples, and supporting files
 argument-hint: [skill-name-and-purpose]
-allowed-tools: Read Write Edit Glob Grep Bash Agent
+allowed-tools: Read Write Edit Glob Grep Bash(mkdir:*) Bash(cp:*) Bash(ls:*) Bash(test:*) Agent
 effort: medium
 ---
 

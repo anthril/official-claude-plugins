@@ -2,7 +2,7 @@
 name: devops-needs-assessment
 description: Plain-language DevOps triage for non-experts. Given an app path or description, scores nine dimensions on a 0–3 scale and names the top three fixes. Jargon-free output with pointers into the other eight DevOps skills.
 argument-hint: [application-path-or-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: medium
 ---
 

@@ -1,8 +1,8 @@
 ---
 name: google-search-campaign
-description: Build a Google Ads Search campaign — ad group structure from keyword themes, responsive search ads with pinned assets, negative keywords, bid strategy selection, and sitelink/callout extensions.
+description: Build a Google Ads Search campaign — ad group structure, responsive search ads, and bid strategy.
 argument-hint: [product-or-service-description]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 

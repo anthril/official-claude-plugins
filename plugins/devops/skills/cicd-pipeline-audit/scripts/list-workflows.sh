@@ -2,7 +2,7 @@
 # Anthril — CI/CD Pipeline Audit: Workflow Inventory
 # Prints one line per detected CI/CD config: "<platform>:<path>"
 
-set -u
+set -euo pipefail
 
 # GitHub Actions
 if [ -d ".github/workflows" ]; then

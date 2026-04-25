@@ -2,7 +2,7 @@
 # check-deprecated.sh — Find orphaned files, dead code, commented blocks, and unused deps
 # Usage: bash scripts/check-deprecated.sh <project-root>
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 cd "$PROJECT_ROOT"

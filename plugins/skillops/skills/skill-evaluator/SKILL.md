@@ -2,7 +2,7 @@
 name: skill-evaluator
 description: Audit a Claude Code skill across 8 quality dimensions (metadata, scope, conciseness, architecture, content, tools, testing, standards). Produces a scored markdown report with file:line evidence, prioritised fixes, and JSON sidecar.
 argument-hint: [skill-path-or-name]
-allowed-tools: Read Grep Glob Bash Agent Write
+allowed-tools: Read Grep Glob Bash(bash:scripts/*.sh) Bash(jq:*) Bash(awk:*) Bash(wc:*) Agent Write
 effort: high
 ---
 

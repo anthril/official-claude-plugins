@@ -1,8 +1,8 @@
 ---
 name: google-ads-account-setup
-description: Set up or audit a Google Ads account — billing, conversion tracking, linked accounts (GA4, Merchant Center), audiences, and baseline structure that downstream campaigns expect.
+description: Set up or audit a Google Ads account — billing/conversion tracking, linked accounts, and baseline structure.
 argument-hint: [customer-id-or-new-account]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 

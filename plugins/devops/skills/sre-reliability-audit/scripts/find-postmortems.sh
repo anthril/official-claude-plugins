@@ -2,7 +2,7 @@
 # Anthril — SRE Reliability: Postmortem Finder
 # Lists postmortem files with age and a rough template-compliance hint.
 
-set -u
+set -euo pipefail
 
 # Postmortem directories
 for dir in $(find . -maxdepth 5 -type d \( -iname "postmortem*" -o -iname "incidents" -o -iname "incident-reports" \) 2>/dev/null); do

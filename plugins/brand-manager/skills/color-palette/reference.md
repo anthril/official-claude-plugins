@@ -4,6 +4,18 @@ Supplementary reference material for the `color-palette` skill. Covers WCAG 2.2 
 
 ---
 
+## Table of Contents
+
+- [1. WCAG 2.2 Contrast Requirements](#1-wcag-22-contrast-requirements)
+- [2. OKLCH — Why and How](#2-oklch--why-and-how)
+- [3. Colour Psychology by Industry](#3-colour-psychology-by-industry)
+- [4. Neutral Ramp Construction](#4-neutral-ramp-construction)
+- [5. Semantic Colour Conventions](#5-semantic-colour-conventions)
+- [6. Common Contrast Ratios for Reference](#6-common-contrast-ratios-for-reference)
+- [7. Validation Checklist](#7-validation-checklist)
+
+---
+
 ## 1. WCAG 2.2 Contrast Requirements
 
 Contrast ratio is computed from relative luminance. The formula:

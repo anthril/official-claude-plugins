@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Anthril — SRE Reliability: SLO File Finder
 
-set -u
+set -euo pipefail
 
 find . -maxdepth 5 -type f \( \
   -iname "slo*.yaml" \

@@ -2,6 +2,22 @@
 
 Dense lookup tables, taxonomies, detection matrices, and scoring rules for the `write-path-mapping` skill. Loaded on demand from `SKILL.md`.
 
+## Table of Contents
+
+- [1. Write Entry-Point Taxonomy](#1-write-entry-point-taxonomy)
+- [2. Persistence Target Taxonomy](#2-persistence-target-taxonomy)
+- [3. Framework Entry-Point Detection Matrix](#3-framework-entry-point-detection-matrix)
+- [4. Database Mutation Detection Matrix](#4-database-mutation-detection-matrix)
+- [5. Authorization Pattern Matrix](#5-authorization-pattern-matrix)
+- [6. Write-Path Risk Taxonomy](#6-write-path-risk-taxonomy)
+- [7. Completeness Scoring Rubric](#7-completeness-scoring-rubric)
+- [8. Verification Protocol (9 Steps)](#8-verification-protocol-9-steps)
+- [9. Sub-Agent Playbook](#9-sub-agent-playbook)
+- [10. Mermaid Diagram Conventions](#10-mermaid-diagram-conventions)
+- [11. `.write-path-ignore` Format](#11-write-path-ignore-format)
+- [12. Risk Severity → Report Section Map](#12-risk-severity--report-section-map)
+- [13. Edge Cases (quick reference)](#13-edge-cases-quick-reference)
+
 ---
 
 ## 1. Write Entry-Point Taxonomy

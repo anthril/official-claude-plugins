@@ -2,7 +2,7 @@
 name: iac-terraform-audit
 description: Audit Terraform, OpenTofu, Terragrunt, and Pulumi modules for state, provider pinning, security (Checkov/tfsec), module hygiene, environment separation, drift, and cost. One sub-agent per module. Static, live, and apply modes.
 argument-hint: [module-path-or-glob]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: high
 paths: "**/*.tf"
 ---

@@ -2,6 +2,16 @@
 
 Dense lookup material for the orchestrator. Kept separate from `SKILL.md` so the workflow file stays under 500 lines.
 
+## Table of Contents
+
+- [§1 — Domain Taxonomy](#1--domain-taxonomy)
+- [§2 — Classifier Heuristics](#2--classifier-heuristics)
+- [§3 — Agent Prompt Scaffold](#3--agent-prompt-scaffold)
+- [§4 — Agent Report Schema (per task section)](#4--agent-report-schema-per-task-section)
+- [§5 — Coverage Verification Rules](#5--coverage-verification-rules)
+- [§6 — Compile-Plan Output Order](#6--compile-plan-output-order)
+- [§7 — Hard Caps](#7--hard-caps)
+
 ---
 
 ## §1 — Domain Taxonomy

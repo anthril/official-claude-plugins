@@ -2,7 +2,7 @@
 name: container-audit
 description: Audit Dockerfiles and docker-compose files for base image, user privileges, secret leaks, layer efficiency, signal handling, healthchecks, and compose safety. One sub-agent per Dockerfile. Static, live (Trivy/Grype), and apply modes.
 argument-hint: [dockerfile-path-or-glob]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: high
 paths: "**/Dockerfile*"
 ---

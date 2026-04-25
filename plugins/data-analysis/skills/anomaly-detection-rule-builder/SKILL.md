@@ -169,112 +169,16 @@ For each detection rule:
 
 ### Phase 3: Statistical Methods
 
-For Layer 2 rules, specify the statistical approach:
+For Layer 2 rules, choose one of four statistical approaches:
 
-#### 3A. Z-Score Method (Parametric)
+| Method | Best For | Threshold Hint |
+|---|---|---|
+| **3A. Z-Score (parametric)** | Roughly normal distribution, stable variance | 2.0 = ~5% FPR; 2.5 = ~1%; 3.0 = ~0.3% |
+| **3B. Percentage deviation (non-parametric)** | Skewed distributions, non-stationary data | 25% volatile / 15% stable / 50% highly variable |
+| **3C. Day-of-week adjusted comparison** | Strong weekly seasonality (web traffic, retail) | Compare to four-week same-day-of-week mean |
+| **3D. Consecutive direction (trend)** | Slow deterioration within normal daily bounds | Trigger after N consecutive declining periods |
 
-```sql
--- Z-Score anomaly detection
--- Flags values more than [threshold] standard deviations from rolling mean
-WITH stats AS (
-  SELECT
-    date,
-    value,
-    AVG(value) OVER (ORDER BY date ROWS BETWEEN 13 PRECEDING AND CURRENT ROW) AS rolling_mean,
-    STDDEV(value) OVER (ORDER BY date ROWS BETWEEN 13 PRECEDING AND CURRENT ROW) AS rolling_stddev
-  FROM daily_metrics
-  WHERE metric_name = '[metric]'
-)
-SELECT date, value, rolling_mean, rolling_stddev,
-  (value - rolling_mean) / NULLIF(rolling_stddev, 0) AS z_score
-FROM stats
-WHERE ABS((value - rolling_mean) / NULLIF(rolling_stddev, 0)) > [threshold]
-ORDER BY date DESC;
-```
-
-**Best for:** Metrics with roughly normal distribution, stable variance.
-**Threshold guidance:** 2.0 = ~5% false positive rate; 2.5 = ~1%; 3.0 = ~0.3%.
-
-#### 3B. Percentage Deviation Method (Non-Parametric)
-
-```sql
--- Percentage deviation from rolling average
--- Simpler, works for any distribution
-WITH baseline AS (
-  SELECT
-    date,
-    value,
-    AVG(value) OVER (ORDER BY date ROWS BETWEEN 13 PRECEDING AND CURRENT ROW) AS rolling_avg
-  FROM daily_metrics
-  WHERE metric_name = '[metric]'
-)
-SELECT date, value, rolling_avg,
-  ROUND(100.0 * (value - rolling_avg) / NULLIF(rolling_avg, 0), 1) AS pct_deviation
-FROM baseline
-WHERE ABS(100.0 * (value - rolling_avg) / NULLIF(rolling_avg, 0)) > [threshold_pct]
-ORDER BY date DESC;
-```
-
-**Best for:** Metrics with skewed distributions, non-stationary data.
-**Threshold guidance:** 25% for volatile metrics; 15% for stable metrics; 50% for highly variable.
-
-#### 3C. Day-of-Week Adjusted Comparison
-
-```sql
--- Compare to same day of week (handles weekly seasonality)
-WITH current_and_prior AS (
-  SELECT
-    date,
-    value,
-    LAG(value, 7) OVER (ORDER BY date) AS same_day_last_week,
-    AVG(value) OVER (
-      ORDER BY date 
-      ROWS BETWEEN 28 PRECEDING AND 8 PRECEDING  -- 4 weeks, excluding most recent
-    ) AS four_week_same_day_avg
-  FROM daily_metrics
-  WHERE metric_name = '[metric]'
-    AND EXTRACT(DOW FROM date) = EXTRACT(DOW FROM CURRENT_DATE)
-)
-SELECT date, value, same_day_last_week, four_week_same_day_avg,
-  ROUND(100.0 * (value - four_week_same_day_avg) / NULLIF(four_week_same_day_avg, 0), 1) AS pct_vs_avg
-FROM current_and_prior
-WHERE date = CURRENT_DATE
-  AND ABS(100.0 * (value - four_week_same_day_avg) / NULLIF(four_week_same_day_avg, 0)) > [threshold_pct];
-```
-
-**Best for:** Metrics with strong weekly patterns (website traffic, e-commerce revenue, support volume).
-
-#### 3D. Consecutive Direction Detection (Trend)
-
-```sql
--- Detect N consecutive periods of decline/increase
-WITH direction AS (
-  SELECT
-    date,
-    value,
-    LAG(value) OVER (ORDER BY date) AS prev_value,
-    CASE WHEN value < LAG(value) OVER (ORDER BY date) THEN 1 ELSE 0 END AS declining
-  FROM daily_metrics
-  WHERE metric_name = '[metric]'
-),
-streaks AS (
-  SELECT date, value, declining,
-    SUM(CASE WHEN declining = 0 THEN 1 ELSE 0 END) OVER (ORDER BY date) AS streak_group
-  FROM direction
-)
-SELECT 
-  MAX(date) AS streak_end,
-  COUNT(*) AS consecutive_declines,
-  FIRST_VALUE(value) OVER (PARTITION BY streak_group ORDER BY date) AS start_value,
-  LAST_VALUE(value) OVER (PARTITION BY streak_group ORDER BY date 
-    ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS end_value
-FROM streaks
-WHERE declining = 1
-GROUP BY streak_group
-HAVING COUNT(*) >= [N_consecutive];
-```
-
-**Best for:** Catching slow deterioration that stays within normal daily bounds but compounds over time.
+See `reference.md` §1 (SQL Templates for Common Anomaly Detection Queries) for the full SQL implementation of each method, including rolling-window CTEs, NULL-safe divisions, and parameterisation patterns.
 
 ---
 

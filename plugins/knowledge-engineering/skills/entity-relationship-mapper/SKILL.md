@@ -2,7 +2,7 @@
 name: entity-relationship-mapper
 description: Map business domains to entity-relationship models with Schema.org types, JSON-LD @graph output, consistent @id structures, and sameAs connections
 argument-hint: [domain-or-business-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(python:*) Agent
 effort: high
 ---
 
@@ -20,6 +20,8 @@ effort: high
 ## Description
 
 Takes a business or domain description and outputs a complete entity-relationship model with Schema.org type mappings, consistent @id structures, and sameAs connections to authoritative external profiles. Produces both a human-readable entity-relationship diagram and a machine-readable JSON-LD @graph specification. Designed for businesses building their structured data foundation — connecting Organisation, People, Services, Products, Locations, Content, and Events into a coherent knowledge graph that search engines, LLMs, and AI agents can traverse. Handles multi-location businesses, service-product hybrids, and complex organisational structures.
+
+See [reference.md](reference.md) for the Schema.org property tables, @id conventions, sameAs source list, JSON-LD @graph templates, and ERD notation guide.
 
 ---
 

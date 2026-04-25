@@ -1,8 +1,8 @@
 ---
 name: gtm-setup
-description: Create a new GTM container or audit an existing one, configuring the core baseline (GA4 config tag, page_view trigger, standard built-in variables, naming conventions) ready for ongoing tag management.
+description: Create or audit a GTM container with the core baseline configured ready for ongoing tag management.
 argument-hint: [website-domain-or-container-id]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: medium
 ---
 

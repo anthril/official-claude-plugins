@@ -1,8 +1,8 @@
 ---
 name: campaign-audit
-description: Audit a PPC account (Google Ads or Meta) for performance issues — wasted spend, missing negatives, low CTR, broken tracking, structural problems, creative fatigue — with prioritised fixes.
+description: Audit a PPC account (Google Ads or Meta) for performance issues with prioritised fixes.
 argument-hint: [platform-and-account-id]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: max
 context: fork
 agent: campaign-auditor

@@ -4,7 +4,7 @@
 # Reports file:line hits — NEVER prints the secret itself.
 # History scanning is out of scope; use gitleaks / trufflehog for that.
 
-set -u
+set -euo pipefail
 
 # AWS access keys
 echo "=== AWS ACCESS KEYS (AKIA...) ==="

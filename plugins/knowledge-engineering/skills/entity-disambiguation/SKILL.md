@@ -2,7 +2,7 @@
 name: entity-disambiguation
 description: Resolve entity ambiguity across data sources — produce canonical records, merge decisions, and sameAs link mappings for structured data
 argument-hint: [entity-list-or-data-sources]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(python:*) Agent
 effort: high
 ---
 

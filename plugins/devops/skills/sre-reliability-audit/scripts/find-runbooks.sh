@@ -2,7 +2,7 @@
 # Anthril — SRE Reliability: Runbook Finder
 # Prints one line per detected runbook with a freshness hint.
 
-set -u
+set -euo pipefail
 
 # Runbook directories
 find . -maxdepth 5 -type d \( -iname "runbook*" -o -iname "runbooks" \) 2>/dev/null | head -10 | while read -r d; do

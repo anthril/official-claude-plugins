@@ -23,6 +23,16 @@ Gracefully stops the Resource Manager dashboard (started by `/resource-dashboard
 
 ---
 
+## Requirements
+
+- **Bash** invocation environment.
+- **curl** for the graceful HTTP shutdown.
+- Platform-specific kill fallback:
+  - **Windows** (Git Bash / MSYS) — `taskkill`.
+  - **macOS / Linux** — `kill`.
+
+---
+
 ## Execution
 
 Run with **Bash**:

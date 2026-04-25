@@ -1,6 +1,6 @@
 ---
 name: display-ad-specs
-description: Produce display creative specs for Google Ads responsive display and Performance Max — image sizes, aspect ratios, headline/description lists, logo requirements, and a designer brief ready for production.
+description: Produce display creative specs for Google Ads responsive display and Performance Max — image/aspect specs and a designer brief.
 argument-hint: [brand-or-campaign-context]
 allowed-tools: Read Write Edit
 effort: low

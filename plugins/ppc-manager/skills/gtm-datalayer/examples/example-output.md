@@ -12,7 +12,7 @@ Designed the canonical e-commerce dataLayer schema for Koala & Co. Online, an Au
 
 ---
 
-## Event catalog
+## Event catalogue
 
 | Event | Trigger | Required params | Optional params | Purpose |
 |---|---|---|---|---|

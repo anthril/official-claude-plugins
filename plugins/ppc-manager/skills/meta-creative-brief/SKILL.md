@@ -1,6 +1,6 @@
 ---
 name: meta-creative-brief
-description: Produce a Meta Ads creative brief — concept, format, hook, CTA, captions, and production-ready asset specs with aspect ratio guidance across Reels, Stories, Feed, and Carousel.
+description: Produce a Meta Ads creative brief — concept, hook, and production-ready asset specs across Reels, Stories, Feed, and Carousel.
 argument-hint: [product-audience-angle]
 allowed-tools: Read Write Edit
 effort: medium

@@ -4,6 +4,19 @@ Supplementary reference material for the `target-audience` skill. Covers the JTB
 
 ---
 
+## Table of Contents
+
+- [1. The Jobs-To-Be-Done (JTBD) Framework](#1-the-jobs-to-be-done-jtbd-framework)
+- [2. Segmentation Model Comparison](#2-segmentation-model-comparison)
+- [3. ICP Definition Criteria](#3-icp-definition-criteria)
+- [4. Persona Card Anti-Patterns](#4-persona-card-anti-patterns)
+- [5. Channel Research Checklist](#5-channel-research-checklist)
+- [6. Buying Trigger Patterns](#6-buying-trigger-patterns)
+- [7. Quote Anti-Patterns](#7-quote-anti-patterns)
+- [8. Validation Checklist](#8-validation-checklist)
+
+---
+
 ## 1. The Jobs-To-Be-Done (JTBD) Framework
 
 JTBD frames customer behaviour as: customers don't buy products, they "hire" products to get a job done. The job is the underlying motivation that exists independent of any specific product.

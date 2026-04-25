@@ -6,6 +6,17 @@ normalisation checklist, data type guidance, and migration sequencing rules.
 
 ---
 
+## Table of Contents
+
+1. [Common RLS Policy Patterns](#1-common-rls-policy-patterns)
+2. [Index Strategy Reference](#2-index-strategy-reference)
+3. [Supabase-Specific Patterns](#3-supabase-specific-patterns)
+4. [Normalisation Checklist](#4-normalisation-checklist)
+5. [Data Type Selection Guide](#5-data-type-selection-guide)
+6. [Migration Sequencing Rules](#6-migration-sequencing-rules)
+
+---
+
 ## 1. Common RLS Policy Patterns
 
 ### 1A. Tenant Isolation (Multi-Tenant SaaS)

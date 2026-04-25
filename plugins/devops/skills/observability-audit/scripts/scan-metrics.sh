@@ -2,7 +2,7 @@
 # Anthril — Observability Audit: Metrics Scanner
 # Emits one line per file that emits metrics, plus any Prometheus config.
 
-set -u
+set -euo pipefail
 
 # Metric emission libraries
 grep -rlE "(prom-client|prometheus_client|micrometer|statsd|go-metrics|OpenMetrics|metrics-exporter)" \

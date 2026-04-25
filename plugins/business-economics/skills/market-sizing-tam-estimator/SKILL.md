@@ -2,7 +2,7 @@
 name: market-sizing-tam-estimator
 description: Estimate TAM, SAM, and SOM using top-down and bottom-up methods with sensitivity analysis and confidence ranges, calibrated for Australian markets
 argument-hint: [business-and-market-description]
-allowed-tools: Read Grep Glob Write Edit Bash WebSearch WebFetch Agent
+allowed-tools: Read Grep Glob Write Edit Bash(python:*) Bash(python3:*) WebSearch WebFetch Agent
 context: fork
 agent: Explore
 effort: max

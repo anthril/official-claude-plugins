@@ -6,6 +6,17 @@ classification, investigation playbooks, and false-positive reduction strategies
 
 ---
 
+## Table of Contents
+
+- [1. SQL Templates for Common Anomaly Detection Queries](#1-sql-templates-for-common-anomaly-detection-queries)
+- [2. Threshold Guidance Table](#2-threshold-guidance-table)
+- [3. Common Business Metric Seasonality Patterns](#3-common-business-metric-seasonality-patterns)
+- [4. Alert Severity Classification](#4-alert-severity-classification)
+- [5. Investigation Playbook Template](#5-investigation-playbook-template)
+- [6. False Positive Reduction Strategies](#6-false-positive-reduction-strategies)
+
+---
+
 ## 1. SQL Templates for Common Anomaly Detection Queries
 
 ### 1A. Z-Score Detection (Parametric)

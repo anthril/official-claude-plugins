@@ -2,7 +2,7 @@
 name: unit-economics-calculator
 description: Calculate unit economics — CAC, LTV, payback period, contribution margin, effective hourly rate with scenario analysis for service, SaaS, and hybrid businesses
 argument-hint: [business-model-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(python:*) Bash(python3:*) Agent
 effort: high
 ---
 
@@ -113,7 +113,7 @@ Calculate and present the following metrics. Show the formula, the inputs used, 
 | **Effective Hourly Rate** | Total revenue ÷ total hours worked (all hours, not just billed) | Target: 2–3x loaded cost per hour |
 | **Billed Hourly Rate** | Total revenue ÷ billable hours only | Compare to market rates |
 | **Utilisation Rate** | Billable hours ÷ total available hours | Target: 65–80% for consultants, 60–70% for agencies |
-| **Realization Rate** | Revenue collected ÷ revenue billed | Target: >90%. <85% = billing/collection problem |
+| **Realisation Rate** | Revenue collected ÷ revenue billed | Target: >90%. <85% = billing/collection problem |
 | **Revenue Per Head** | Total revenue ÷ total team size (including non-billable) | AU agencies: $150K–$250K/head. Top performers: $250K+ |
 | **Gross Margin Per Engagement** | (Engagement revenue − direct delivery cost) ÷ engagement revenue | Target: 50–65% for services |
 | **Contribution Margin** | Revenue − variable costs (delivery + direct costs) | Must be positive per client to be viable |
@@ -322,7 +322,7 @@ Replace placeholder values with the calculated metrics from the unit economics a
 4. **Distinguish between revenue and profit throughout.** LTV should be margin-adjusted, not raw revenue. A $10K project at 30% margin has an LTV contribution of $3K, not $10K. If the user provides revenue-only figures, apply margin adjustment before calculating LTV:CAC.
 5. **For service businesses, utilisation is the hidden multiplier.** A 10% improvement in utilisation typically has a larger profit impact than a 10% revenue increase. Always model this explicitly if utilisation data is available.
 6. **Show your working.** Every formula should be visible with actual numbers substituted in. The user needs to verify inputs and understand the model, not just trust a number.
-7. **Australian context where relevant.** Use AUD unless specified otherwise. Factor in Australian benchmarks: superannuation at 11.5% (2025–26), typical agency margins (10–20% net), standard billing rates by sector. Account for Australian holiday load (4 weeks annual + public holidays ≈ 230 working days/year).
+7. **Australian context where relevant.** Use AUD unless specified otherwise. Factor in Australian benchmarks: superannuation at 11.5% (2025–26 — verify rate for current FY before publishing), typical agency margins (10–20% net), standard billing rates by sector. Account for Australian holiday load (4 weeks annual + public holidays ≈ 230 working days/year).
 8. **Don't assume growth is the answer.** If unit economics are broken, growing faster just burns cash faster. Always assess whether the model is fundamentally viable before recommending scaling. "Fix your margins before you scale" is often the right answer.
 9. **Handle missing data gracefully.** If the user provides 6 of 16 inputs, build the model with what's available, use reasonable defaults for the rest, flag every assumption, and indicate which missing inputs would most change the conclusions. Never refuse to calculate because data is incomplete.
 10. **Cap complexity for the audience.** Solo operators get a simplified model focused on effective hourly rate, client profitability, and capacity ceiling. Larger teams get the full model. Don't overwhelm a freelancer with NRR and expansion revenue metrics that don't apply to them.

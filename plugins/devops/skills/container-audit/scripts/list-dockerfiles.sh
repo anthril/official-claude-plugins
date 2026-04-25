@@ -2,7 +2,7 @@
 # Anthril — Container Audit: File Inventory
 # Prints one line per detected file: "<kind>:<path>"
 
-set -u
+set -euo pipefail
 
 find . -maxdepth 5 -type f -name "Dockerfile*" 2>/dev/null | while read -r f; do
   echo "dockerfile:$f"

@@ -1,6 +1,6 @@
 ---
 name: meta-ads-copy
-description: Generate Meta Ads copy — primary text, headlines, descriptions, CTA — across multiple angles with character limits, emoji policy, and audience-specific variations for A/B testing.
+description: Generate Meta Ads copy — primary text, headlines, and CTA — across multiple angles for A/B testing.
 argument-hint: [product-audience-angle]
 allowed-tools: Read Write Edit
 effort: medium

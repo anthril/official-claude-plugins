@@ -2,7 +2,7 @@
 # check-unused-deps.sh — Find unused dependencies and unreferenced exports
 # Usage: bash scripts/check-unused-deps.sh <project-root>
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 cd "$PROJECT_ROOT"

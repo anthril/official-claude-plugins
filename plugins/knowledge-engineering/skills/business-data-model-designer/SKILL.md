@@ -2,7 +2,7 @@
 name: business-data-model-designer
 description: Design complete Supabase/PostgreSQL data models with ERD, SQL migrations, RLS policies, indexes, and triggers for business applications
 argument-hint: [application-description]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(python:*) Agent
 effort: high
 paths: "**/supabase/migrations/**, **/schema.sql"
 ---
@@ -21,6 +21,8 @@ paths: "**/supabase/migrations/**, **/schema.sql"
 ## Description
 
 Designs complete data models for business applications — tables, relationships, Row Level Security policies, indexes, constraints, and triggers. Outputs Supabase-compatible PostgreSQL SQL migrations ready for deployment. Takes a business domain description and application requirements as input, then produces a normalised relational schema, an entity-relationship diagram, migration SQL with proper sequencing, RLS policies for multi-tenant and role-based access, performance indexes, and seed data specifications. Designed for Next.js + Supabase applications where the database is the backbone of the product.
+
+See [reference.md](reference.md) for RLS policy patterns, index strategy, Supabase-specific patterns, normalisation checklist, data type guidance, and migration sequencing rules.
 
 ---
 
@@ -176,58 +178,14 @@ CREATE TRIGGER on_auth_user_created
 
 #### 3B. Row Level Security (RLS) Patterns
 
-**Pattern 1: Organisation-scoped (multi-tenant)**
-```sql
-ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
+Apply one of four canonical RLS patterns depending on access requirements:
 
--- Users can only see their organisation's projects
-CREATE POLICY "Users see own org projects" ON projects
-  FOR SELECT USING (
-    organisation_id = (
-      SELECT organisation_id FROM profiles WHERE id = auth.uid()
-    )
-  );
+1. **Organisation-scoped (multi-tenant)** — every row carries `organisation_id`; users see only their org's rows
+2. **Role-based within organisation** — gate write/delete by `profiles.role` (admin, member, viewer)
+3. **Owner-based** — `user_id = auth.uid()` for personal data
+4. **Public read, authenticated write** — `status = 'published'` for SELECT, `auth.uid() IS NOT NULL` for INSERT
 
--- Users can only insert into their organisation
-CREATE POLICY "Users insert own org projects" ON projects
-  FOR INSERT WITH CHECK (
-    organisation_id = (
-      SELECT organisation_id FROM profiles WHERE id = auth.uid()
-    )
-  );
-```
-
-**Pattern 2: Role-based within organisation**
-```sql
--- Only admins can delete
-CREATE POLICY "Admins can delete projects" ON projects
-  FOR DELETE USING (
-    EXISTS (
-      SELECT 1 FROM profiles
-      WHERE id = auth.uid()
-        AND organisation_id = projects.organisation_id
-        AND role = 'admin'
-    )
-  );
-```
-
-**Pattern 3: Owner-based**
-```sql
--- Users can only update their own records
-CREATE POLICY "Users update own records" ON user_settings
-  FOR UPDATE USING (user_id = auth.uid());
-```
-
-**Pattern 4: Public read, authenticated write**
-```sql
--- Anyone can read published content
-CREATE POLICY "Public read published" ON articles
-  FOR SELECT USING (status = 'published');
-
--- Only authenticated users can create
-CREATE POLICY "Authenticated users create" ON articles
-  FOR INSERT WITH CHECK (auth.uid() IS NOT NULL);
-```
+See `reference.md` §1 (Common RLS Policy Patterns) for full SQL templates of each pattern, including helper-function variants and combined policies.
 
 #### 3C. Helper Functions
 

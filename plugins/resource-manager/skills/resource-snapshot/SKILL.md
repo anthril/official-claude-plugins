@@ -1,7 +1,6 @@
 ---
 name: resource-snapshot
-description: One-shot markdown report of Claude process tree, MCP servers, orphans, and total memory — no dashboard required
-argument-hint:
+description: Generate a one-shot markdown report of the Claude process tree, MCP servers, orphans, and total memory — no dashboard required
 allowed-tools: Bash
 effort: low
 ---
@@ -28,6 +27,15 @@ Prints the same data the `/resource-dashboard` shows, but as a one-shot markdown
 ```
 /resource-snapshot
 ```
+
+This skill takes no arguments. `$ARGUMENTS` is intentionally ignored — the snapshot is always the full enumeration.
+
+---
+
+## Requirements
+
+- **Python 3.8+** must be on `PATH`. The bundled enumerator script (`scripts/process_inspector.py`) uses only the standard library — no `pip install` needed.
+- **Bash** for invocation. On Windows, this runs under Git Bash, WSL, or the Claude Code shell harness.
 
 ---
 

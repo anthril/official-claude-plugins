@@ -4,6 +4,19 @@ Supplementary reference material for the `competitor-analysis` skill. Covers pos
 
 ---
 
+## Table of Contents
+
+- [1. Positioning Frameworks](#1-positioning-frameworks)
+- [2. Dimension Library](#2-dimension-library)
+- [3. Evidence Quality Rubric](#3-evidence-quality-rubric)
+- [4. The White-Space Defensibility Test](#4-the-white-space-defensibility-test)
+- [5. Competitor Audit Checklist](#5-competitor-audit-checklist)
+- [6. Positioning Map Best Practices](#6-positioning-map-best-practices)
+- [7. Common Analysis Mistakes](#7-common-analysis-mistakes)
+- [8. Output Quality Checklist](#8-output-quality-checklist)
+
+---
+
 ## 1. Positioning Frameworks
 
 ### 1.1 Trout & Ries — Positioning

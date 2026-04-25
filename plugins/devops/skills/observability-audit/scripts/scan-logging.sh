@@ -2,7 +2,7 @@
 # Anthril — Observability Audit: Logging Scanner
 # Emits one line per file that imports a structured-logging library.
 
-set -u
+set -euo pipefail
 
 grep -rlE "(^|[^a-zA-Z])(pino|winston|bunyan|zap|logrus|zerolog|structlog|slog)(\\b|\\.|\\[)" \
   --include="*.ts" --include="*.tsx" --include="*.js" --include="*.jsx" \

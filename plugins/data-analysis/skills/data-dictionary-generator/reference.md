@@ -1,5 +1,12 @@
 # Data Dictionary Generator -- Reference Material
 
+## Table of Contents
+
+- [PostgreSQL Introspection Queries](#postgresql-introspection-queries)
+- [CSV Type Inference Rules](#csv-type-inference-rules)
+- [PII Detection Patterns](#pii-detection-patterns)
+- [Common Naming Convention Recognition](#common-naming-convention-recognition)
+
 ## PostgreSQL Introspection Queries
 
 ### List All Tables with Row Counts

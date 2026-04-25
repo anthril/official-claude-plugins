@@ -1,8 +1,8 @@
 ---
 name: gtm-tags
-description: Create or audit GTM tags, triggers, and variables for a specific tracking need (GA4 events, Meta pixel, Google Ads conversions, custom HTML) with sensible defaults and ready-to-publish config.
+description: Create or audit GTM tags, triggers, and variables for a specific tracking need with ready-to-publish config.
 argument-hint: [tag-goal-or-audit]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: medium
 ---
 

@@ -1,8 +1,8 @@
 ---
 name: google-pmax-campaign
-description: Build a Google Ads Performance Max campaign — asset groups by theme, audience signals, listing group (for Shopping), final URL rules, and asset specs ready for production.
+description: Build a Google Ads Performance Max campaign — asset groups, audience signals, and asset specs ready for production.
 argument-hint: [product-or-service-description]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 

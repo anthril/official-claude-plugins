@@ -5,7 +5,7 @@
 # Prerequisites: supabase CLI installed and project linked (supabase link)
 # Falls back to local migration file inspection if CLI is unavailable or not linked.
 
-set -uo pipefail
+set -euo pipefail
 
 echo "=== Supabase Backend Audit ==="
 echo ""

@@ -2,7 +2,7 @@
 # Anthril — DevSecOps Supply Chain: Ecosystem Detection
 # Prints one line per detected ecosystem: "<ecosystem>:<manifest_path>"
 
-set -u
+set -euo pipefail
 
 # npm / pnpm / yarn
 if [ -f "package.json" ]; then

@@ -1,8 +1,8 @@
 ---
 name: youtube-campaign
-description: Build a YouTube Ads campaign — format selection (in-stream, in-feed, bumper, shorts), audience targeting, video asset brief, companion banner, and campaign structure for awareness or performance goals.
+description: Build a YouTube Ads campaign — format selection, audience targeting, and a production-ready video asset brief.
 argument-hint: [goal-and-video-context]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: medium
 ---
 

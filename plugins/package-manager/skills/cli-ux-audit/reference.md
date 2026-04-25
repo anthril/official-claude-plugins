@@ -4,6 +4,18 @@ Dense reference tables extracted from `SKILL.md`. Use during scoring and when wr
 
 ---
 
+## Table of Contents
+
+- [Scoring rubrics](#scoring-rubrics)
+- [CLI framework lookup](#cli-framework-lookup)
+- [Terminal environment reference](#terminal-environment-reference)
+- [Exit code conventions (`sysexits.h`)](#exit-code-conventions-sysexitsh)
+- [CVD-safe colour palette](#cvd-safe-colour-palette)
+- [Severity tiers](#severity-tiers)
+- [Finding template](#finding-template)
+
+---
+
 ## Scoring rubrics
 
 Each phase is scored against the checks listed in SKILL.md. Award points per check; total the phase and clamp to the phase maximum. Failing a check means zero for that line item — do not split hairs on partial credit unless explicitly noted.

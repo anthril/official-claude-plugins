@@ -2,7 +2,7 @@
 name: sre-reliability-audit
 description: Assess Site Reliability maturity across five dimensions — SLOs/SLIs, runbooks, on-call, postmortems, game days — with per-dimension commentary and uplift path. Static, live (PagerDuty/Opsgenie), and runtime (game day) modes.
 argument-hint: [repo-path]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: medium
 ---
 

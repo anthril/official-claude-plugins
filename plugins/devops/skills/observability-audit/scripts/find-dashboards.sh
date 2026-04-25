@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Anthril — Observability Audit: Dashboard & Alert Finder
 
-set -u
+set -euo pipefail
 
 echo "=== GRAFANA DASHBOARD DIRS ==="
 find . -maxdepth 5 -type d -name "grafana" 2>/dev/null | head -5

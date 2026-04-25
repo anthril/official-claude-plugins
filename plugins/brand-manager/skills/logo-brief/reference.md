@@ -4,6 +4,18 @@ Supplementary reference material for the `logo-brief` skill. Covers the seven ma
 
 ---
 
+## Table of Contents
+
+- [1. The Seven Mark Types](#1-the-seven-mark-types)
+- [2. Typography Classifications for Wordmarks](#2-typography-classifications-for-wordmarks)
+- [3. AI Image Generation — Prompt Patterns](#3-ai-image-generation--prompt-patterns)
+- [4. The Favicon Test](#4-the-favicon-test)
+- [5. Clear Space and Minimum Sizes](#5-clear-space-and-minimum-sizes)
+- [6. AI Generation vs Human Designer — Brief Differences](#6-ai-generation-vs-human-designer--brief-differences)
+- [7. Validation Checklist](#7-validation-checklist)
+
+---
+
 ## 1. The Seven Mark Types
 
 ### 1.1 Wordmark (Logotype)

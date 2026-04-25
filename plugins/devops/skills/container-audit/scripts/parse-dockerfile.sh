@@ -3,7 +3,7 @@
 # Prints structural extract for sub-agent ingestion.
 # Usage: bash parse-dockerfile.sh <path>
 
-set -u
+set -euo pipefail
 FILE="${1:-}"
 [ -z "$FILE" ] || [ ! -f "$FILE" ] && { echo "error: file not found" >&2; exit 1; }
 

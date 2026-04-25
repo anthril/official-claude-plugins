@@ -2,7 +2,7 @@
 name: kubernetes-manifest-audit
 description: Audit Kubernetes manifests, Helm charts, and Kustomize overlays against CIS Kubernetes Benchmark and NSA/CISA hardening — pod security, resources, probes, RBAC, networking, secrets, availability. Static, live, apply, runtime modes.
 argument-hint: [manifest-dir-or-chart]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: high
 paths: "**/*.yaml"
 ---

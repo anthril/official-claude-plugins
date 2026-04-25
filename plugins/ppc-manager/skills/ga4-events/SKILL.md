@@ -1,8 +1,8 @@
 ---
 name: ga4-events
-description: Design and wire the GA4 event catalogue — map events to conversions, create custom dimensions and metrics, align with the dataLayer schema, and verify via DebugView for ongoing measurement.
+description: Design the GA4 event catalogue — map events to conversions, define custom dimensions/metrics, and verify via DebugView.
 argument-hint: [event-goal-or-audit]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 

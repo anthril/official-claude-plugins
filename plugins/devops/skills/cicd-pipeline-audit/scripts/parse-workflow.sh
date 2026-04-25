@@ -3,7 +3,7 @@
 # Prints a structural summary of a workflow file for sub-agent ingestion.
 # Usage: bash parse-workflow.sh <workflow-path>
 
-set -u
+set -euo pipefail
 
 FILE="${1:-}"
 if [ -z "$FILE" ] || [ ! -f "$FILE" ]; then

@@ -2,7 +2,7 @@
 name: gtm-datalayer
 description: Design a dataLayer schema for a website — generate JavaScript push snippets for e-commerce, form, and custom events, then wire matching GTM data layer variables for each field.
 argument-hint: [site-type-or-existing-schema]
-allowed-tools: Read Write Edit Grep Glob Bash
+allowed-tools: Read Write Edit Grep Glob Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 
@@ -56,11 +56,11 @@ The user has optionally provided a site type, existing schema, or URL:
 
 $ARGUMENTS
 
-If they provided a URL, check whether the site has an existing `window.dataLayer` (you can ask them to paste the output of `console.log(JSON.stringify(dataLayer, null, 2))`). If they provided a site type (e-commerce, SaaS, lead-gen, publisher), use it to pre-populate the event catalog in Phase 1. Otherwise begin Phase 1 by asking.
+If they provided a URL, check whether the site has an existing `window.dataLayer` (you can ask them to paste the output of `console.log(JSON.stringify(dataLayer, null, 2))`). If they provided a site type (e-commerce, SaaS, lead-gen, publisher), use it to pre-populate the event catalogue in Phase 1. Otherwise begin Phase 1 by asking.
 
 ---
 
-### Phase 1: Event catalog discovery
+### Phase 1: Event catalogue discovery
 
 Collect the list of business events the site needs to track. Use the template per site type below and let the user add or remove.
 

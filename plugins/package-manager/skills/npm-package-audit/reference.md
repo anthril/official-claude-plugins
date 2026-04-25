@@ -4,6 +4,22 @@ Dense lookup tables, validation rules, and reference material for the npm-packag
 
 ---
 
+## Table of Contents
+
+1. [package.json Field Reference](#1-packagejson-field-reference)
+2. [Exports Map Patterns](#2-exports-map-patterns)
+3. [Build Tool Comparison](#3-build-tool-comparison)
+4. [Dual CJS/ESM Checklist](#4-dual-cjsesm-checklist)
+5. [Scoring Rubric](#5-scoring-rubric)
+6. [Cross-OS Compatibility Patterns](#6-cross-os-compatibility-patterns)
+7. [npm Security Checklist](#7-npm-security-checklist)
+8. [CI/CD Workflow Reference](#8-cicd-workflow-reference)
+9. [Documentation Quality Standards](#9-documentation-quality-standards)
+10. [Dependency Management Reference](#10-dependency-management-reference)
+11. [Package Size Optimization](#11-package-size-optimization)
+
+---
+
 ## 1. package.json Field Reference
 
 ### Required Fields

@@ -4,6 +4,16 @@ Supplementary reference material for the `brand-guidelines` skill. Covers the st
 
 ---
 
+## Table of Contents
+
+- [1. Standard Brand Book Section Catalogue](#1-standard-brand-book-section-catalogue)
+- [2. Common Pitfalls](#2-common-pitfalls)
+- [3. Brand Book Audit Checklist](#3-brand-book-audit-checklist)
+- [4. Format Recommendations](#4-format-recommendations)
+- [5. Section Length Guidance](#5-section-length-guidance)
+
+---
+
 ## 1. Standard Brand Book Section Catalogue
 
 A comprehensive brand book typically contains 8–10 numbered sections. Not every brand needs every section — small brands can compress; complex brands can expand. The standard catalogue:

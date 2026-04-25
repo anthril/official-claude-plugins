@@ -3,7 +3,7 @@
 # Lists migrations added/modified in the diff and flags potentially destructive DDL.
 # Usage: bash detect-migrations.sh [--base main]
 
-set -u
+set -euo pipefail
 BASE="main"
 while [ $# -gt 0 ]; do
   case "$1" in

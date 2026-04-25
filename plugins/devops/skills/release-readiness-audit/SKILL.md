@@ -2,7 +2,7 @@
 name: release-readiness-audit
 description: Pre-production go/no-go gate. Given a branch or diff, assesses migration safety, rollback path, config drift, runbook coverage, monitoring coverage, and deploy strategy fit. Static, live, and runtime (canary smoke) modes.
 argument-hint: [--base main]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: high
 ---
 

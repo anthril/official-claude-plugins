@@ -1,8 +1,8 @@
 ---
 name: keyword-research
-description: Research keywords for Google Search or YouTube campaigns — seed expansion, clustering into ad-group themes, match-type recommendations, negative discovery, and volume/CPC estimates.
+description: Research keywords for Google Search or YouTube — seed expansion, ad-group clustering, and volume/CPC estimates.
 argument-hint: [seed-keywords-or-domain]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 

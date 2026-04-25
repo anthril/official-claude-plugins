@@ -2,7 +2,7 @@
 # Anthril — Observability Audit: Tracing Scanner
 # Emits one line per file that imports a tracing library, plus any OTel config.
 
-set -u
+set -euo pipefail
 
 # Tracing libraries
 grep -rlE "(@opentelemetry/|opentelemetry-|ddtrace|datadog-|@sentry/|sentry-sdk|jaeger|zipkin|honeycomb)" \

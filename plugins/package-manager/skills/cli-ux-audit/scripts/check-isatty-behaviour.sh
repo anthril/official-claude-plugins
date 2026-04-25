@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # check-isatty-behaviour.sh
 #
 # Compare a CLI's output when attached to a TTY vs when piped to a file.

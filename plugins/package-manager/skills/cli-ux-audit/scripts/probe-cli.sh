@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 # probe-cli.sh
 #
 # Run a CLI through a standard battery of invocations and capture stdout,

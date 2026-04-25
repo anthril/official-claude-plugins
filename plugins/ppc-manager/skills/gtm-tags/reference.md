@@ -2,6 +2,19 @@
 
 Recipe-style reference for the tag patterns this skill installs. Each recipe is a complete, ready-to-use specification.
 
+## Contents
+
+1. [GA4 Event tag (generic)](#1-ga4-event-tag-generic)
+2. [Meta Pixel base tag](#2-meta-pixel-base-tag)
+3. [Meta Pixel event tag](#3-meta-pixel-event-tag)
+4. [Google Ads conversion tag](#4-google-ads-conversion-tag)
+5. [Google Ads Conversion Linker](#5-google-ads-conversion-linker)
+6. [LinkedIn Insight Tag](#6-linkedin-insight-tag)
+7. [TikTok Pixel](#7-tiktok-pixel)
+8. [Scroll Depth tracking](#8-scroll-depth-tracking)
+9. [Form Submission tracking](#9-form-submission-tracking)
+10. [Conversion-tracking audit checklist](#10-conversion-tracking-audit-checklist)
+
 ---
 
 ## 1. GA4 Event tag (generic)

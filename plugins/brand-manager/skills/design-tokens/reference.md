@@ -4,6 +4,19 @@ Supplementary reference material for the `design-tokens` skill. Covers the W3C D
 
 ---
 
+## Table of Contents
+
+- [1. The W3C Design Tokens Spec](#1-the-w3c-design-tokens-spec)
+- [2. Tailwind v4 vs v3](#2-tailwind-v4-vs-v3)
+- [3. Semantic Token Taxonomy](#3-semantic-token-taxonomy)
+- [4. Spacing Scale Standards](#4-spacing-scale-standards)
+- [5. Type Scale Standards](#5-type-scale-standards)
+- [6. Format Comparison](#6-format-comparison)
+- [7. The `token-converter.py` Script](#7-the-token-converterpy-script)
+- [8. Validation Checklist](#8-validation-checklist)
+
+---
+
 ## 1. The W3C Design Tokens Spec
 
 The W3C Design Tokens Community Group defines a JSON format for design tokens. Most modern token tools (Style Dictionary v4, Tokens Studio, Penpot, Figma Variables) read or write this format.

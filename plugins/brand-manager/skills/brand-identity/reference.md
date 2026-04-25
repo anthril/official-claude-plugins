@@ -4,6 +4,19 @@ Supplementary reference material for the `brand-identity` skill. Covers Jung's 1
 
 ---
 
+## Table of Contents
+
+- [1. Jung's 12 Brand Archetypes](#1-jungs-12-brand-archetypes)
+- [2. Common Archetype Blends](#2-common-archetype-blends)
+- [3. Voice Attribute Library](#3-voice-attribute-library)
+- [4. Banned Generic Values](#4-banned-generic-values)
+- [5. Example Value Statements (Strong vs Weak)](#5-example-value-statements-strong-vs-weak)
+- [6. Tone Slider Templates](#6-tone-slider-templates)
+- [7. Anti-Brand Statement Patterns](#7-anti-brand-statement-patterns)
+- [8. Output Validation Checklist](#8-output-validation-checklist)
+
+---
+
 ## 1. Jung's 12 Brand Archetypes
 
 Each archetype has a core desire, a goal, a fear, and a strategy. When mapping a brand, evidence from Phase 1 (founding story, customer truth, competitive position) should drive the choice — not aesthetic preference.

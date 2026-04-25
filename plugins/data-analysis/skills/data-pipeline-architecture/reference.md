@@ -4,6 +4,17 @@ Supplementary reference material for the data-pipeline-architecture skill. Use a
 
 ---
 
+## Table of Contents
+
+- [Schema Layering Strategy](#schema-layering-strategy)
+- [Orchestration Pattern Reference](#orchestration-pattern-reference)
+- [Error Handling Patterns](#error-handling-patterns)
+- [Monitoring SQL Templates](#monitoring-sql-templates)
+- [Source System Integration Patterns](#source-system-integration-patterns)
+- [Idempotency Patterns by Pipeline Stage](#idempotency-patterns-by-pipeline-stage)
+
+---
+
 ## Schema Layering Strategy
 
 ### Raw Layer
@@ -358,9 +369,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-### Retry Strategies
-
-#### Exponential Backoff
+### Retry Strategies — Exponential Backoff
 
 ```python
 import time
@@ -397,7 +406,7 @@ def extract_from_api(endpoint, params):
     return response.json()
 ```
 
-#### Database-Level Retry with Dead Letter Fallback
+### Database-Level Retry with Dead Letter Fallback
 
 ```sql
 CREATE OR REPLACE FUNCTION pipeline.process_with_retry(

@@ -1,8 +1,8 @@
 ---
 name: meta-audience-builder
-description: Build Meta custom and lookalike audiences from pixel events, customer lists, engagement, and video views — with audience size estimation, retention rules, and ready-to-activate definitions.
+description: Build Meta custom and lookalike audiences with size estimation and ready-to-activate definitions.
 argument-hint: [audience-goal]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 

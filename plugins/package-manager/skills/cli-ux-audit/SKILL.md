@@ -2,7 +2,7 @@
 name: cli-ux-audit
 description: Audit any CLI tool for terminal user experience — help text, command structure, error messages, output formatting, discoverability, and accessibility — produces a scored report with actionable fixes
 argument-hint: [cli-binary-or-package-path]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash(command:*), Bash(./scripts/*:*), Bash(man:*), Bash(which:*), Agent
 effort: high
 ---
 

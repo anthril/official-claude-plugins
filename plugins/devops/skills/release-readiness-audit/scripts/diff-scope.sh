@@ -2,7 +2,7 @@
 # Anthril — Release Readiness: Diff Scope
 # Usage: bash diff-scope.sh [--base main]
 
-set -u
+set -euo pipefail
 BASE="main"
 while [ $# -gt 0 ]; do
   case "$1" in

@@ -1,6 +1,6 @@
 ---
 name: google-ads-copy
-description: Generate Google Ads copy — headlines, descriptions, display URLs, sitelinks, callouts — for Search and Performance Max, following character limits, pin rules, and brand voice.
+description: Generate Google Ads copy for Search and Performance Max — headlines, descriptions, and extensions following character/pin rules.
 argument-hint: [product-audience-angle]
 allowed-tools: Read Write Edit
 effort: medium

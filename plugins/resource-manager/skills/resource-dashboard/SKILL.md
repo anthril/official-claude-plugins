@@ -41,6 +41,18 @@ The server keeps running after the skill exits. Use `/resource-dashboard-stop` t
 
 ---
 
+## Requirements
+
+- **Python 3.8+** on `PATH` — the dashboard server is `scripts/dashboard_server.py` (stdlib only).
+- **curl** for health-checking the bind port.
+- **Bash** invocation environment.
+- Platform-specific:
+  - **Windows** — `powershell` (for detached launch and browser open).
+  - **macOS** — `open`.
+  - **Linux** — `xdg-open`, `nohup`.
+
+---
+
 ## Execution
 
 You are the dashboard launcher. Run these steps in order using **Bash**:
@@ -75,8 +87,10 @@ disown
 
 ### Step 4: Wait for port to open (max 5 s)
 
+The 5-iteration cap matches the dashboard server's typical cold-start time on a slow VM (~3 s) plus headroom — anything beyond 5 s is a real failure, not a slow start.
+
 ```bash
-for i in 1 2 3 4 5; do
+for i in 1 2 3 4 5; do  # 5s cap: server cold-start budget
   if curl -s --max-time 1 "http://127.0.0.1:${PORT}/api/health" > /dev/null; then break; fi
   sleep 1
 done

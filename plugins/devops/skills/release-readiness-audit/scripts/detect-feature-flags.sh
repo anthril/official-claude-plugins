@@ -2,7 +2,7 @@
 # Anthril — Release Readiness: Feature-Flag Detector
 # Finds feature-flag library usage and flag references in the current repo.
 
-set -u
+set -euo pipefail
 
 echo "=== FEATURE-FLAG LIBRARIES ==="
 grep -rlE "(@unleash/|unleash-client|launchdarkly|flagsmith|posthog|configcat|split\\.io|growthbook|optimizely)" \

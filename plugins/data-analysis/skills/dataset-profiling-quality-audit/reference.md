@@ -1,6 +1,17 @@
-# Dataset Profiling & Quality Audit -- Reference
+# Dataset Profiling Quality Audit -- Reference
 
 Supplementary reference material for the dataset-profiling-quality-audit skill. Use alongside SKILL.md for scoring rubrics, detection methods, code templates, and the quality scorecard format.
+
+---
+
+## Table of Contents
+
+- [Quality Dimension Scoring Rubrics](#quality-dimension-scoring-rubrics)
+- [Missingness Classification Guide](#missingness-classification-guide)
+- [Common Type Mismatch Patterns](#common-type-mismatch-patterns)
+- [Outlier Detection Methods Reference](#outlier-detection-methods-reference)
+- [Data Cleaning Operation Templates](#data-cleaning-operation-templates)
+- [Quality Scorecard Template](#quality-scorecard-template)
 
 ---
 

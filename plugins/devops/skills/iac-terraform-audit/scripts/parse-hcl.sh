@@ -4,7 +4,7 @@
 # Uses hcl2json when available; falls back to grep-based extraction.
 # Usage: bash parse-hcl.sh <module-dir>
 
-set -u
+set -euo pipefail
 DIR="${1:-.}"
 [ ! -d "$DIR" ] && { echo "error: directory not found: $DIR" >&2; exit 1; }
 

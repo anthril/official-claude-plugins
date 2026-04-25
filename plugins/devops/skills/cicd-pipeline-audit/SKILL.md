@@ -2,7 +2,7 @@
 name: cicd-pipeline-audit
 description: Audit CI/CD pipelines (GitHub Actions, GitLab CI, CircleCI, Azure Pipelines, Jenkins, Bitbucket) for security, reliability, reproducibility, supply chain, and deploy safety. One sub-agent per workflow. Static, live, apply, and runtime modes.
 argument-hint: [workflow-path-or-glob]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: high
 paths: ".github/workflows/*.{yml,yaml}"
 ---

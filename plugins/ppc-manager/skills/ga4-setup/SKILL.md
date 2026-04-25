@@ -1,8 +1,8 @@
 ---
 name: ga4-setup
-description: Configure a GA4 property end-to-end — audit data streams, set retention, link Google Ads, align cross-domain and unwanted referrals, and establish a clean baseline ready for event taxonomy work.
+description: Configure a GA4 property end-to-end — data streams, retention/links, and a clean baseline ready for event taxonomy work.
 argument-hint: [property-id-or-new-property]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: medium
 ---
 

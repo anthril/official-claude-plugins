@@ -3,7 +3,7 @@
 # Prints a one-line-per-signal fingerprint of the repo.
 # Safe to run in any directory; never mutates.
 
-set -u
+set -euo pipefail
 
 if [ ! -d "." ]; then
   echo "no-repo"

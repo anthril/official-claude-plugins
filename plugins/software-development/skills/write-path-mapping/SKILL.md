@@ -1,8 +1,8 @@
 ---
 name: write-path-mapping
-description: Map the entire write path of any project — every place data enters the system and is persisted or mutated. Traces HTTP/RPC/CLI/webhook/queue entry points through validation, auth, business logic, transactions, cache writes, file uploads, event emissions, and fan-out. Supports Next.js, Express, Fastify, Hono, NestJS, Django, Rails, Laravel, FastAPI, Go net/http, Supabase Edge Functions, with Supabase/Postgres/Prisma/Drizzle/TypeORM/SQLAlchemy persistence. Produces a markdown report, four Mermaid diagrams (system flowchart, per-endpoint sequence, data-domain map, DB trigger graph), and a JSON sidecar. Flags unauthenticated writes, missing validation, missing RLS, race conditions, cross-tenant leaks, cache-invalidation gaps, orphan queues, and async fan-out. Use when the user mentions write path, data flow, mutation audit, persistence audit, write endpoints, authorization audit, RLS audit, side-effect analysis, blast radius, or pre-refactor data-flow mapping.
+description: Map the write path of a project across multiple frameworks — entry points, validation, auth, persistence, side-effects. Outputs report, Mermaid diagrams, JSON sidecar. Flags unauth writes, missing RLS, cache gaps. Use for write path, mutation audit, RLS audit.
 argument-hint: [target-directory-or-package]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(git:*, ls:*, wc:*, find:*, cat:*, mkdir:*, test:*) Agent
 effort: high
 ---
 

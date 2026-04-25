@@ -2,7 +2,7 @@
 name: devsecops-supply-chain-audit
 description: Audit software supply chain across every ecosystem (npm, pip, Go, Ruby, Cargo, Maven, Docker, Terraform) — pinning, vulnerabilities, secrets, SBOM, signing, branch protection, CODEOWNERS. One sub-agent per ecosystem. Three modes.
 argument-hint: [repo-path]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: high
 ---
 

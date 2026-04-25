@@ -2,6 +2,18 @@
 
 Dense lookup tables, tool matrices, and scoring rules for the dead-code-audit skill. Loaded on demand from `SKILL.md`.
 
+## Table of Contents
+
+- [1. Per-Language Tool Matrix](#1-per-language-tool-matrix)
+- [2. Dead-Code Category Taxonomy](#2-dead-code-category-taxonomy)
+- [3. Confidence Scoring Rubric](#3-confidence-scoring-rubric)
+- [4. 10-Step Verification Protocol](#4-10-step-verification-protocol)
+- [5. False-Positive Patterns by Framework](#5-false-positive-patterns-by-framework)
+- [6. `.deadcode-ignore` File Format](#6-deadcode-ignore-file-format)
+- [7. Severity & Action Mapping](#7-severity--action-mapping)
+- [8. Tool Output Normalisation](#8-tool-output-normalisation)
+- [9. Quick Tool Install Commands](#9-quick-tool-install-commands)
+
 ---
 
 ## 1. Per-Language Tool Matrix

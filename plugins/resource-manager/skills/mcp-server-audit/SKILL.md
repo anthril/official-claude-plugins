@@ -32,6 +32,14 @@ Every Claude Code session spawns each **enabled** MCP server as a stdio child pr
 
 ---
 
+## Requirements
+
+- **Python 3.8+** on `PATH` — `scripts/mcp_config_scanner.py` and `scripts/process_inspector.py` use stdlib only.
+- **Bash** invocation environment.
+- **Read** access to the user-scope and project-scope MCP config files (`~/.claude/settings.json`, `<project>/.claude/settings.json`, plugin config files under `.claude-plugin/`).
+
+---
+
 ## Execution
 
 ### Phase 1 — Collect

@@ -1,8 +1,8 @@
 ---
 name: meta-pixel-setup
-description: Create or audit a Meta Pixel — install the base code via GTM, map standard and custom events, fire events with eventID for CAPI deduplication, and verify via Meta Events Manager Test Events.
+description: Create or audit a Meta Pixel — install via GTM, map events, and verify via Events Manager Test Events.
 argument-hint: [site-domain-or-pixel-id]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: medium
 ---
 

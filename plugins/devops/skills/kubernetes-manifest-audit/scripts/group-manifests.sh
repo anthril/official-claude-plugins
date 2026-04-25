@@ -7,7 +7,7 @@
 # Prints one line per group: "group-id:<manifest1>,<manifest2>,..."
 # Usage: bash group-manifests.sh <dir>
 
-set -u
+set -euo pipefail
 DIR="${1:-.}"
 [ ! -d "$DIR" ] && { echo "error: directory not found: $DIR" >&2; exit 1; }
 

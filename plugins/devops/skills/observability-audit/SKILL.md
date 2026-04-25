@@ -2,7 +2,7 @@
 name: observability-audit
 description: Score observability across the four pillars — logs, metrics, traces, and alerts/dashboards — with per-service coverage heatmap. Cross-cutting synthesis. Static, live (Prometheus/Grafana/OTel/Datadog), and runtime (synthetic alert) modes.
 argument-hint: [repo-path]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(bash:*) Agent
 effort: high
 ---
 

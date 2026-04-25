@@ -1,6 +1,16 @@
 # GTM DataLayer — Reference
 
-Dense reference material for dataLayer schema design: the GA4 recommended event catalog, Enhanced Ecommerce spec, param type rules, and the canonical event-ID generation helpers.
+Dense reference material for dataLayer schema design: the GA4 recommended event catalogue, Enhanced Ecommerce spec, param type rules, and the canonical event-ID generation helpers.
+
+## Contents
+
+1. [GA4 automatically-collected events (do not duplicate)](#1-ga4-automatically-collected-events-do-not-duplicate)
+2. [GA4 recommended events by vertical](#2-ga4-recommended-events-by-vertical)
+3. [Items array shape (Enhanced Ecommerce)](#3-items-array-shape-enhanced-ecommerce)
+4. [Event ID generation helpers](#4-event-id-generation-helpers)
+5. [PII hashing](#5-pii-hashing)
+6. [Push patterns by framework](#6-push-patterns-by-framework)
+7. [Anti-patterns — do not produce schemas that look like this](#7-anti-patterns--do-not-produce-schemas-that-look-like-this)
 
 ---
 

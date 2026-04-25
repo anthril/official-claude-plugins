@@ -4,6 +4,17 @@ Supplementary reference material for the entity-relationship-mapper skill. Use a
 
 ---
 
+## Table of Contents
+
+- [Schema.org Relationship Property Reference](#schemaorg-relationship-property-reference)
+- [@id Convention Rules and Examples](#id-convention-rules-and-examples)
+- [sameAs Link Sources by Entity Type](#sameas-link-sources-by-entity-type)
+- [JSON-LD @graph Template](#json-ld-graph-template)
+- [Common Entity Type Mappings](#common-entity-type-mappings)
+- [ERD Notation Guide for Text-Based Diagrams](#erd-notation-guide-for-text-based-diagrams)
+
+---
+
 ## Schema.org Relationship Property Reference
 
 Complete reference of relationship properties used in entity-relationship mapping. Each entry includes the forward property, its domain (subject type), range (object type), and a usage example.

@@ -1,8 +1,8 @@
 ---
 name: postgres-schema-audit
-description: Audit any Postgres schema for structural and relational design quality. Works with Supabase (via MCP) or any other Postgres 13+ (RDS, Cloud SQL, Neon, Railway, self-hosted, local) via a configured read-only connection. Asks the user to pick a project/connection and one or more schemas, then spawns one parallel sub-agent per schema. Each sub-agent inspects tables, columns, relationships, triggers, and RPC functions against ten audit categories — Keys & Relationships, Data Types, Constraints & Defaults, Arrays & JSONB, Indexes, Triggers & RPC, RLS, Naming, Timestamps, and Orphans — and produces evidence-backed findings with row references. The main skill merges sub-agent output into a markdown report, an ER diagram, a JSON sidecar, and a draft `migrations-suggested.sql` file. Flags missing foreign keys, TEXT columns holding UUIDs, missing NOT NULL and CHECK constraints, missing `updated_at` triggers, unlocked SECURITY DEFINER functions, JSONB with consistent shape that should be normalised, and array-candidate columns. Use when the user mentions database design, schema audit, Postgres review, Supabase schema, relationship improvements, foreign key audit, constraint audit, trigger audit, RPC audit, or pre-migration cleanup.
+description: Audit any Postgres schema (Supabase via MCP or any Postgres 13+ via read-only connection) for structural and relational design quality. Produces a markdown report, ER diagram, JSON sidecar, and draft migrations-suggested.sql. Use for database design, schema audit, FK/constraint/trigger/RPC review, or pre-migration cleanup.
 argument-hint: [project-ref-or-schema-list]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash(bash scripts/*:*), Bash(psql:*), Agent
 effort: high
 ---
 

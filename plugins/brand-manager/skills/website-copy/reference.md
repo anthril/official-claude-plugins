@@ -4,6 +4,19 @@ Supplementary reference material for the `website-copy` skill. Covers proven cop
 
 ---
 
+## Table of Contents
+
+- [1. Copy Frameworks](#1-copy-frameworks)
+- [2. Homepage Anatomy](#2-homepage-anatomy)
+- [3. SEO Meta Best Practices](#3-seo-meta-best-practices)
+- [4. CTA Verb Library](#4-cta-verb-library)
+- [5. Length Guidelines](#5-length-guidelines)
+- [6. Voice Compliance Checks](#6-voice-compliance-checks)
+- [7. Common Mistakes](#7-common-mistakes)
+- [8. Output Validation Checklist](#8-output-validation-checklist)
+
+---
+
 ## 1. Copy Frameworks
 
 ### 1.1 AIDA (Attention → Interest → Desire → Action)

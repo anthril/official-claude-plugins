@@ -1,8 +1,8 @@
 ---
 name: dead-code-audit
-description: Audit any codebase for dead code — unused exports, orphaned files, dead dependencies, unreachable branches, abandoned feature flags, unused CSS — across JS/TS, Python, Go, Rust, Java/Kotlin, PHP, Ruby, C#. Produces a confidence-scored report with verification evidence and prioritised cleanup actions. Use when the user mentions dead code, unused code, code cleanup, code audit, bundle bloat, removing exports, orphaned files, or pre-refactor analysis.
+description: Audit a codebase for dead code — unused exports, orphaned files, dead dependencies, unreachable branches, abandoned flags, unused CSS — across multiple languages. Produces a confidence-scored report with cleanup actions. Use for dead code, code cleanup, bundle bloat, pre-refactor analysis.
 argument-hint: [target-directory-or-package]
-allowed-tools: Read Grep Glob Write Edit Bash Agent
+allowed-tools: Read Grep Glob Write Edit Bash(git:*, ls:*, wc:*, find:*, cat:*, mkdir:*, test:*) Agent
 effort: high
 ---
 

@@ -1,8 +1,8 @@
 ---
 name: meta-capi-setup
-description: Configure Meta Conversions API (CAPI) — server-side event forwarding via GTM Server Container, Cloudflare Worker, or backend, with event deduplication, user data hashing, and test validation.
+description: Configure Meta Conversions API (CAPI) — server-side event forwarding with deduplication and test validation.
 argument-hint: [backend-type-or-existing-setup]
-allowed-tools: Read Write Edit Grep Bash
+allowed-tools: Read Write Edit Grep Bash(ls:*) Bash(cat:*) Bash(rg:*)
 effort: high
 ---
 

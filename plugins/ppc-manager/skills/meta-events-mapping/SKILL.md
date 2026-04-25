@@ -1,6 +1,6 @@
 ---
 name: meta-events-mapping
-description: Produce a cross-platform event dictionary — map every business event to its GA4, Meta Pixel, CAPI, and dataLayer representation, with param schemas, as a single source-of-truth spec.
+description: Produce a cross-platform event dictionary — mapping each business event across GA4, Meta Pixel/CAPI, and dataLayer with param schemas.
 argument-hint: [events-list-or-audit]
 allowed-tools: Read Write Edit Grep
 effort: high

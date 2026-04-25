@@ -2,7 +2,7 @@
 # Anthril — IaC Terraform Audit: Module Inventory
 # Prints one line per detected module: "<kind>:<dir>"
 
-set -u
+set -euo pipefail
 
 # Terraform / OpenTofu modules (directory containing at least one .tf file)
 find . -maxdepth 8 -type f \( -name "*.tf" -o -name "*.tf.json" \) 2>/dev/null \

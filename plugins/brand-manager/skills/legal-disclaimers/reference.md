@@ -6,6 +6,18 @@ Supplementary reference material for the `legal-disclaimers` skill. Covers the m
 
 ---
 
+## Table of Contents
+
+- [1. Jurisdiction Matrix](#1-jurisdiction-matrix)
+- [2. Industry-Specific Rules](#2-industry-specific-rules)
+- [3. Standard Disclaimer Types](#3-standard-disclaimer-types)
+- [4. Common Pitfalls](#4-common-pitfalls)
+- [5. Solicitor Review Checklist](#5-solicitor-review-checklist)
+- [6. Update Cadence](#6-update-cadence)
+- [7. Final Reminder](#7-final-reminder)
+
+---
+
 ## 1. Jurisdiction Matrix
 
 ### Australia

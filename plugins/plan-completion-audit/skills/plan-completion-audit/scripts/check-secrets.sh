@@ -2,7 +2,7 @@
 # check-secrets.sh — Scan for hardcoded secrets, API keys, and credentials
 # Usage: bash scripts/check-secrets.sh <project-root>
 
-set -uo pipefail
+set -euo pipefail
 
 PROJECT_ROOT="${1:-.}"
 cd "$PROJECT_ROOT"

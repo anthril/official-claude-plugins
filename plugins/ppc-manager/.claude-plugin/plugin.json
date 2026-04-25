@@ -1,6 +1,6 @@
 {
   "name": "ppc-manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "23 skills for end-to-end PPC — Google Ads, Meta Ads, GA4, and GTM — with OAuth-authenticated read/write across all four platforms via bundled Python MCP servers",
   "author": {
     "name": "Anthril",

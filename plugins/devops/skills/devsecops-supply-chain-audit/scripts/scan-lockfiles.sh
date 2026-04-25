@@ -2,7 +2,7 @@
 # Anthril — DevSecOps Supply Chain: Lockfile Scanner
 # Emits one line per detected lockfile with a coarse pin-style summary.
 
-set -u
+set -euo pipefail
 
 # npm / pnpm / yarn
 if [ -f "package-lock.json" ]; then

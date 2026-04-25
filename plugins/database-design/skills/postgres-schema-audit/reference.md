@@ -4,6 +4,22 @@ Dense lookup tables, SQL query library, check taxonomy, and scoring rules for th
 
 All SQL snippets in this file are SELECT-only against `pg_catalog` and `information_schema`. They are designed to run through either the Supabase MCP's `execute_sql` tool (in `supabase-mcp` mode) or the local `scripts/run-query.sh` wrapper (in `direct-postgres` mode). The snippets themselves are identical between modes — only the execution path differs.
 
+## Table of Contents
+
+- [0. Connection Modes](#0-connection-modes)
+- [1. System Schemas to Exclude](#1-system-schemas-to-exclude)
+- [2. Per-Schema Snapshot Queries](#2-per-schema-snapshot-queries)
+- [3. Audit Category Taxonomy](#3-audit-category-taxonomy)
+- [4. FK Action Code Reference](#4-fk-action-code-reference)
+- [5. Severity Rubric](#5-severity-rubric)
+- [6. Safe Remediation Patterns](#6-safe-remediation-patterns)
+- [7. Sub-Agent Prompt Rubric](#7-sub-agent-prompt-rubric)
+- [8. Completeness Scoring](#8-completeness-scoring)
+- [9. `.db-design-ignore` Format](#9-db-design-ignore-format)
+- [10. Mermaid Diagram Conventions](#10-mermaid-diagram-conventions)
+- [11. Supabase Advisor Integration](#11-supabase-advisor-integration)
+- [12. Quick References](#12-quick-references)
+
 ---
 
 ## 0. Connection Modes

@@ -1,6 +1,6 @@
 ---
 name: cohort-analysis-builder
-description: Design cohort analysis frameworks with SQL queries, visualisation specs, and interpretation guides for retention, revenue, and churn analysis
+description: Design cohort analysis frameworks with SQL queries and visualisation specs for retention, revenue, and churn
 argument-hint: [dataset-or-business-context]
 allowed-tools: Read Grep Glob Write Edit Bash Agent
 effort: high

@@ -7,6 +7,18 @@ and common pitfalls.
 
 ---
 
+## Table of Contents
+
+- [1. SQL Patterns for Time-Based Cohort Assignment](#1-sql-patterns-for-time-based-cohort-assignment)
+- [2. Retention Matrix SQL Template (PostgreSQL)](#2-retention-matrix-sql-template-postgresql)
+- [3. Revenue Cohort SQL Template with Cumulative LTV](#3-revenue-cohort-sql-template-with-cumulative-ltv)
+- [4. Timezone Handling Strategies for Cohort Boundaries](#4-timezone-handling-strategies-for-cohort-boundaries)
+- [5. Sparse Cohort Handling](#5-sparse-cohort-handling)
+- [6. Visualisation Specification Templates](#6-visualisation-specification-templates)
+- [7. Common Cohort Analysis Pitfalls and Solutions](#7-common-cohort-analysis-pitfalls-and-solutions)
+
+---
+
 ## 1. SQL Patterns for Time-Based Cohort Assignment
 
 ### 1A. Signup Month Cohort

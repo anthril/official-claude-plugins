@@ -12,7 +12,7 @@
 
 ---
 
-## Event catalog
+## Event catalogue
 
 | Event | Trigger | Required params | Optional params | Purpose |
 |---|---|---|---|---|

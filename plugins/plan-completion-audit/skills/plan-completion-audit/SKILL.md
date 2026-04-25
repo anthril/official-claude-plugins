@@ -1,14 +1,32 @@
 ---
 name: plan-completion-audit
-description: Full-stack audit of a project plan versus actual implementation — verifies plan vs code, types, bugs, security, Supabase schema, RLS, and frontend-backend alignment
+description: Audit a project plan against the actual implementation — verifying code, types, security, and Supabase backend alignment.
 argument-hint: [path-to-project-root-or-plan-file]
-allowed-tools: Read Grep Glob Write Edit Bash WebSearch WebFetch Agent
+allowed-tools: Read Grep Glob Write Edit Bash(npx:*) Bash(npm:*) Bash(yarn:*) Bash(pnpm:*) Bash(supabase:*) Bash(grep:*) Bash(find:*) Bash(ls:*) Bash(cat:*) Bash(bash:*) Bash(timeout:*) Bash(python3:*) Bash(mypy:*) Bash(pyright:*) Bash(ruff:*) WebSearch WebFetch Agent
 effort: high
 ---
 
 # Plan Completion Audit
 
 You are performing a rigorous, full-stack audit comparing a project plan against the actual codebase. Your primary job is to determine what has been built, what hasn't, and whether what was built is correct. Do NOT assume all work is complete — you are here to verify that. Treat the plan as the source of truth and the codebase as what needs to be measured against it.
+
+## User Context
+
+The user invoked the audit with: `$ARGUMENTS`
+
+Treat this as a path to the project root or a specific plan/requirements file. If empty, default to the current working directory and locate the plan as described under "Before You Start". If a specific file path is provided, treat it as the canonical plan.
+
+## Requirements
+
+The audit invokes a number of external tools. None are mandatory — phases gracefully degrade when a tool is missing — but better coverage is achieved when these are available on PATH:
+
+- **Node.js & npm** (or yarn/pnpm) — needed for `npx tsc`, `npx eslint`, `npm run build`, `npx madge`, `npx depcheck`, `npm audit`
+- **Supabase CLI** (`supabase`) — preferred for Phase 10 schema inspection
+- **Python tooling** — `python3`, `mypy`, `pyright`, `ruff` for Python projects (skipped otherwise)
+- **bash** — required to run the helper scripts under `scripts/`
+- **grep / find** — POSIX shell utilities (assumed)
+
+If a dependency is missing, the corresponding step degrades to a warning rather than aborting the audit.
 
 ## Before You Start
 
@@ -50,7 +68,7 @@ Execute every phase in order. Report findings per phase using the format in the 
 4. Items marked NOT STARTED or PARTIAL are **CRITICAL** findings. List every one explicitly with a description of what is missing or incomplete.
 5. Scan for unfinished work markers:
    ```bash
-   bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-todos.sh" .
+   bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-todos.sh" .
    ```
    Or if the script is unavailable, run the grep manually:
    ```bash
@@ -69,7 +87,7 @@ Execute every phase in order. Report findings per phase using the format in the 
 
 Run the automated check if available:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-types.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-types.sh" .
 ```
 
 Or manually:
@@ -158,7 +176,7 @@ Check for dead code — functions, components, hooks, or utilities that are defi
 
 Run the automated check:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-secrets.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-secrets.sh" .
 ```
 
 Then manually verify:
@@ -195,7 +213,7 @@ For each major feature from Phase 1 (**only those marked COMPLETE or PARTIAL —
 
 Run the automated check:
 ```bash
-bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/check-deprecated.sh" .
+bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/check-deprecated.sh" .
 ```
 
 Then verify:
@@ -237,7 +255,7 @@ Then verify:
 
 **Objective:** Verify all database tables, RPC functions, RLS policies, triggers, and indexes are correct, complete, and aligned with the application.
 
-This phase is critical. Read `${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/references/supabase-audit-guide.md` for the full checklist before starting.
+This phase is critical. Read `${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/references/supabase-audit-guide.md` for the full checklist before starting.
 
 **10a. Schema Inspection**
 
@@ -245,7 +263,7 @@ Retrieve the current database schema. Use the first available method:
 
 ```bash
 # Option 1: Supabase CLI
-bash "${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/scripts/audit-supabase.sh"
+bash "${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/scripts/audit-supabase.sh"
 
 # Option 2: If CLI unavailable, inspect local migration files
 ls -la supabase/migrations/ 2>/dev/null
@@ -320,7 +338,7 @@ If applicable:
 
 ## Reporting
 
-After all phases, produce a structured report. Use the template in `${CLAUDE_PLUGIN_ROOT}/skills/development/plan-completion-audit/templates/audit-report.md` as the base structure.
+After all phases, produce a structured report. Use the template in `${CLAUDE_PLUGIN_ROOT}/skills/plan-completion-audit/templates/audit-report.md` as the base structure.
 
 The report must include:
 - A clear PASS / FAIL / NOT IMPLEMENTED / PASS WITH WARNINGS verdict per phase
