@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlanOrchestratorCoverage",
+  "description": "Output of verify-coverage.py — used by compile-plan.py and surfaced in the final plan's coverage table.",
+  "type": "object",
+  "required": ["covered", "missing", "duplicates", "spurious", "coverage_pct"],
+  "properties": {
+    "covered": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^T\\d+$" }
+    },
+    "missing": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^T\\d+$" }
+    },
+    "duplicates": {
+      "description": "Task IDs that received `### T<N>` headings from more than one agent — expected for cross-cutting tasks; deduplicated by compile-plan.py.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^T\\d+$" }
+    },
+    "spurious": {
+      "description": "Task IDs that appeared in agent reports but were never in the input list — indicates an agent invented a task.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^T\\d+$" }
+    },
+    "coverage_pct": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    }
+  },
+  "additionalProperties": false
+}

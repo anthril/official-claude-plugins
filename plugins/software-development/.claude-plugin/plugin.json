@@ -1,7 +1,7 @@
 {
   "name": "software-development",
-  "version": "1.0.0",
-  "description": "2 audit skills for software teams — dead code detection across 9 languages and end-to-end write path mapping with framework and database introspection",
+  "version": "1.1.0",
+  "description": "3 audit/orchestration skills for software teams — dead code detection across 9 languages, end-to-end write path mapping, and parallel multi-agent plan orchestration for Claude Code Plan Mode",
   "author": {
     "name": "Anthril",
     "email": "john@anthril.com"
