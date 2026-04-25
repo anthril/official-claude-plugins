@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T03:27:51.591Z",
+  "scanned_at": "2026-04-25T09:34:21.590Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/skillops",
-    "sha256": "d54ddad0add330ab1c90e366c9dafd94e17fdce3fa605286d7a6a2c2119b9d36",
-    "size_bytes": 33501
+    "sha256": "834b58bee1d50813c5d7faa54a47b3c1fbd2ad18108d06701d702b3d94844962",
+    "size_bytes": 33499
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777087590,
-  "gui_url": "https://www.virustotal.com/gui/file/d54ddad0add330ab1c90e366c9dafd94e17fdce3fa605286d7a6a2c2119b9d36",
+  "last_analysis_date": 1777109580,
+  "gui_url": "https://www.virustotal.com/gui/file/834b58bee1d50813c5d7faa54a47b3c1fbd2ad18108d06701d702b3d94844962",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -86,11 +86,6 @@
     },
     {
       "engine": "K7AntiVirus",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -180,7 +175,7 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -190,7 +185,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -220,6 +215,11 @@
       "result": null
     },
     {
+      "engine": "Microsoft",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "Gridinsoft",
       "category": "undetected",
       "result": null
@@ -230,7 +230,7 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -295,7 +295,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },

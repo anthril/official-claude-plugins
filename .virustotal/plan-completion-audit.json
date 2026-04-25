@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T03:26:10.080Z",
+  "scanned_at": "2026-04-25T09:32:40.384Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/plan-completion-audit",
-    "sha256": "1587e1fe9d3d7e0cf9926af7f4319334160d108b5f3cc8dca93ac8293bcbea1f",
-    "size_bytes": 26510
+    "sha256": "74f1f3ae9a5664a127b02c67a62b14454d5fc84b5f73fa26de3b0920e6a2b752",
+    "size_bytes": 26514
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777087489,
-  "gui_url": "https://www.virustotal.com/gui/file/1587e1fe9d3d7e0cf9926af7f4319334160d108b5f3cc8dca93ac8293bcbea1f",
+  "last_analysis_date": 1777109499,
+  "gui_url": "https://www.virustotal.com/gui/file/74f1f3ae9a5664a127b02c67a62b14454d5fc84b5f73fa26de3b0920e6a2b752",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -35,7 +35,7 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -135,7 +135,7 @@
       "result": null
     },
     {
-      "engine": "ViRobot",
+      "engine": "SUPERAntiSpyware",
       "category": "undetected",
       "result": null
     },
@@ -180,7 +180,7 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -190,7 +190,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -235,7 +235,7 @@
       "result": null
     },
     {
-      "engine": "SUPERAntiSpyware",
+      "engine": "ViRobot",
       "category": "undetected",
       "result": null
     },
@@ -295,7 +295,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
