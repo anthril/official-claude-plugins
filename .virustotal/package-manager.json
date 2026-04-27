@@ -1,29 +1,24 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T10:33:04.991Z",
+  "scanned_at": "2026-04-27T15:57:13.087Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/package-manager",
-    "sha256": "04233be67d2b6754de9461053a454da4a9af7208d1ddf3e33d9b951de51b3d12",
-    "size_bytes": 54436
+    "sha256": "c5df90b2670537ebc81d78a4d0036dbf3d9b485d60b7601af1c5cbb8b01c576c",
+    "size_bytes": 54431
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 61,
+    "undetected": 60,
     "timeout": 0,
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777113083,
-  "gui_url": "https://www.virustotal.com/gui/file/04233be67d2b6754de9461053a454da4a9af7208d1ddf3e33d9b951de51b3d12",
+  "last_analysis_date": 1777305351,
+  "gui_url": "https://www.virustotal.com/gui/file/c5df90b2670537ebc81d78a4d0036dbf3d9b485d60b7601af1c5cbb8b01c576c",
   "engine_results": [
-    {
-      "engine": "Bkav",
-      "category": "undetected",
-      "result": null
-    },
     {
       "engine": "Lionic",
       "category": "undetected",
@@ -40,7 +35,7 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -65,7 +60,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -140,12 +135,12 @@
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Emsisoft",
+      "engine": "Sophos",
       "category": "undetected",
       "result": null
     },
@@ -160,7 +155,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -175,12 +170,12 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Sophos",
+      "engine": "Emsisoft",
       "category": "undetected",
       "result": null
     },
@@ -280,7 +275,7 @@
       "result": null
     },
     {
-      "engine": "Rising",
+      "engine": "Tencent",
       "category": "undetected",
       "result": null
     },
@@ -322,6 +317,11 @@
     {
       "engine": "alibabacloud",
       "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "Bkav",
+      "category": "failure",
       "result": null
     },
     {

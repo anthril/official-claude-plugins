@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T10:43:16.693Z",
+  "scanned_at": "2026-04-27T16:10:26.904Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/ppc-manager",
-    "sha256": "4b8c18b52ffbc6484739afe3d6434f8831d5a13f3855a4948dd36c1648f05bd2",
-    "size_bytes": 276914
+    "sha256": "beb5cba30d5958a9a32299015073d7af6d811d59950296a764e5528963ec76a7",
+    "size_bytes": 276897
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 62,
+    "undetected": 61,
     "timeout": 0,
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777113675,
-  "gui_url": "https://www.virustotal.com/gui/file/4b8c18b52ffbc6484739afe3d6434f8831d5a13f3855a4948dd36c1648f05bd2",
+  "last_analysis_date": 1777306085,
+  "gui_url": "https://www.virustotal.com/gui/file/beb5cba30d5958a9a32299015073d7af6d811d59950296a764e5528963ec76a7",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -50,11 +50,6 @@
       "result": null
     },
     {
-      "engine": "Skyhigh",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "ALYac",
       "category": "undetected",
       "result": null
@@ -75,7 +70,7 @@
       "result": null
     },
     {
-      "engine": "K7AntiVirus",
+      "engine": "CrowdStrike",
       "category": "undetected",
       "result": null
     },
@@ -85,7 +80,7 @@
       "result": null
     },
     {
-      "engine": "CrowdStrike",
+      "engine": "K7AntiVirus",
       "category": "undetected",
       "result": null
     },
@@ -145,7 +140,7 @@
       "result": null
     },
     {
-      "engine": "Rising",
+      "engine": "Tencent",
       "category": "undetected",
       "result": null
     },
@@ -180,6 +175,11 @@
       "result": null
     },
     {
+      "engine": "SentinelOne",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "CTX",
       "category": "undetected",
       "result": null
@@ -190,7 +190,7 @@
       "result": null
     },
     {
-      "engine": "SentinelOne",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -275,17 +275,12 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Zoner",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -330,6 +325,11 @@
       "result": null
     },
     {
+      "engine": "Skyhigh",
+      "category": "failure",
+      "result": null
+    },
+    {
       "engine": "Avast-Mobile",
       "category": "type-unsupported",
       "result": null
@@ -345,12 +345,12 @@
       "result": null
     },
     {
-      "engine": "Elastic",
+      "engine": "DeepInstinct",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "DeepInstinct",
+      "engine": "Elastic",
       "category": "type-unsupported",
       "result": null
     },

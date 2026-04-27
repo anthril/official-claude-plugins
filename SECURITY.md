@@ -33,17 +33,19 @@ If you discover a security issue in any plugin or in the marketplace tooling, pl
 For dependency vulnerabilities surfaced by VirusTotal scans (non-zero detections in the table below), review the linked VT report first — false positives are common for gzipped shell-heavy archives. Confirmed true positives are treated as P0 and the affected plugin is delisted from `marketplace.json` pending remediation.
 
 <!-- vt-summary:start -->
-## Latest scan — 2026-04-25
+## Latest scan — 2026-04-27
 
 | Plugin | Detections | Last scan | Report |
 |---|---:|---|---|
-| brand-manager | 0 / 75 | 2026-04-25 | [detail](plugins/brand-manager/VIRUSTOTAL.md) |
-| business-economics | 0 / 75 | 2026-04-25 | [detail](plugins/business-economics/VIRUSTOTAL.md) |
-| devops | 0 / 75 | 2026-04-25 | [detail](plugins/devops/VIRUSTOTAL.md) |
-| package-manager | 0 / 75 | 2026-04-25 | [detail](plugins/package-manager/VIRUSTOTAL.md) |
-| plan-completion-audit | 0 / 75 | 2026-04-25 | [detail](plugins/plan-completion-audit/VIRUSTOTAL.md) |
-| ppc-manager | 0 / 75 | 2026-04-25 | [detail](plugins/ppc-manager/VIRUSTOTAL.md) |
-| resource-manager | 0 / 75 | 2026-04-25 | [detail](plugins/resource-manager/VIRUSTOTAL.md) |
-| skillops | 0 / 75 | 2026-04-25 | [detail](plugins/skillops/VIRUSTOTAL.md) |
-| software-development | 0 / 75 | 2026-04-25 | [detail](plugins/software-development/VIRUSTOTAL.md) |
+| brand-manager | 0 / 75 | 2026-04-27 | [detail](plugins/brand-manager/VIRUSTOTAL.md) |
+| business-economics | 0 / 75 | 2026-04-27 | [detail](plugins/business-economics/VIRUSTOTAL.md) |
+| data-analysis | 0 / 75 | 2026-04-27 | [detail](plugins/data-analysis/VIRUSTOTAL.md) |
+| database-design | 0 / 75 | 2026-04-27 | [detail](plugins/database-design/VIRUSTOTAL.md) |
+| devops | 0 / 75 | 2026-04-27 | [detail](plugins/devops/VIRUSTOTAL.md) |
+| knowledge-engineering | 0 / 75 | 2026-04-27 | [detail](plugins/knowledge-engineering/VIRUSTOTAL.md) |
+| package-manager | 0 / 75 | 2026-04-27 | [detail](plugins/package-manager/VIRUSTOTAL.md) |
+| ppc-manager | 0 / 75 | 2026-04-27 | [detail](plugins/ppc-manager/VIRUSTOTAL.md) |
+| resource-manager | 0 / 75 | 2026-04-27 | [detail](plugins/resource-manager/VIRUSTOTAL.md) |
+| skillops | 0 / 75 | 2026-04-27 | [detail](plugins/skillops/VIRUSTOTAL.md) |
+| software-development | 0 / 75 | 2026-04-27 | [detail](plugins/software-development/VIRUSTOTAL.md) |
 <!-- vt-summary:end -->

@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T03:35:18.961Z",
+  "scanned_at": "2026-04-27T16:12:09.484Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/database-design",
-    "sha256": "ba79a4a1022ee57224c2e6e3823a8446e7fcf4d484c6501383b14b4943950945",
-    "size_bytes": 60478
+    "sha256": "b31611a7363fb621862e0b07aba3c8735092790a0053ed7d41a00f2e3d30131d",
+    "size_bytes": 60403
   },
   "detections": {
     "malicious": 0,
@@ -16,8 +16,8 @@
     "total_engines": 75
   },
   "reputation": 0,
-  "last_analysis_date": 1777088038,
-  "gui_url": "https://www.virustotal.com/gui/file/ba79a4a1022ee57224c2e6e3823a8446e7fcf4d484c6501383b14b4943950945",
+  "last_analysis_date": 1777306247,
+  "gui_url": "https://www.virustotal.com/gui/file/b31611a7363fb621862e0b07aba3c8735092790a0053ed7d41a00f2e3d30131d",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -65,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -165,7 +165,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -190,7 +190,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -295,7 +295,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },

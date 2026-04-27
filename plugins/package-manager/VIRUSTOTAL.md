@@ -1,10 +1,10 @@
 # VirusTotal — package-manager
 
-**Last scan:** 2026-04-25 · **Verdict:** clean
-**Detections:** 0 malicious · 0 suspicious · 0 harmless · 61 undetected (of 75 engines)
+**Last scan:** 2026-04-27 · **Verdict:** clean
+**Detections:** 0 malicious · 0 suspicious · 0 harmless · 60 undetected (of 75 engines)
 **Reputation:** 0
-**Tarball SHA-256:** `04233be67d2b6754de9461053a454da4a9af7208d1ddf3e33d9b951de51b3d12`
-**Full report:** https://www.virustotal.com/gui/file/04233be67d2b6754de9461053a454da4a9af7208d1ddf3e33d9b951de51b3d12
+**Tarball SHA-256:** `c5df90b2670537ebc81d78a4d0036dbf3d9b485d60b7601af1c5cbb8b01c576c`
+**Full report:** https://www.virustotal.com/gui/file/c5df90b2670537ebc81d78a4d0036dbf3d9b485d60b7601af1c5cbb8b01c576c
 
 ## Engine results
 
