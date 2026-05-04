@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T16:12:09.484Z",
+  "scanned_at": "2026-05-04T15:09:28.340Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/database-design",
-    "sha256": "b31611a7363fb621862e0b07aba3c8735092790a0053ed7d41a00f2e3d30131d",
-    "size_bytes": 60403
+    "sha256": "b458d4aa0003626bbf2956d3364b78ddff2ad69d0574b15a50e6cfebfae3159f",
+    "size_bytes": 60406
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 61,
-    "timeout": 0,
-    "total_engines": 75
+    "undetected": 59,
+    "timeout": 1,
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777306247,
-  "gui_url": "https://www.virustotal.com/gui/file/b31611a7363fb621862e0b07aba3c8735092790a0053ed7d41a00f2e3d30131d",
+  "last_analysis_date": 1777907247,
+  "gui_url": "https://www.virustotal.com/gui/file/b458d4aa0003626bbf2956d3364b78ddff2ad69d0574b15a50e6cfebfae3159f",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -35,12 +35,7 @@
       "result": null
     },
     {
-      "engine": "ClamAV",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -65,7 +60,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -86,11 +81,6 @@
     },
     {
       "engine": "CrowdStrike",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -145,12 +135,7 @@
       "result": null
     },
     {
-      "engine": "Rising",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Sophos",
+      "engine": "Emsisoft",
       "category": "undetected",
       "result": null
     },
@@ -165,7 +150,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -180,12 +165,12 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Emsisoft",
+      "engine": "Sophos",
       "category": "undetected",
       "result": null
     },
@@ -195,12 +180,17 @@
       "result": null
     },
     {
+      "engine": "GData",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "Jiangmin",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Google",
+      "engine": "Varist",
       "category": "undetected",
       "result": null
     },
@@ -230,7 +220,7 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -245,12 +235,12 @@
       "result": null
     },
     {
-      "engine": "GData",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Varist",
+      "engine": "Google",
       "category": "undetected",
       "result": null
     },
@@ -280,7 +270,7 @@
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -322,6 +312,11 @@
     {
       "engine": "alibabacloud",
       "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "ClamAV",
+      "category": "timeout",
       "result": null
     },
     {

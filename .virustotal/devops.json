@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T16:13:51.077Z",
+  "scanned_at": "2026-05-04T15:12:10.613Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/devops",
-    "sha256": "9ddadea21a5c52e45e8d9b8cba7ac63c4491ec025131251d849a556296ae9c92",
-    "size_bytes": 91328
+    "sha256": "6196677cd5d655352c6f0acbf816db50c3f54f495a711730b68fbd985f8fddc8",
+    "size_bytes": 91338
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 61,
+    "undetected": 60,
     "timeout": 0,
-    "total_engines": 75
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777306350,
-  "gui_url": "https://www.virustotal.com/gui/file/9ddadea21a5c52e45e8d9b8cba7ac63c4491ec025131251d849a556296ae9c92",
+  "last_analysis_date": 1777907389,
+  "gui_url": "https://www.virustotal.com/gui/file/6196677cd5d655352c6f0acbf816db50c3f54f495a711730b68fbd985f8fddc8",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -65,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -86,11 +86,6 @@
     },
     {
       "engine": "CrowdStrike",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -145,11 +140,6 @@
       "result": null
     },
     {
-      "engine": "Rising",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Sophos",
       "category": "undetected",
       "result": null
@@ -165,7 +155,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -190,7 +180,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -220,6 +210,11 @@
       "result": null
     },
     {
+      "engine": "Microsoft",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "Gridinsoft",
       "category": "undetected",
       "result": null
@@ -230,7 +225,7 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -280,7 +275,7 @@
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -295,7 +290,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -340,12 +335,12 @@
       "result": null
     },
     {
-      "engine": "Elastic",
+      "engine": "DeepInstinct",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "DeepInstinct",
+      "engine": "Elastic",
       "category": "type-unsupported",
       "result": null
     },

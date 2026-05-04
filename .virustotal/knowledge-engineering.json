@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T15:53:49.630Z",
+  "scanned_at": "2026-05-04T14:53:52.669Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/knowledge-engineering",
-    "sha256": "fa7816671655e0a3a0f8d0a6ce4991f1017328c9dff2bb095aedf940e1065c43",
-    "size_bytes": 70756
+    "sha256": "87e2b2de18bd33f46bad6cc69ac1487bf041cd2eb867f3b0e28c7fd50a1f43f9",
+    "size_bytes": 70758
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 62,
+    "undetected": 61,
     "timeout": 0,
-    "total_engines": 75
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777305128,
-  "gui_url": "https://www.virustotal.com/gui/file/fa7816671655e0a3a0f8d0a6ce4991f1017328c9dff2bb095aedf940e1065c43",
+  "last_analysis_date": 1777906331,
+  "gui_url": "https://www.virustotal.com/gui/file/87e2b2de18bd33f46bad6cc69ac1487bf041cd2eb867f3b0e28c7fd50a1f43f9",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -75,7 +75,7 @@
       "result": null
     },
     {
-      "engine": "K7AntiVirus",
+      "engine": "CrowdStrike",
       "category": "undetected",
       "result": null
     },
@@ -85,7 +85,7 @@
       "result": null
     },
     {
-      "engine": "CrowdStrike",
+      "engine": "K7AntiVirus",
       "category": "undetected",
       "result": null
     },
@@ -136,11 +136,6 @@
     },
     {
       "engine": "ViRobot",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -285,7 +280,7 @@
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -345,17 +340,12 @@
       "result": null
     },
     {
-      "engine": "Elastic",
-      "category": "type-unsupported",
-      "result": null
-    },
-    {
       "engine": "DeepInstinct",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Webroot",
+      "engine": "Elastic",
       "category": "type-unsupported",
       "result": null
     },
@@ -370,12 +360,17 @@
       "result": null
     },
     {
+      "engine": "Trapmine",
+      "category": "type-unsupported",
+      "result": null
+    },
+    {
       "engine": "Alibaba",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Trapmine",
+      "engine": "Webroot",
       "category": "type-unsupported",
       "result": null
     },

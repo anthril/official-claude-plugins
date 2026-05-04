@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T16:10:26.904Z",
+  "scanned_at": "2026-05-04T15:07:06.333Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/ppc-manager",
-    "sha256": "beb5cba30d5958a9a32299015073d7af6d811d59950296a764e5528963ec76a7",
-    "size_bytes": 276897
+    "sha256": "d8fa32bf2ccc2090f230e4ae41caa6ec868942e3036cdefbbc62db3bcf416800",
+    "size_bytes": 276909
   },
   "detections": {
     "malicious": 0,
@@ -13,11 +13,11 @@
     "harmless": 0,
     "undetected": 61,
     "timeout": 0,
-    "total_engines": 75
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777306085,
-  "gui_url": "https://www.virustotal.com/gui/file/beb5cba30d5958a9a32299015073d7af6d811d59950296a764e5528963ec76a7",
+  "last_analysis_date": 1777907125,
+  "gui_url": "https://www.virustotal.com/gui/file/d8fa32bf2ccc2090f230e4ae41caa6ec868942e3036cdefbbc62db3bcf416800",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -50,6 +50,11 @@
       "result": null
     },
     {
+      "engine": "Skyhigh",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "ALYac",
       "category": "undetected",
       "result": null
@@ -60,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -70,7 +75,7 @@
       "result": null
     },
     {
-      "engine": "CrowdStrike",
+      "engine": "K7AntiVirus",
       "category": "undetected",
       "result": null
     },
@@ -80,12 +85,12 @@
       "result": null
     },
     {
-      "engine": "K7AntiVirus",
+      "engine": "CrowdStrike",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Arcabit",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -140,11 +145,6 @@
       "result": null
     },
     {
-      "engine": "Tencent",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Sophos",
       "category": "undetected",
       "result": null
@@ -160,7 +160,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -171,11 +171,6 @@
     },
     {
       "engine": "McAfeeD",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "SentinelOne",
       "category": "undetected",
       "result": null
     },
@@ -191,6 +186,11 @@
     },
     {
       "engine": "Ikarus",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
@@ -230,7 +230,7 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -245,7 +245,7 @@
       "result": null
     },
     {
-      "engine": "GData",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
@@ -295,7 +295,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "SentinelOne",
       "category": "undetected",
       "result": null
     },
@@ -322,11 +322,6 @@
     {
       "engine": "alibabacloud",
       "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Skyhigh",
-      "category": "failure",
       "result": null
     },
     {

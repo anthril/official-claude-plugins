@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T15:55:31.131Z",
+  "scanned_at": "2026-05-04T14:55:34.475Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/business-economics",
-    "sha256": "62b13606a7f266d575b9b3168019780fe625af813dd0408c05ccf0c2e31ded59",
-    "size_bytes": 32089
+    "sha256": "d72fda6e1c15fddc442ce0bb02a654dfce69c00db175f8910c1282ae53fa7c53",
+    "size_bytes": 32088
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 62,
+    "undetected": 61,
     "timeout": 0,
-    "total_engines": 75
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777305250,
-  "gui_url": "https://www.virustotal.com/gui/file/62b13606a7f266d575b9b3168019780fe625af813dd0408c05ccf0c2e31ded59",
+  "last_analysis_date": 1777906453,
+  "gui_url": "https://www.virustotal.com/gui/file/d72fda6e1c15fddc442ce0bb02a654dfce69c00db175f8910c1282ae53fa7c53",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,7 +40,7 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -65,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -86,6 +86,16 @@
     },
     {
       "engine": "K7AntiVirus",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "Arcabit",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -135,12 +145,7 @@
       "result": null
     },
     {
-      "engine": "ViRobot",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Tencent",
+      "engine": "SUPERAntiSpyware",
       "category": "undetected",
       "result": null
     },
@@ -160,7 +165,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -175,12 +180,7 @@
       "result": null
     },
     {
-      "engine": "SentinelOne",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
@@ -190,12 +190,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "GData",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -205,7 +200,7 @@
       "result": null
     },
     {
-      "engine": "Varist",
+      "engine": "Google",
       "category": "undetected",
       "result": null
     },
@@ -235,12 +230,12 @@
       "result": null
     },
     {
-      "engine": "Arcabit",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "SUPERAntiSpyware",
+      "engine": "ViRobot",
       "category": "undetected",
       "result": null
     },
@@ -250,12 +245,12 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Google",
+      "engine": "Varist",
       "category": "undetected",
       "result": null
     },
@@ -300,7 +295,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "SentinelOne",
       "category": "undetected",
       "result": null
     },
@@ -355,11 +350,6 @@
       "result": null
     },
     {
-      "engine": "Webroot",
-      "category": "type-unsupported",
-      "result": null
-    },
-    {
       "engine": "APEX",
       "category": "type-unsupported",
       "result": null
@@ -370,12 +360,17 @@
       "result": null
     },
     {
+      "engine": "Trapmine",
+      "category": "type-unsupported",
+      "result": null
+    },
+    {
       "engine": "Alibaba",
       "category": "type-unsupported",
       "result": null
     },
     {
-      "engine": "Trapmine",
+      "engine": "Webroot",
       "category": "type-unsupported",
       "result": null
     },

@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-25T10:34:46.785Z",
+  "scanned_at": "2026-05-04T14:59:18.128Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/plan-completion-audit",
-    "sha256": "84170fa17311bbad882eca5dae3fede7e59f58bffa16d771b54c573aea3c21a0",
-    "size_bytes": 26976
+    "sha256": "efca9b9b3d06e32d6479bc9d8a3269733572476c60e3a24f20a46b83a0ec99f6",
+    "size_bytes": 26973
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 61,
+    "undetected": 60,
     "timeout": 0,
-    "total_engines": 75
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777113205,
-  "gui_url": "https://www.virustotal.com/gui/file/84170fa17311bbad882eca5dae3fede7e59f58bffa16d771b54c573aea3c21a0",
+  "last_analysis_date": 1777906656,
+  "gui_url": "https://www.virustotal.com/gui/file/efca9b9b3d06e32d6479bc9d8a3269733572476c60e3a24f20a46b83a0ec99f6",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -90,6 +90,11 @@
       "result": null
     },
     {
+      "engine": "Arcabit",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "VirIT",
       "category": "undetected",
       "result": null
@@ -140,11 +145,6 @@
       "result": null
     },
     {
-      "engine": "Tencent",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Sophos",
       "category": "undetected",
       "result": null
@@ -185,12 +185,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "GData",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -200,7 +195,7 @@
       "result": null
     },
     {
-      "engine": "Varist",
+      "engine": "Google",
       "category": "undetected",
       "result": null
     },
@@ -230,7 +225,7 @@
       "result": null
     },
     {
-      "engine": "Arcabit",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
@@ -245,12 +240,12 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Google",
+      "engine": "Varist",
       "category": "undetected",
       "result": null
     },
@@ -295,7 +290,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },

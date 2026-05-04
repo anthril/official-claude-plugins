@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T15:57:13.087Z",
+  "scanned_at": "2026-05-04T14:57:16.055Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/package-manager",
-    "sha256": "c5df90b2670537ebc81d78a4d0036dbf3d9b485d60b7601af1c5cbb8b01c576c",
+    "sha256": "c181b14f3c0037382e2bd1bf6f5e40034df28498c264a6b3c475343e47bd34c0",
     "size_bytes": 54431
   },
   "detections": {
@@ -13,12 +13,17 @@
     "harmless": 0,
     "undetected": 60,
     "timeout": 0,
-    "total_engines": 75
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777305351,
-  "gui_url": "https://www.virustotal.com/gui/file/c5df90b2670537ebc81d78a4d0036dbf3d9b485d60b7601af1c5cbb8b01c576c",
+  "last_analysis_date": 1777906555,
+  "gui_url": "https://www.virustotal.com/gui/file/c181b14f3c0037382e2bd1bf6f5e40034df28498c264a6b3c475343e47bd34c0",
   "engine_results": [
+    {
+      "engine": "Bkav",
+      "category": "undetected",
+      "result": null
+    },
     {
       "engine": "Lionic",
       "category": "undetected",
@@ -70,7 +75,7 @@
       "result": null
     },
     {
-      "engine": "K7AntiVirus",
+      "engine": "CrowdStrike",
       "category": "undetected",
       "result": null
     },
@@ -80,7 +85,12 @@
       "result": null
     },
     {
-      "engine": "CrowdStrike",
+      "engine": "K7AntiVirus",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "Arcabit",
       "category": "undetected",
       "result": null
     },
@@ -135,11 +145,6 @@
       "result": null
     },
     {
-      "engine": "Rising",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Sophos",
       "category": "undetected",
       "result": null
@@ -180,12 +185,7 @@
       "result": null
     },
     {
-      "engine": "Ikarus",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "GData",
+      "engine": "huorong",
       "category": "undetected",
       "result": null
     },
@@ -225,7 +225,7 @@
       "result": null
     },
     {
-      "engine": "Arcabit",
+      "engine": "Microsoft",
       "category": "undetected",
       "result": null
     },
@@ -240,7 +240,7 @@
       "result": null
     },
     {
-      "engine": "Microsoft",
+      "engine": "GData",
       "category": "undetected",
       "result": null
     },
@@ -275,7 +275,7 @@
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -290,7 +290,7 @@
       "result": null
     },
     {
-      "engine": "huorong",
+      "engine": "Ikarus",
       "category": "undetected",
       "result": null
     },
@@ -317,11 +317,6 @@
     {
       "engine": "alibabacloud",
       "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Bkav",
-      "category": "failure",
       "result": null
     },
     {

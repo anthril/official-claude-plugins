@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T16:07:44.487Z",
+  "scanned_at": "2026-05-04T15:05:04.346Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/software-development",
-    "sha256": "208059679bdda9da7a30a63180c0f63daf57391b190c5f119a66914b98e7ecab",
-    "size_bytes": 206070
+    "sha256": "57bd72746889ed8efa5ed2ed8002047908779adc4d3b9d3d5342b29ebad9e1df",
+    "size_bytes": 206072
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
     "undetected": 61,
-    "timeout": 1,
-    "total_engines": 75
+    "timeout": 0,
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777305902,
-  "gui_url": "https://www.virustotal.com/gui/file/208059679bdda9da7a30a63180c0f63daf57391b190c5f119a66914b98e7ecab",
+  "last_analysis_date": 1777906982,
+  "gui_url": "https://www.virustotal.com/gui/file/57bd72746889ed8efa5ed2ed8002047908779adc4d3b9d3d5342b29ebad9e1df",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -40,12 +40,17 @@
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
     {
       "engine": "CAT-QuickHeal",
+      "category": "undetected",
+      "result": null
+    },
+    {
+      "engine": "Skyhigh",
       "category": "undetected",
       "result": null
     },
@@ -140,12 +145,7 @@
       "result": null
     },
     {
-      "engine": "Rising",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Sophos",
+      "engine": "Emsisoft",
       "category": "undetected",
       "result": null
     },
@@ -175,12 +175,12 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "Emsisoft",
+      "engine": "Sophos",
       "category": "undetected",
       "result": null
     },
@@ -280,7 +280,7 @@
       "result": null
     },
     {
-      "engine": "Tencent",
+      "engine": "Rising",
       "category": "undetected",
       "result": null
     },
@@ -322,11 +322,6 @@
     {
       "engine": "alibabacloud",
       "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Skyhigh",
-      "category": "timeout",
       "result": null
     },
     {

@@ -1,10 +1,10 @@
 # VirusTotal — ppc-manager
 
-**Last scan:** 2026-04-27 · **Verdict:** clean
-**Detections:** 0 malicious · 0 suspicious · 0 harmless · 61 undetected (of 75 engines)
+**Last scan:** 2026-05-04 · **Verdict:** clean
+**Detections:** 0 malicious · 0 suspicious · 0 harmless · 61 undetected (of 74 engines)
 **Reputation:** 0
-**Tarball SHA-256:** `beb5cba30d5958a9a32299015073d7af6d811d59950296a764e5528963ec76a7`
-**Full report:** https://www.virustotal.com/gui/file/beb5cba30d5958a9a32299015073d7af6d811d59950296a764e5528963ec76a7
+**Tarball SHA-256:** `d8fa32bf2ccc2090f230e4ae41caa6ec868942e3036cdefbbc62db3bcf416800`
+**Full report:** https://www.virustotal.com/gui/file/d8fa32bf2ccc2090f230e4ae41caa6ec868942e3036cdefbbc62db3bcf416800
 
 ## Engine results
 

@@ -1,23 +1,23 @@
 {
   "schema_version": "1.0",
-  "scanned_at": "2026-04-27T15:51:48.009Z",
+  "scanned_at": "2026-05-04T14:51:50.649Z",
   "scan_source": "upload",
   "tarball": {
     "path": "plugins/data-analysis",
-    "sha256": "9f322e82839b936cbbeac71bec0599f4809833bc3cdece48b36c05d141a78b3c",
-    "size_bytes": 112253
+    "sha256": "d937fe9206a239e5c8b2d9ec27eca8e31f14cb6d80f7d5341d4278733d6e4bc0",
+    "size_bytes": 112250
   },
   "detections": {
     "malicious": 0,
     "suspicious": 0,
     "harmless": 0,
-    "undetected": 62,
+    "undetected": 61,
     "timeout": 0,
-    "total_engines": 75
+    "total_engines": 74
   },
   "reputation": 0,
-  "last_analysis_date": 1777305027,
-  "gui_url": "https://www.virustotal.com/gui/file/9f322e82839b936cbbeac71bec0599f4809833bc3cdece48b36c05d141a78b3c",
+  "last_analysis_date": 1777906229,
+  "gui_url": "https://www.virustotal.com/gui/file/d937fe9206a239e5c8b2d9ec27eca8e31f14cb6d80f7d5341d4278733d6e4bc0",
   "engine_results": [
     {
       "engine": "Bkav",
@@ -30,12 +30,17 @@
       "result": null
     },
     {
+      "engine": "MicroWorld-eScan",
+      "category": "undetected",
+      "result": null
+    },
+    {
       "engine": "ClamAV",
       "category": "undetected",
       "result": null
     },
     {
-      "engine": "CMC",
+      "engine": "CTX",
       "category": "undetected",
       "result": null
     },
@@ -60,7 +65,7 @@
       "result": null
     },
     {
-      "engine": "Zillya",
+      "engine": "VIPRE",
       "category": "undetected",
       "result": null
     },
@@ -140,16 +145,6 @@
       "result": null
     },
     {
-      "engine": "MicroWorld-eScan",
-      "category": "undetected",
-      "result": null
-    },
-    {
-      "engine": "Tencent",
-      "category": "undetected",
-      "result": null
-    },
-    {
       "engine": "Sophos",
       "category": "undetected",
       "result": null
@@ -165,7 +160,7 @@
       "result": null
     },
     {
-      "engine": "VIPRE",
+      "engine": "Zillya",
       "category": "undetected",
       "result": null
     },
@@ -180,7 +175,7 @@
       "result": null
     },
     {
-      "engine": "CTX",
+      "engine": "CMC",
       "category": "undetected",
       "result": null
     },
